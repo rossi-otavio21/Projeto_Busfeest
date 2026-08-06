@@ -1,0 +1,121 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+/*
+  BUSFEEST — Sistema de design derivado do manual de marca.
+  Paleta fechada (não introduzir novos matizes):
+    navy   #122B42  (primária / fundos escuros / texto)
+    blue   #3695C5  (destaque / CTAs / links / ícones ativos)
+    gray   #C7CCD1  (neutro / bordas / texto secundário sobre navy)
+    white  #FFFFFF
+  Tints/shades abaixo são derivados apenas desses 4 tons.
+*/
+
+@theme inline {
+  /* Cores base da marca */
+  --color-navy: #122b42;
+  --color-navy-deep: #0b1a28; /* shade mais escuro do navy p/ profundidade */
+  --color-navy-700: #1c3c57; /* navy levemente clareado p/ superfícies */
+  --color-blue: #3695c5;
+  --color-blue-deep: #2a7aa4; /* shade do azul p/ hover */
+  --color-blue-soft: #d7ebf5; /* tint bem claro do azul p/ fundos suaves */
+  --color-gray: #c7ccd1;
+  --color-gray-tint: #eef1f3; /* quase-branco derivado do cinza p/ alternar seções */
+  --color-white: #ffffff;
+
+  /* Tokens semânticos (mapeados para a paleta) */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Tipografia oficial: Sora (definida no layout via next/font) */
+  --font-sans: var(--font-sora), system-ui, sans-serif;
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+}
+
+:root {
+  color-scheme: light;
+  --radius: 0.75rem;
+
+  /* Modo claro: base branca com texto navy */
+  --background: var(--color-white);
+  --foreground: var(--color-navy);
+  --card: var(--color-white);
+  --card-foreground: var(--color-navy);
+  --popover: var(--color-white);
+  --popover-foreground: var(--color-navy);
+
+  /* CTA / destaque = azul médio */
+  --primary: var(--color-blue);
+  --primary-foreground: var(--color-white);
+
+  /* Secundário = navy */
+  --secondary: var(--color-navy);
+  --secondary-foreground: var(--color-white);
+
+  --muted: var(--color-gray-tint);
+  --muted-foreground: #4a5b69; /* navy dessaturado p/ texto secundário sobre claro */
+
+  --accent: var(--color-blue-soft);
+  --accent-foreground: var(--color-navy);
+
+  --destructive: oklch(0.577 0.245 27.325);
+
+  --border: var(--color-gray);
+  --input: var(--color-gray);
+  --ring: var(--color-blue);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: 'ss01';
+  }
+
+  /* Respeitar preferência de movimento reduzido */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* Padrão decorativo de "estrada tracejada" em diagonal (grafismo da marca) */
+@utility road-dashes {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    var(--color-blue) 0,
+    var(--color-blue) 14px,
+    transparent 14px,
+    transparent 28px
+  );
+}
