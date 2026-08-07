@@ -1,0 +1,27 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Favicon Busfeest: mesmo símbolo de components/brand/logo.tsx, fundo navy sólido para legibilidade em tamanho pequeno -->
+  <rect width="48" height="48" rx="12" fill="#122B42" />
+  <path
+    d="M16 12c8 0 8 8 0 8h6c8 0 8 8 0 8h-6"
+    stroke="#FFFFFF"
+    stroke-width="3.2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    fill="none"
+  />
+  <path
+    d="M14 34h13"
+    stroke="#FFFFFF"
+    stroke-width="2.4"
+    stroke-linecap="round"
+    stroke-dasharray="1 5"
+  />
+  <path
+    d="M30 30l5 4-5 4"
+    stroke="#FFFFFF"
+    stroke-width="2.4"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    fill="none"
+  />
+</svg>

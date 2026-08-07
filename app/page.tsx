@@ -1,18 +1,18 @@
-import { SiteHeader } from '@/components/site-header'
-import { Hero } from '@/components/hero'
-import { About } from '@/components/about'
-import { Services } from '@/components/services'
-import { Routes } from '@/components/routes'
-import { Differentials } from '@/components/differentials'
-import { SocialProof } from '@/components/social-proof'
-import { FinalCta } from '@/components/final-cta'
-import { SiteFooter } from '@/components/site-footer'
+import { SiteHeader } from '@/components/layout/site-header'
+import { SiteFooter } from '@/components/layout/site-footer'
+import { Hero } from '@/components/sections/hero'
+import { About } from '@/components/sections/about'
+import { Services } from '@/components/sections/services'
+import { Routes } from '@/components/sections/routes'
+import { Differentials } from '@/components/sections/differentials'
+import { SocialProof } from '@/components/sections/social-proof'
+import { FinalCta } from '@/components/sections/final-cta'
 
 export default function Page() {
   return (
     <>
       <SiteHeader />
-      <main>
+      <main id="conteudo-principal" tabIndex={-1} className="outline-none">
         <Hero />
         <About />
         <Services />

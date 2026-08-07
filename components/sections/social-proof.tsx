@@ -1,5 +1,6 @@
 import { InstagramGlyph } from '@/components/brand/icons'
 import { ChevronMark } from '@/components/brand/chevron'
+import { Button } from '@/components/ui/button'
 import { site } from '@/lib/site'
 
 // Segmentos e ocasiões que a Busfeest já atendeu (prova social real).
@@ -28,15 +29,22 @@ export function SocialProof() {
               cada cidade que atendemos.
             </p>
 
-            <a
-              href={site.instagram.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-8 inline-flex items-center gap-2 rounded-full bg-navy px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-navy-deep focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue"
+            <Button
+              variant="cta-dark"
+              size="cta-md"
+              className="mt-8"
+              nativeButton={false}
+              render={
+                <a
+                  href={site.instagram.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                />
+              }
             >
-              <InstagramGlyph className="h-5 w-5" />
+              <InstagramGlyph />
               Ver eventos no {site.instagram.handle}
-            </a>
+            </Button>
           </div>
 
           <ul className="grid gap-3">

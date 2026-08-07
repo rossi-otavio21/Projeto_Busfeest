@@ -30,6 +30,8 @@ export function Logo({
   return (
     <span
       className={className}
+      role="img"
+      aria-label="Busfeest"
       style={{ display: 'inline-flex', alignItems: 'center', gap: '0.6rem' }}
     >
       {/* Símbolo: badge com estrada em curva + seta, evocando um "B" em movimento */}
@@ -38,8 +40,7 @@ export function Logo({
         height="40"
         viewBox="0 0 48 48"
         fill="none"
-        role="img"
-        aria-label="Símbolo Busfeest"
+        aria-hidden="true"
         style={{ flexShrink: 0 }}
       >
         <defs>
@@ -90,8 +91,7 @@ export function Logo({
           height="20"
           viewBox="0 0 168 22"
           fill="none"
-          role="img"
-          aria-label="Busfeest"
+          aria-hidden="true"
           style={{ display: 'block' }}
         >
           <text

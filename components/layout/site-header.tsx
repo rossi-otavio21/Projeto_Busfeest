@@ -1,10 +1,14 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { Menu, X, MessageCircle } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 import { Logo } from '@/components/brand/logo'
-import { navLinks, site, whatsappLink } from '@/lib/site'
+import { WhatsappCta } from '@/components/brand/whatsapp-cta'
+import { navLinks, site } from '@/lib/site'
 import { cn } from '@/lib/utils'
+
+const HEADER_WHATSAPP_MESSAGE =
+  'Olá! Vim pelo site da Busfeest e gostaria de um orçamento.'
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false)
@@ -25,10 +29,6 @@ export function SiteHeader() {
       document.body.style.overflow = ''
     }
   }, [open])
-
-  const whatsapp = whatsappLink(
-    'Olá! Vim pelo site da Busfeest e gostaria de um orçamento.',
-  )
 
   return (
     <header
@@ -65,15 +65,13 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <a
-            href={whatsapp}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden items-center gap-2 rounded-full bg-blue px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-blue-deep focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white md:inline-flex"
+          <WhatsappCta
+            message={HEADER_WHATSAPP_MESSAGE}
+            size="cta-sm"
+            className="hidden md:inline-flex"
           >
-            <MessageCircle className="h-4 w-4" aria-hidden="true" />
             Orçar pelo WhatsApp
-          </a>
+          </WhatsappCta>
 
           {/* Botão do menu mobile */}
           <button
@@ -89,9 +87,11 @@ export function SiteHeader() {
         </div>
       </div>
 
-      {/* Menu mobile */}
+      {/* Menu mobile — `inert` remove os links do tab order e da árvore de acessibilidade
+          enquanto fechado, além de escondê-los visualmente via max-height. */}
       <div
         id="mobile-menu"
+        inert={!open || undefined}
         className={cn(
           'overflow-hidden border-t border-white/10 bg-navy transition-[max-height] duration-300 md:hidden',
           open ? 'max-h-96' : 'max-h-0 border-t-0',
@@ -111,16 +111,14 @@ export function SiteHeader() {
               </li>
             ))}
           </ul>
-          <a
-            href={whatsapp}
-            target="_blank"
-            rel="noopener noreferrer"
+          <WhatsappCta
+            message={HEADER_WHATSAPP_MESSAGE}
+            size="cta-mobile"
+            className="mt-4"
             onClick={() => setOpen(false)}
-            className="mt-4 flex items-center justify-center gap-2 rounded-full bg-blue px-5 py-3 text-sm font-semibold text-white"
           >
-            <MessageCircle className="h-4 w-4" aria-hidden="true" />
             Orçar pelo WhatsApp
-          </a>
+          </WhatsappCta>
           <p className="mt-4 px-4 text-sm text-gray">{site.whatsapp.display}</p>
         </nav>
       </div>

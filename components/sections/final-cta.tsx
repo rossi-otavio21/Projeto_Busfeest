@@ -1,11 +1,6 @@
-import { MessageCircle } from 'lucide-react'
-import { whatsappLink } from '@/lib/site'
+import { WhatsappCta } from '@/components/brand/whatsapp-cta'
 
 export function FinalCta() {
-  const whatsapp = whatsappLink(
-    'Olá! Quero fechar uma viagem com a Busfeest. Pode me passar um orçamento?',
-  )
-
   return (
     <section className="relative isolate overflow-hidden bg-navy py-20 md:py-28">
       {/* Grafismo de estrada tracejada em diagonal ao fundo */}
@@ -26,15 +21,13 @@ export function FinalCta() {
           Conte pra gente para onde seu grupo vai. Respondemos rápido e sem
           burocracia, direto no WhatsApp.
         </p>
-        <a
-          href={whatsapp}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-blue px-8 py-4 text-base font-semibold text-white transition-colors hover:bg-blue-deep focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+        <WhatsappCta
+          message="Olá! Quero fechar uma viagem com a Busfeest. Pode me passar um orçamento?"
+          size="cta-lg"
+          className="mt-8"
         >
-          <MessageCircle className="h-5 w-5" aria-hidden="true" />
           Orçar pelo WhatsApp
-        </a>
+        </WhatsappCta>
       </div>
     </section>
   )

@@ -1,7 +1,8 @@
 import Image from 'next/image'
-import { MessageCircle, MapPin } from 'lucide-react'
+import { MapPin } from 'lucide-react'
+import { Button } from '@/components/ui/button'
 import { ChevronMark } from '@/components/brand/chevron'
-import { whatsappLink } from '@/lib/site'
+import { WhatsappCta } from '@/components/brand/whatsapp-cta'
 
 const stats = [
   { value: '+6', label: 'anos de estrada' },
@@ -10,10 +11,6 @@ const stats = [
 ]
 
 export function Hero() {
-  const whatsapp = whatsappLink(
-    'Olá! Quero um orçamento de transporte com a Busfeest.',
-  )
-
   return (
     <section
       id="top"
@@ -53,22 +50,18 @@ export function Hero() {
           </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <a
-              href={whatsapp}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-blue px-7 py-3.5 text-base font-semibold text-white transition-colors hover:bg-blue-deep focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-            >
-              <MessageCircle className="h-5 w-5" aria-hidden="true" />
+            <WhatsappCta message="Olá! Quero um orçamento de transporte com a Busfeest.">
               Orçar pelo WhatsApp
-            </a>
-            <a
-              href="#rotas"
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-white/25 px-7 py-3.5 text-base font-semibold text-white transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue"
+            </WhatsappCta>
+            <Button
+              variant="cta-outline"
+              size="cta"
+              nativeButton={false}
+              render={<a href="#rotas" />}
             >
               Ver rotas
               <ChevronMark className="h-4 w-4" />
-            </a>
+            </Button>
           </div>
 
           {/* Indicadores rápidos */}

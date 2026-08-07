@@ -24,9 +24,9 @@ export function SiteFooter() {
 
           {/* Links rápidos */}
           <nav aria-label="Links rápidos">
-            <h2 className="text-sm font-semibold uppercase tracking-wider text-white">
+            <p className="text-sm font-semibold uppercase tracking-wider text-white">
               Navegação
-            </h2>
+            </p>
             <ul className="mt-4 space-y-2.5">
               {navLinks.map((link) => (
                 <li key={link.href}>
@@ -43,9 +43,9 @@ export function SiteFooter() {
 
           {/* Contato */}
           <div>
-            <h2 className="text-sm font-semibold uppercase tracking-wider text-white">
+            <p className="text-sm font-semibold uppercase tracking-wider text-white">
               Contato
-            </h2>
+            </p>
             <ul className="mt-4 space-y-3 text-sm">
               <li>
                 <a

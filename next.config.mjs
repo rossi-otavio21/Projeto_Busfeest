@@ -3,9 +3,8 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  images: {
-    unoptimized: true,
-  },
+  // Evita que o Next gere AGENTS.md/CLAUDE.md automaticamente no repo.
+  agentRules: false,
 }
 
 export default nextConfig
