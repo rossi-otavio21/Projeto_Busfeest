@@ -1,7 +1,8 @@
 import type { ReactNode } from 'react'
 import { MessageCircle } from 'lucide-react'
 import type { VariantProps } from 'class-variance-authority'
-import { Button, buttonVariants } from '@/components/ui/button'
+import { buttonVariants } from '@/components/ui/button'
+import { MotionButton, ctaTapSpring } from '@/lib/motion'
 import { whatsappLink } from '@/lib/site'
 
 type ButtonVariant = VariantProps<typeof buttonVariants>['variant']
@@ -27,11 +28,14 @@ export function WhatsappCta({
   onClick,
 }: WhatsappCtaProps) {
   return (
-    <Button
+    <MotionButton
       variant={variant}
       size={size}
       className={className}
       nativeButton={false}
+      whileHover={{ scale: 1.02 }}
+      whileTap={{ scale: 0.96 }}
+      transition={ctaTapSpring}
       render={
         <a
           href={whatsappLink(message)}
@@ -43,6 +47,6 @@ export function WhatsappCta({
     >
       <MessageCircle aria-hidden="true" />
       {children}
-    </Button>
+    </MotionButton>
   )
 }

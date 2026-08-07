@@ -2,8 +2,10 @@
 
 import { useEffect, useState } from 'react'
 import { Menu, X } from 'lucide-react'
+import { AnimatePresence, motion } from 'framer-motion'
 import { Logo } from '@/components/brand/logo'
 import { WhatsappCta } from '@/components/brand/whatsapp-cta'
+import { easeBrand } from '@/lib/motion'
 import { navLinks, site } from '@/lib/site'
 import { cn } from '@/lib/utils'
 
@@ -55,9 +57,13 @@ export function SiteHeader() {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="text-sm font-medium text-gray transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue"
+                  className="group relative inline-block py-1 text-sm font-medium text-gray transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue"
                 >
                   {link.label}
+                  <span
+                    aria-hidden="true"
+                    className="absolute inset-x-0 -bottom-0.5 h-0.5 origin-left scale-x-0 bg-blue transition-transform duration-300 group-hover:scale-x-100"
+                  />
                 </a>
               </li>
             ))}
@@ -87,41 +93,46 @@ export function SiteHeader() {
         </div>
       </div>
 
-      {/* Menu mobile — `inert` remove os links do tab order e da árvore de acessibilidade
-          enquanto fechado, além de escondê-los visualmente via max-height. */}
-      <div
-        id="mobile-menu"
-        inert={!open || undefined}
-        className={cn(
-          'overflow-hidden border-t border-white/10 bg-navy transition-[max-height] duration-300 md:hidden',
-          open ? 'max-h-96' : 'max-h-0 border-t-0',
-        )}
-      >
-        <nav aria-label="Navegação mobile" className="px-4 py-6">
-          <ul className="flex flex-col gap-1">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <a
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className="block rounded-lg px-4 py-3 text-base font-medium text-gray transition-colors hover:bg-white/5 hover:text-white"
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-          <WhatsappCta
-            message={HEADER_WHATSAPP_MESSAGE}
-            size="cta-mobile"
-            className="mt-4"
-            onClick={() => setOpen(false)}
+      {/* Menu mobile — desmontado do DOM quando fechado (AnimatePresence), o que
+          por si só já resolve o problema de links focáveis enquanto escondidos. */}
+      <AnimatePresence initial={false}>
+        {open && (
+          <motion.div
+            id="mobile-menu"
+            key="mobile-menu"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: easeBrand }}
+            className="overflow-hidden border-t border-white/10 bg-navy md:hidden"
           >
-            Orçar pelo WhatsApp
-          </WhatsappCta>
-          <p className="mt-4 px-4 text-sm text-gray">{site.whatsapp.display}</p>
-        </nav>
-      </div>
+            <nav aria-label="Navegação mobile" className="px-4 py-6">
+              <ul className="flex flex-col gap-1">
+                {navLinks.map((link) => (
+                  <li key={link.href}>
+                    <a
+                      href={link.href}
+                      onClick={() => setOpen(false)}
+                      className="block rounded-lg px-4 py-3 text-base font-medium text-gray transition-colors hover:bg-white/5 hover:text-white"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+              <WhatsappCta
+                message={HEADER_WHATSAPP_MESSAGE}
+                size="cta-mobile"
+                className="mt-4"
+                onClick={() => setOpen(false)}
+              >
+                Orçar pelo WhatsApp
+              </WhatsappCta>
+              <p className="mt-4 px-4 text-sm text-gray">{site.whatsapp.display}</p>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   )
 }

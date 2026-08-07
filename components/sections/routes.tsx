@@ -1,5 +1,11 @@
+'use client'
+
+import { motion } from 'framer-motion'
 import { RouteChip } from '@/components/brand/chevron'
+import { slideFromLeft, staggerContainer, useReveal } from '@/lib/motion'
 import { whatsappLink } from '@/lib/site'
+
+const chipStagger = staggerContainer(0.06)
 
 // Rotas atendidas — partindo da base em Alfenas. Cores alternam na paleta.
 const routes = [
@@ -15,6 +21,7 @@ export function Routes() {
   const whatsapp = whatsappLink(
     'Olá! Gostaria de saber sobre as rotas atendidas pela Busfeest.',
   )
+  const listReveal = useReveal(chipStagger)
 
   return (
     <section id="rotas" className="bg-navy py-20 md:py-28">
@@ -32,13 +39,13 @@ export function Routes() {
           </p>
         </div>
 
-        <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <motion.ul {...listReveal} className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {routes.map((route) => (
-            <li key={`${route.from}-${route.to}`}>
+            <motion.li key={`${route.from}-${route.to}`} variants={slideFromLeft}>
               <RouteChip from={route.from} to={route.to} color={route.color} />
-            </li>
+            </motion.li>
           ))}
-        </ul>
+        </motion.ul>
 
         <p className="mt-10 text-gray">
           Não encontrou seu destino?{' '}

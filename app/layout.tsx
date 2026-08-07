@@ -1,6 +1,7 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import { Sora } from 'next/font/google'
+import { MotionProvider } from '@/components/motion-provider'
 import { site, siteUrl } from '@/lib/site'
 import './globals.css'
 
@@ -97,7 +98,7 @@ export default function RootLayout({
         >
           Pular para o conteúdo
         </a>
-        {children}
+        <MotionProvider>{children}</MotionProvider>
         {process.env.NODE_ENV === 'production' && <Analytics />}
         <script
           type="application/ld+json"

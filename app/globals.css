@@ -119,3 +119,17 @@
     transparent 28px
   );
 }
+
+/* Variante com movimento contínuo — reservada à seção de fechamento (FinalCta),
+   não repetida em nenhuma outra seção. 56px = 2x o ciclo de 28px do padrão
+   acima, para o loop ficar perfeitamente contínuo. Já respeita o bloco
+   prefers-reduced-motion global acima (zera a duração da animação). */
+@keyframes road-marquee {
+  to {
+    background-position: 56px 0;
+  }
+}
+
+.road-dashes-marquee {
+  animation: road-marquee 2.4s linear infinite;
+}
