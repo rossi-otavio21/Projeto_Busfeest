@@ -52,6 +52,12 @@ export const drawLine: Variants = {
   show: { scaleX: 1, transition: { duration: 0.7, ease: easeBrand } },
 }
 
+/** Entrada tipo "foto sendo revelada" — usada pelos tiles da galeria. */
+export const tileReveal: Variants = {
+  hidden: { opacity: 0, scale: 0.92 },
+  show: { opacity: 1, scale: 1, transition: revealTransition },
+}
+
 /** Viewport padrão para reveals de scroll: dispara uma vez, um pouco antes de entrar. */
 export const viewportOnce = { once: true, margin: '-10% 0px' } as const
 
