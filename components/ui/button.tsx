@@ -24,6 +24,9 @@ const buttonVariants = cva(
         // Pílula de contorno, para o CTA secundário sobre o hero.
         'cta-outline':
           'rounded-full border-white/25 font-semibold text-white hover:bg-white/10 focus-visible:border-transparent focus-visible:ring-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue',
+        // Pílula de contorno, mesma função da acima mas para fundos claros.
+        'cta-outline-dark':
+          'rounded-full border-navy/25 font-semibold text-navy hover:bg-navy/5 focus-visible:border-transparent focus-visible:ring-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue',
         // Pílula navy, usada sobre fundos claros (ex.: prova social).
         'cta-dark':
           'rounded-full bg-navy font-semibold text-white hover:bg-navy-deep focus-visible:border-transparent focus-visible:ring-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue',

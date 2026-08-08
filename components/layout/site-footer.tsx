@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { MessageCircle, MapPin } from 'lucide-react'
 import { InstagramGlyph } from '@/components/brand/icons'
 import { Logo } from '@/components/brand/logo'
@@ -7,10 +8,7 @@ export function SiteFooter() {
   const whatsapp = whatsappLink('Olá! Vim pelo site da Busfeest.')
 
   return (
-    <footer
-      id="contato"
-      className="border-t border-white/10 bg-navy-deep py-14 text-gray"
-    >
+    <footer className="border-t border-white/10 bg-navy-deep py-14 text-gray">
       <div className="mx-auto max-w-6xl px-4 md:px-6">
         <div className="grid gap-10 md:grid-cols-3">
           {/* Marca */}
@@ -30,12 +28,12 @@ export function SiteFooter() {
             <ul className="mt-4 space-y-2.5">
               {navLinks.map((link) => (
                 <li key={link.href}>
-                  <a
+                  <Link
                     href={link.href}
                     className="text-sm transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -77,11 +75,17 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-white/10 pt-6 text-xs text-gray/80">
+        <div className="mt-12 flex flex-col-reverse gap-4 border-t border-white/10 pt-6 text-xs text-gray/80 md:flex-row md:items-center md:justify-between">
           <p>
             © {new Date().getFullYear()} {site.name}. Todos os direitos
             reservados.
           </p>
+          <Link
+            href="/contato"
+            className="font-semibold text-blue underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue"
+          >
+            Fale conosco →
+          </Link>
         </div>
       </div>
     </footer>

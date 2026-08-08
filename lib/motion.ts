@@ -1,3 +1,4 @@
+import { useSyncExternalStore } from 'react'
 import { motion, type Variants } from 'framer-motion'
 import { Button } from '@/components/ui/button'
 
@@ -84,3 +85,33 @@ export function useReveal(variants: Variants) {
 
 /** Button com hover/tap elástico — usado por todo CTA em formato de pílula. */
 export const MotionButton = motion.create(Button)
+
+const reducedMotionQuery = '(prefers-reduced-motion: reduce)'
+
+function subscribeToReducedMotion(onChange: () => void) {
+  const query = window.matchMedia(reducedMotionQuery)
+  query.addEventListener('change', onChange)
+  return () => query.removeEventListener('change', onChange)
+}
+
+/**
+ * `prefers-reduced-motion` seguro para valores de scroll puro (`useScroll` +
+ * `useTransform`), que não passam pelo `MotionConfig` global.
+ *
+ * O `useReducedMotion` do próprio Framer Motion lê `matchMedia` de forma
+ * síncrona já no primeiro render do cliente — diferente do servidor, que não
+ * tem essa informação. Quando os dois extremos de um `useTransform` dependem
+ * do reduced motion (ex.: um traço que só aparece perto do fim do scroll),
+ * o valor "de repouso" (fora do range de entrada) diverge entre servidor e
+ * cliente, causando erro de hidratação. `useSyncExternalStore` é o jeito
+ * correto de ler esse tipo de estado externo: retorna o snapshot do
+ * servidor (sempre `false`) até montar, e só então passa a refletir o valor
+ * real do navegador.
+ */
+export function usePrefersReducedMotion() {
+  return useSyncExternalStore(
+    subscribeToReducedMotion,
+    () => window.matchMedia(reducedMotionQuery).matches,
+    () => false,
+  )
+}

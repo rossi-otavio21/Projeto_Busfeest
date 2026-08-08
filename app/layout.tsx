@@ -2,13 +2,15 @@ import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import { Sora } from 'next/font/google'
 import { MotionProvider } from '@/components/motion-provider'
+import { SiteHeader } from '@/components/layout/site-header'
+import { SiteFooter } from '@/components/layout/site-footer'
 import { site, siteUrl } from '@/lib/site'
 import './globals.css'
 
 // Fonte oficial da marca — Sora, com os pesos aprovados no manual.
 const sora = Sora({
   subsets: ['latin'],
-  weight: ['300', '400', '600', '700'],
+  weight: ['300', '400', '600', '700', '800'],
   variable: '--font-sora',
   display: 'swap',
 })
@@ -44,7 +46,7 @@ export const metadata: Metadata = {
     siteName: site.name,
     images: [
       {
-        url: '/images/hero-bus.png',
+        url: '/images/hero/busfeest-onibus-estrada.png',
         width: 1200,
         height: 675,
         alt: 'Ônibus de viagem da Busfeest percorrendo uma estrada entre as montanhas do sul de Minas Gerais',
@@ -56,7 +58,7 @@ export const metadata: Metadata = {
     title,
     description:
       'Turismo low cost e fretamento para grupos no sul de Minas Gerais.',
-    images: ['/images/hero-bus.png'],
+    images: ['/images/hero/busfeest-onibus-estrada.png'],
   },
 }
 
@@ -98,7 +100,11 @@ export default function RootLayout({
         >
           Pular para o conteúdo
         </a>
-        <MotionProvider>{children}</MotionProvider>
+        <MotionProvider>
+          <SiteHeader />
+          {children}
+          <SiteFooter />
+        </MotionProvider>
         {process.env.NODE_ENV === 'production' && <Analytics />}
         <script
           type="application/ld+json"

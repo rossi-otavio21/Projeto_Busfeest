@@ -31,8 +31,9 @@ export const site = {
 } as const
 
 export const navLinks = [
-  { label: 'Sobre', href: '#sobre' },
-  { label: 'Serviços', href: '#servicos' },
-  { label: 'Rotas', href: '#rotas' },
-  { label: 'Contato', href: '#contato' },
+  { label: 'Viagens', href: '/viagens' },
+  { label: 'Fretamento', href: '/fretamento' },
+  { label: 'Rotas', href: '/rotas' },
+  { label: 'Sobre', href: '/sobre' },
+  { label: 'Contato', href: '/contato' },
 ] as const

@@ -1,9 +1,9 @@
 'use client'
 
 import { useState } from 'react'
-import { Camera } from 'lucide-react'
+import Image from 'next/image'
 import { AnimatePresence, motion } from 'framer-motion'
-import { ChevronMark } from '@/components/brand/chevron'
+import { InstagramGlyph } from '@/components/brand/icons'
 import { staggerContainer, tileReveal, useReveal } from '@/lib/motion'
 import { galleryCategories, galleryItems, type GalleryCategory, type GalleryItem } from '@/lib/gallery'
 import { cn } from '@/lib/utils'
@@ -16,26 +16,19 @@ const sizeClasses: Record<GalleryItem['size'], string> = {
   md: 'col-span-2 row-span-1',
   tall: 'col-span-1 row-span-2',
   lg: 'col-span-2 row-span-2',
+  pano: 'col-span-2 row-span-1 sm:col-span-3 lg:col-span-4',
 }
-
-// Ciclo de gradientes só com os tons da paleta da marca (nada novo).
-const tileGradients = [
-  'bg-gradient-to-br from-navy to-navy-700',
-  'bg-gradient-to-br from-blue to-blue-deep',
-  'bg-gradient-to-br from-navy-700 to-navy-deep',
-  'bg-gradient-to-br from-blue-deep to-navy',
-]
 
 const gridStagger = staggerContainer(0.05)
 
-export function Gallery() {
+export function ViagensGallery() {
   const [active, setActive] = useState<'Todas' | GalleryCategory>(ALL)
   const gridReveal = useReveal(gridStagger)
   const filteredItems =
     active === ALL ? galleryItems : galleryItems.filter((item) => item.category === active)
 
   return (
-    <section id="galeria" className="bg-muted py-20 md:py-28">
+    <section className="bg-muted py-20 md:py-28">
       <div className="mx-auto max-w-6xl px-4 md:px-6">
         <div className="max-w-2xl">
           <span className="text-sm font-semibold uppercase tracking-wider text-blue">
@@ -46,7 +39,7 @@ export function Gallery() {
           </h2>
           <p className="mt-4 text-lg font-light leading-relaxed text-muted-foreground">
             Estamos organizando o álbum com fotos reais de cada excursão, festa e
-            evento. Por enquanto, veja como as categorias vão se organizar aqui.
+            evento. O espaço já está reservado — as fotos chegam em breve.
           </p>
         </div>
 
@@ -80,26 +73,43 @@ export function Gallery() {
           className="mt-8 grid auto-rows-[130px] grid-cols-2 gap-3 [grid-auto-flow:dense] sm:auto-rows-[150px] sm:grid-cols-3 lg:auto-rows-[170px] lg:grid-cols-4"
         >
           <AnimatePresence mode="popLayout">
-            {filteredItems.map((item, index) => (
+            {filteredItems.map((item) => (
               <motion.div
                 key={item.id}
                 layout
                 variants={tileReveal}
                 exit={{ opacity: 0, scale: 0.9 }}
-                className={cn(
-                  'group relative flex items-end overflow-hidden rounded-2xl',
-                  sizeClasses[item.size],
-                  tileGradients[index % tileGradients.length],
-                )}
+                className={cn('relative overflow-hidden', sizeClasses[item.size])}
               >
-                <Camera
-                  className="absolute inset-0 m-auto h-8 w-8 text-white/25 transition-transform duration-300 group-hover:scale-110"
-                  aria-hidden="true"
-                />
-                <span className="relative z-10 m-3 inline-flex items-center gap-2 rounded-full bg-navy-deep/70 px-3 py-1.5 text-xs font-semibold text-white backdrop-blur-sm">
-                  <ChevronMark className="h-3 w-3 text-blue" />
-                  {item.category}
-                </span>
+                {item.src ? (
+                  <>
+                    <Image
+                      src={item.src}
+                      alt={item.alt ?? item.category}
+                      fill
+                      sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
+                      className={item.isPost ? 'bg-navy object-contain' : 'object-cover'}
+                    />
+                    {/* Posts reais do Instagram mostram o quadro inteiro (não recortado) e
+                        ganham um selo — deixa claro que é conteúdo real de rede social,
+                        não fotografia de banco disfarçada de foto de viagem. */}
+                    {item.isPost && (
+                      <span className="absolute bottom-2 left-2 inline-flex items-center gap-1 rounded-full bg-navy/80 px-2.5 py-1 text-[0.6rem] font-semibold uppercase tracking-wider text-white backdrop-blur-sm">
+                        <InstagramGlyph className="h-3 w-3" />
+                        Post real
+                      </span>
+                    )}
+                  </>
+                ) : (
+                  <div className="flex h-full w-full flex-col items-center justify-center gap-2 border border-dashed border-gray bg-white px-3 text-center">
+                    <span className="text-[0.65rem] font-semibold uppercase tracking-wider text-blue-deep">
+                      {item.category}
+                    </span>
+                    <span className="text-[0.6rem] uppercase tracking-wider text-muted-foreground">
+                      Foto em breve
+                    </span>
+                  </div>
+                )}
               </motion.div>
             ))}
           </AnimatePresence>
