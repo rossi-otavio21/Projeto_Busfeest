@@ -15,9 +15,17 @@ export const media = {
    * que uma foto de equipe seja enviada (só trocar este caminho).
    */
   contactPhoto: '/images/eventos/busfeest-unigames-embarque.jpg',
+  /** Ônibus real da frota (frente, escola ao fundo) — recorte central já remove o selo fino do topo. */
+  frotaOnibusEscola: '/images/frota/busfeest-onibus-frente-escola.jpg',
+  /** Embarque real de estudantes (Carmo do Rio Claro → Alfenas) — recorte central remove as faixas de texto. */
+  embarqueEstudantes: '/images/viagens/busfeest-embarque-estudantes-carmo.jpg',
+  /** Dois ônibus reais contratados para a rota Alfenas × Juiz de Fora. */
+  onibusAlfenasJuizDeFora: '/images/viagens/busfeest-onibus-alfenas-juizdefora.jpg',
   /** Posts reais do Instagram — usados como cards, não como fundo. */
   posts: {
     experiencias: '/images/originais/busfeest-post-experiencias.jpg',
     unigamesTrofeu: '/images/originais/busfeest-post-unigames-trofeu.jpg',
+    machadoAlfenas: '/images/originais/busfeest-post-machado-alfenas.jpg',
+    treme: '/images/originais/busfeest-post-treme-fotos.jpg',
   },
 } as const

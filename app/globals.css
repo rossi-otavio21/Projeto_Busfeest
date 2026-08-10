@@ -133,3 +133,16 @@
 .road-dashes-marquee {
   animation: road-marquee 2.4s linear infinite;
 }
+
+/* Micro-rota tracejada — mesma técnica do road-dashes, em escala menor e na
+   horizontal, reservada ao indicador de trajeto do header (SiteHeader). */
+@utility route-track {
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--color-blue) 0,
+    var(--color-blue) 2px,
+    transparent 2px,
+    transparent 5px
+  );
+  opacity: 0.5;
+}

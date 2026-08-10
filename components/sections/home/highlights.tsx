@@ -1,71 +1,152 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { ChevronMark } from '@/components/brand/chevron'
 import { fadeUp, staggerContainer, useReveal } from '@/lib/motion'
+import { media } from '@/lib/media'
 
-// Não é um grid de cards: é uma lista editorial de linhas cheias, cada uma
-// levando para a página que de fato responde a essa pergunta — a Home aponta,
-// não tenta conter a resposta inteira.
-const stops = [
-  {
-    index: '01',
-    label: 'Viagens',
-    href: '/viagens',
-    description: 'Excursões e passeios em grupo pelo sul de Minas e além.',
-  },
-  {
-    index: '02',
-    label: 'Fretamento',
-    href: '/fretamento',
-    description: 'Transporte sob medida para grupos, empresas, igrejas e eventos.',
-  },
-  {
-    index: '03',
-    label: 'Rotas',
-    href: '/rotas',
-    description: 'De Alfenas para onde você precisar — veja os destinos já atendidos.',
-  },
-]
-
-const listStagger = staggerContainer(0.08)
+const listStagger = staggerContainer(0.12)
 
 export function Highlights() {
   const listReveal = useReveal(listStagger)
+  const routesReveal = useReveal(fadeUp)
 
   return (
-    <section className="bg-white py-20 md:py-28">
-      <div className="mx-auto max-w-6xl px-4 md:px-6">
-        <span className="text-xs font-semibold uppercase tracking-[0.2em] text-blue">
-          Continue a viagem
-        </span>
+    <section className="border-t border-navy/10 bg-white pt-24 md:pt-36">
+      <div className="mx-auto max-w-7xl px-6 md:px-8">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-navy/10">
+          <div>
+            <span className="text-xs font-semibold uppercase tracking-[0.25em] text-blue">
+              03 · CONTINUE DE JORNADA
+            </span>
+            <h2 className="mt-3 text-balance text-3xl font-extrabold leading-[0.96] tracking-tight text-navy sm:text-5xl md:text-6xl">
+              Escolha a sua próxima rota.
+            </h2>
+          </div>
+          <p className="max-w-md text-base font-light text-muted-foreground">
+            Quer você precise levar uma delegação de atlética, excursão de família ou fretamento corporativo, a Busfeest cuida do trajeto.
+          </p>
+        </div>
 
-        <motion.ul {...listReveal} className="mt-8 border-t border-border">
-          {stops.map((stop) => (
-            <motion.li key={stop.href} variants={fadeUp} className="border-b border-border">
-              <Link
-                href={stop.href}
-                className="group grid grid-cols-[auto_1fr_auto] items-center gap-4 py-8 transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue md:grid-cols-[3rem_auto_1fr_auto] md:gap-8"
-              >
-                <span className="hidden font-mono text-sm text-muted-foreground md:block">
-                  {stop.index}
-                </span>
-                <span className="text-3xl font-bold tracking-tight text-navy transition-colors group-hover:text-blue md:text-5xl">
-                  {stop.label}
-                </span>
-                <span className="hidden max-w-sm text-base font-light leading-relaxed text-muted-foreground md:block">
-                  {stop.description}
-                </span>
-                <ChevronMark className="h-6 w-6 shrink-0 text-blue transition-transform duration-300 group-hover:translate-x-1" />
-              </Link>
-              <p className="pb-6 text-sm font-light leading-relaxed text-muted-foreground md:hidden">
-                {stop.description}
+        <motion.div {...listReveal} className="mt-16 space-y-20 pb-24 md:pb-32">
+          {/* DESTAQUE 1: VIAGENS & EXCURSÕES (Combinação Editorial Foto + Texto) */}
+          <motion.article variants={fadeUp} className="group relative grid gap-8 md:grid-cols-12 md:items-center">
+            {/* 
+              FOTO IDEAL (SUBSTITUIÇÃO FUTURA):
+              - Assunto: Grupo de viajantes em destino turístico do Sul de Minas (Serra/Cachoeira)
+              - Enquadramento: Horizontal 16:9 ou 4:3 com profundidade de campo
+              - Iluminação: Dia ensolarado / luz natural
+              - Prioridade: Foto real de excursão BUSFEEST
+            */}
+            <div className="relative min-h-[320px] md:min-h-[440px] md:col-span-7 overflow-hidden rounded-2xl bg-navy/5 shadow-xl">
+              <Image
+                src={media.posts.experiencias}
+                alt="Van da Busfeest em viagem noturna para evento"
+                fill
+                sizes="(min-width: 768px) 60vw, 100vw"
+                className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-transparent to-transparent" />
+              <span className="absolute bottom-4 left-4 rounded-full bg-navy/90 backdrop-blur-md px-3.5 py-1 text-[0.7rem] font-semibold uppercase tracking-wider text-white">
+                01 · Excursões & Eventos
+              </span>
+            </div>
+
+            <div className="flex flex-col justify-center md:col-span-5 md:pl-4">
+              <span className="font-mono text-xs font-bold text-blue uppercase tracking-widest">PÁGINAS / VIAGENS</span>
+              <h3 className="mt-2 text-3xl md:text-4xl font-extrabold text-navy tracking-tight group-hover:text-blue transition-colors">
+                Viagens em Grupo & Excursões
+              </h3>
+              <p className="mt-4 text-base font-light text-muted-foreground leading-relaxed">
+                Passeios organizados e roteiros para grupos no Sul de Minas e grandes eventos regionais. Preço justo do embarque ao retorno.
               </p>
-            </motion.li>
-          ))}
-        </motion.ul>
+              <Link
+                href="/viagens"
+                className="mt-6 inline-flex items-center gap-3 text-sm font-bold uppercase tracking-wider text-navy group-hover:text-blue transition-colors"
+              >
+                Explorar viagens
+                <ChevronMark className="h-4 w-4 text-blue transition-transform duration-300 group-hover:translate-x-1" />
+              </Link>
+            </div>
+          </motion.article>
+
+          {/* DESTAQUE 2: FRETAMENTO SOB MEDIDA (Inversão Assimétrica) */}
+          <motion.article variants={fadeUp} className="group relative grid gap-8 md:grid-cols-12 md:items-center">
+            <div className="flex flex-col justify-center md:col-span-5 md:pr-4 order-2 md:order-1">
+              <span className="font-mono text-xs font-bold text-blue uppercase tracking-widest">PÁGINAS / FRETAMENTO</span>
+              <h3 className="mt-2 text-3xl md:text-4xl font-extrabold text-navy tracking-tight group-hover:text-blue transition-colors">
+                Fretamento de Ônibus & Vans
+              </h3>
+              <p className="mt-4 text-base font-light text-muted-foreground leading-relaxed">
+                Transporte exclusivo para atléticas universitárias, empresas, igrejas e translados de aeroporto. Rota e horários 100% personalizados.
+              </p>
+              <Link
+                href="/fretamento"
+                className="mt-6 inline-flex items-center gap-3 text-sm font-bold uppercase tracking-wider text-navy group-hover:text-blue transition-colors"
+              >
+                Conhecer opções de fretamento
+                <ChevronMark className="h-4 w-4 text-blue transition-transform duration-300 group-hover:translate-x-1" />
+              </Link>
+            </div>
+
+            {/* 
+              FOTO IDEAL (SUBSTITUIÇÃO FUTURA):
+              - Assunto: Delegação universitária / atlética em frente à van da BUSFEEST
+              - Enquadramento: Horizontal 16:9
+              - Iluminação: Luz de dia limpa
+              - Prioridade: Foto real de fretamento de delegação BUSFEEST (Unigames)
+            */}
+            <div className="relative min-h-[320px] md:min-h-[440px] md:col-span-7 overflow-hidden rounded-2xl bg-navy/5 shadow-xl order-1 md:order-2">
+              <Image
+                src={media.eventPhoto}
+                alt="Grupo de alunos e delegação com a Busfeest no Unigames"
+                fill
+                sizes="(min-width: 768px) 60vw, 100vw"
+                className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                style={{ objectPosition: '50% 55%' }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-transparent to-transparent" />
+              <span className="absolute bottom-4 left-4 rounded-full bg-navy/90 backdrop-blur-md px-3.5 py-1 text-[0.7rem] font-semibold uppercase tracking-wider text-white">
+                02 · Fretamento Exclusivo
+              </span>
+            </div>
+          </motion.article>
+        </motion.div>
       </div>
+
+      {/* DESTAQUE 3: ROTAS & DESTINOS — sangra até a borda da seção (sem
+          cantos arredondados, sem sombra) para que o branco de Highlights
+          termine exatamente onde o navy começa, e o CTA final logo abaixo
+          dê sequência ao mesmo navy sem corte — a página continua sendo
+          uma única viagem, não um card flutuando sobre fundo branco. */}
+      <motion.article {...routesReveal} className="group relative overflow-hidden bg-navy py-16 text-white md:py-24">
+        <div className="relative z-10 mx-auto grid max-w-7xl gap-8 px-6 md:grid-cols-12 md:items-center md:px-8">
+          <div className="md:col-span-8">
+            <span className="font-mono text-xs font-bold text-blue uppercase tracking-widest">03 · REDE DE CONEXÃO</span>
+            <h3 className="mt-3 text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight">
+              Alfenas ➔ Ribeirão Preto, Belo Horizonte, São Paulo & Uberaba.
+            </h3>
+            <p className="mt-4 max-w-xl text-base font-light text-gray leading-relaxed">
+              Conectamos o Sul de Minas às principais capitais e polos regionais. Rotas diretas e conexões sob medida.
+            </p>
+          </div>
+          <div className="md:col-span-4 flex md:justify-end">
+            <Link
+              href="/rotas"
+              className="inline-flex items-center gap-3 rounded-full bg-blue px-7 py-4 text-sm font-bold uppercase tracking-wider text-white transition-colors hover:bg-blue-deep"
+            >
+              Ver mapa de rotas
+              <ChevronMark className="h-4 w-4" />
+            </Link>
+          </div>
+        </div>
+
+        {/* Grafismo de estrada ao fundo */}
+        <div aria-hidden="true" className="road-dashes absolute inset-x-0 bottom-0 h-1 opacity-50" />
+      </motion.article>
     </section>
   )
 }
+

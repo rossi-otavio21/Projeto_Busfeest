@@ -45,7 +45,10 @@ export function WhatsappCta({
         />
       }
     >
-      <MessageCircle aria-hidden="true" />
+      <MessageCircle
+        aria-hidden="true"
+        className="transition-transform duration-300 group-hover/button:translate-x-0.5"
+      />
       {children}
     </MotionButton>
   )

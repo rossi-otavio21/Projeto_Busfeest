@@ -1,8 +1,10 @@
 'use client'
 
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { WhatsappCta } from '@/components/brand/whatsapp-cta'
 import { fadeUp, staggerContainer, useReveal } from '@/lib/motion'
+import { media } from '@/lib/media'
 
 const headerStagger = staggerContainer(0.09, 0.1)
 
@@ -10,8 +12,22 @@ export function ViagensHero() {
   const contentReveal = useReveal(headerStagger)
 
   return (
-    <section className="bg-navy pb-16 pt-32 md:pb-20 md:pt-44">
-      <div className="mx-auto max-w-6xl px-4 md:px-6">
+    <section className="relative overflow-hidden bg-navy pb-16 pt-32 md:pb-20 md:pt-44">
+      {/* Ônibus real da frota — mesma textura fotográfica sutil do hero de Fretamento */}
+      <div className="absolute inset-0 opacity-40">
+        <Image
+          src={media.frotaOnibusEscola}
+          alt=""
+          aria-hidden="true"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center brightness-90 contrast-105"
+        />
+      </div>
+      <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-navy via-navy/85 to-navy/60" />
+
+      <div className="relative z-10 mx-auto max-w-6xl px-4 md:px-6">
         <motion.div {...contentReveal} className="max-w-3xl">
           <motion.span
             variants={fadeUp}

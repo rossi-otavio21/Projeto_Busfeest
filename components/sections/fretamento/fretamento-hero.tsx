@@ -1,51 +1,62 @@
 'use client'
 
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { WhatsappCta } from '@/components/brand/whatsapp-cta'
-import { drawLine, fadeUp, staggerContainer, useReveal } from '@/lib/motion'
+import { fadeUp, staggerContainer, useReveal } from '@/lib/motion'
+import { media } from '@/lib/media'
 
 const headerStagger = staggerContainer(0.09, 0.1)
 
 export function FretamentoHero() {
   const contentReveal = useReveal(headerStagger)
-  const lineReveal = useReveal(drawLine)
 
   return (
-    <section className="relative bg-navy pb-16 pt-32 md:pb-24 md:pt-44">
-      <div className="mx-auto max-w-6xl px-4 md:px-6">
+    <section className="relative overflow-hidden bg-navy pb-20 pt-36 md:pb-28 md:pt-48">
+      {/* Background fotográfico sutil com o ônibus real BUSFEEST */}
+      <div className="absolute inset-0 opacity-40">
+        <Image
+          src={media.heroBackground}
+          alt="Ônibus da Busfeest em estrada"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center brightness-90 contrast-105"
+        />
+      </div>
+      <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-navy via-navy/80 to-navy/50" />
+
+      <div className="relative z-10 mx-auto max-w-7xl px-6 md:px-8">
         <motion.div {...contentReveal} className="max-w-3xl">
-          <motion.span
-            variants={fadeUp}
-            className="text-xs font-semibold uppercase tracking-[0.2em] text-blue"
-          >
-            Fretamento
-          </motion.span>
+          <motion.div variants={fadeUp} className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.25em] text-blue">
+            <span className="h-2 w-2 rounded-full bg-blue" />
+            <span>FRETAMENTO EXCLUSIVO DE GRUPOS</span>
+          </motion.div>
+
           <motion.h1
             variants={fadeUp}
-            className="mt-5 text-balance text-4xl font-extrabold leading-[0.98] tracking-tight text-white md:text-6xl"
+            className="mt-4 text-balance text-4xl font-extrabold leading-[0.94] tracking-tight text-white sm:text-6xl md:text-7xl"
           >
-            Transporte sob medida para o tamanho do seu grupo.
+            Transporte sob medida para o seu grupo.
           </motion.h1>
+
           <motion.p
             variants={fadeUp}
-            className="mt-5 max-w-xl text-pretty text-lg font-light leading-relaxed text-gray"
+            className="mt-6 max-w-2xl text-pretty text-lg font-light leading-relaxed text-gray sm:text-xl"
           >
-            Turismo, eventos, escolas, igrejas, empresas e aeroportos. Você
-            conta o que precisa, a gente monta a rota e o orçamento — sem
-            burocracia.
+            Delegações universitárias, igrejas, empresas, excursões familiares e translados de aeroporto. Você define a rota e os horários — a gente garante o ônibus ideal e o melhor preço.
           </motion.p>
+
           <motion.div variants={fadeUp} className="mt-8">
             <WhatsappCta message="Olá! Quero solicitar um orçamento de fretamento com a Busfeest.">
-              Solicitar orçamento
+              Solicitar orçamento direto no WhatsApp
             </WhatsappCta>
           </motion.div>
         </motion.div>
       </div>
-      <motion.div
-        {...lineReveal}
-        style={{ transformOrigin: 'left' }}
-        className="road-dashes mt-16 h-1.5 opacity-70"
-      />
+
+      <div aria-hidden="true" className="road-dashes absolute inset-x-0 bottom-0 h-1.5 opacity-80" />
     </section>
   )
 }
+
