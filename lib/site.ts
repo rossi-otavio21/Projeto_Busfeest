@@ -1,3 +1,11 @@
+import {
+  faBus,
+  faCircleInfo,
+  faEnvelope,
+  faRoute,
+  faSuitcaseRolling,
+} from '@fortawesome/free-solid-svg-icons'
+
 /**
  * Constantes centrais da Busfeest.
  * Fonte única de verdade para contato, navegação e mensagens de WhatsApp.
@@ -31,9 +39,9 @@ export const site = {
 } as const
 
 export const navLinks = [
-  { label: 'Viagens', href: '/viagens' },
-  { label: 'Fretamento', href: '/fretamento' },
-  { label: 'Rotas', href: '/rotas' },
-  { label: 'Sobre', href: '/sobre' },
-  { label: 'Contato', href: '/contato' },
-] as const
+  { label: 'Viagens', href: '/viagens', icon: faSuitcaseRolling },
+  { label: 'Fretamento', href: '/fretamento', icon: faBus },
+  { label: 'Rotas', href: '/rotas', icon: faRoute },
+  { label: 'Sobre', href: '/sobre', icon: faCircleInfo },
+  { label: 'Contato', href: '/contato', icon: faEnvelope },
+]

@@ -28,11 +28,12 @@ export function SocialProof() {
 
   return (
     <section className="bg-muted py-20 md:py-28">
-      <div className="mx-auto max-w-6xl px-4 md:px-6">
+      <div className="mx-auto max-w-7xl px-6 md:px-8">
         <motion.div {...textReveal} className="max-w-2xl">
-          <span className="text-sm font-semibold uppercase tracking-wider text-blue">
-            Quem já viajou com a gente
-          </span>
+          <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.25em] text-blue">
+            <span className="h-1.5 w-6 rounded-full bg-blue" />
+            <span>Quem já viajou com a gente</span>
+          </div>
           <h2 className="mt-4 text-balance text-3xl font-bold leading-tight text-navy md:text-4xl">
             Confiança de quem move grupos pelo sul de Minas
           </h2>

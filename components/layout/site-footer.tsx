@@ -8,8 +8,8 @@ export function SiteFooter() {
   const whatsapp = whatsappLink('Olá! Vim pelo site da Busfeest.')
 
   return (
-    <footer className="border-t border-white/10 bg-navy-deep py-14 text-gray">
-      <div className="mx-auto max-w-6xl px-4 md:px-6">
+    <footer className="border-t border-white/10 bg-navy-deep py-16 text-gray">
+      <div className="mx-auto max-w-7xl px-6 md:px-8">
         <div className="grid gap-10 md:grid-cols-3">
           {/* Marca */}
           <div>
@@ -30,7 +30,7 @@ export function SiteFooter() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue"
+                    className="inline-block text-sm transition-[color,translate] duration-300 hover:translate-x-0.5 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue"
                   >
                     {link.label}
                   </Link>

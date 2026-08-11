@@ -50,10 +50,11 @@ export function Differentials() {
 
   return (
     <section className="bg-white py-20 md:py-28">
-      <div className="mx-auto max-w-6xl px-4 md:px-6">
-        <span className="text-sm font-semibold uppercase tracking-wider text-blue">
-          Por que viajar com a Busfeest
-        </span>
+      <div className="mx-auto max-w-7xl px-6 md:px-8">
+        <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.25em] text-blue">
+          <span className="h-1.5 w-6 rounded-full bg-blue" />
+          <span>Por que viajar com a Busfeest</span>
+        </div>
 
         <div className="mt-6 grid gap-10 md:grid-cols-[auto_1fr] md:items-center md:gap-16">
           <div ref={numberRef}>
@@ -70,7 +71,7 @@ export function Differentials() {
               <motion.li key={item.title} variants={fadeUp} className="flex flex-col gap-3">
                 <motion.span
                   variants={iconPop}
-                  className="inline-flex h-10 w-10 items-center justify-center bg-accent text-navy"
+                  className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-accent text-navy"
                 >
                   <item.icon className="h-5 w-5" aria-hidden="true" />
                 </motion.span>

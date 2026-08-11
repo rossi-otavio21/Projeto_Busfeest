@@ -29,11 +29,12 @@ export function ViagensGallery() {
 
   return (
     <section className="bg-muted py-20 md:py-28">
-      <div className="mx-auto max-w-6xl px-4 md:px-6">
+      <div className="mx-auto max-w-7xl px-6 md:px-8">
         <div className="max-w-2xl">
-          <span className="text-sm font-semibold uppercase tracking-wider text-blue">
-            Galeria
-          </span>
+          <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.25em] text-blue">
+            <span className="h-1.5 w-6 rounded-full bg-blue" />
+            <span>Galeria</span>
+          </div>
           <h2 className="mt-4 text-balance text-3xl font-bold leading-tight text-navy md:text-4xl">
             Um retrato das viagens que já rodamos
           </h2>
@@ -79,7 +80,7 @@ export function ViagensGallery() {
                 layout
                 variants={tileReveal}
                 exit={{ opacity: 0, scale: 0.9 }}
-                className={cn('relative overflow-hidden', sizeClasses[item.size])}
+                className={cn('group relative overflow-hidden rounded-xl', sizeClasses[item.size])}
               >
                 {item.src ? (
                   <>
@@ -88,7 +89,14 @@ export function ViagensGallery() {
                       alt={item.alt ?? item.category}
                       fill
                       sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
-                      className={item.isPost ? 'bg-navy object-contain' : 'object-cover'}
+                      className={cn(
+                        'transition-transform duration-700 ease-out group-hover:scale-[1.04]',
+                        item.isPost ? 'bg-navy object-contain' : 'object-cover',
+                      )}
+                    />
+                    <div
+                      aria-hidden="true"
+                      className="absolute inset-0 bg-gradient-to-t from-navy/40 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                     />
                     {/* Posts reais do Instagram mostram o quadro inteiro (não recortado) e
                         ganham um selo — deixa claro que é conteúdo real de rede social,
@@ -101,7 +109,7 @@ export function ViagensGallery() {
                     )}
                   </>
                 ) : (
-                  <div className="flex h-full w-full flex-col items-center justify-center gap-2 border border-dashed border-gray bg-white px-3 text-center">
+                  <div className="flex h-full w-full flex-col items-center justify-center gap-2 rounded-xl border border-dashed border-gray bg-white px-3 text-center">
                     <span className="text-[0.65rem] font-semibold uppercase tracking-wider text-blue-deep">
                       {item.category}
                     </span>

@@ -20,3 +20,5 @@ next-env.d.ts
 
 # Vídeos — muito grandes para o Git (hospedar externamente, ex.: Vercel Blob/CDN)
 *.mp4
+
+.claude

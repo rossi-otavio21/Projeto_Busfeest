@@ -69,7 +69,7 @@ export function About() {
           className="flex flex-col justify-center md:col-span-6"
         >
           <h2 className="text-balance text-3xl font-extrabold leading-[1.02] tracking-tight text-navy sm:text-5xl md:text-6xl">
-            Quase <span className="text-blue font-mono font-black">+6 anos</span> unindo pessoas e destinos no Sul de Minas.
+            Quase <span className="editorial-accent text-blue">6 anos</span> unindo pessoas e destinos no Sul de Minas.
           </h2>
 
           <div className="mt-8 space-y-5 text-base font-light leading-relaxed text-muted-foreground sm:text-lg">

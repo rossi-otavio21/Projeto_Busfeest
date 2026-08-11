@@ -14,10 +14,11 @@ export function ViagensList() {
 
   return (
     <section className="bg-white py-20 md:py-28">
-      <div className="mx-auto max-w-6xl px-4 md:px-6">
-        <span className="text-xs font-semibold uppercase tracking-[0.2em] text-blue">
-          Próximas viagens
-        </span>
+      <div className="mx-auto max-w-7xl px-6 md:px-8">
+        <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.25em] text-blue">
+          <span className="h-1.5 w-6 rounded-full bg-blue" />
+          <span>Próximas viagens</span>
+        </div>
 
         <motion.div
           {...reveal}

@@ -15,6 +15,11 @@ export const media = {
    * que uma foto de equipe seja enviada (só trocar este caminho).
    */
   contactPhoto: '/images/eventos/busfeest-unigames-embarque.jpg',
+  /**
+   * Foto do fundador no card "Quem toca a Busfeest" (Sobre). Placeholder
+   * até chegar a foto de verdade — só trocar este caminho.
+   */
+  founderPhoto: '/images/eventos/busfeest-unigames-embarque.jpg',
   /** Ônibus real da frota (frente, escola ao fundo) — recorte central já remove o selo fino do topo. */
   frotaOnibusEscola: '/images/frota/busfeest-onibus-frente-escola.jpg',
   /** Embarque real de estudantes (Carmo do Rio Claro → Alfenas) — recorte central remove as faixas de texto. */

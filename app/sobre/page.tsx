@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { SobreHistoria } from '@/components/sections/sobre/sobre-historia'
 import { Differentials } from '@/components/sections/sobre/differentials'
+import { Founder } from '@/components/sections/sobre/founder'
 import { Testimonials } from '@/components/sections/sobre/testimonials'
 import { SocialProof } from '@/components/sections/sobre/social-proof'
 
@@ -16,6 +17,7 @@ export default function SobrePage() {
     <main id="conteudo-principal" tabIndex={-1} className="outline-none">
       <SobreHistoria />
       <Differentials />
+      <Founder />
       <Testimonials />
       <SocialProof />
     </main>

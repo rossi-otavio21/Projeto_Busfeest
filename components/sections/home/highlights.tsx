@@ -19,10 +19,10 @@ export function Highlights() {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-navy/10">
           <div>
             <span className="text-xs font-semibold uppercase tracking-[0.25em] text-blue">
-              03 · CONTINUE DE JORNADA
+              03 · PRÓXIMA ROTA
             </span>
             <h2 className="mt-3 text-balance text-3xl font-extrabold leading-[0.96] tracking-tight text-navy sm:text-5xl md:text-6xl">
-              Escolha a sua próxima rota.
+              Escolha a sua <span className="editorial-accent text-blue">próxima rota.</span>
             </h2>
           </div>
           <p className="max-w-md text-base font-light text-muted-foreground">
@@ -55,7 +55,7 @@ export function Highlights() {
             </div>
 
             <div className="flex flex-col justify-center md:col-span-5 md:pl-4">
-              <span className="font-mono text-xs font-bold text-blue uppercase tracking-widest">PÁGINAS / VIAGENS</span>
+              <span className="text-xs font-bold text-blue uppercase tracking-widest">Viagens</span>
               <h3 className="mt-2 text-3xl md:text-4xl font-extrabold text-navy tracking-tight group-hover:text-blue transition-colors">
                 Viagens em Grupo & Excursões
               </h3>
@@ -75,7 +75,7 @@ export function Highlights() {
           {/* DESTAQUE 2: FRETAMENTO SOB MEDIDA (Inversão Assimétrica) */}
           <motion.article variants={fadeUp} className="group relative grid gap-8 md:grid-cols-12 md:items-center">
             <div className="flex flex-col justify-center md:col-span-5 md:pr-4 order-2 md:order-1">
-              <span className="font-mono text-xs font-bold text-blue uppercase tracking-widest">PÁGINAS / FRETAMENTO</span>
+              <span className="text-xs font-bold text-blue uppercase tracking-widest">Fretamento</span>
               <h3 className="mt-2 text-3xl md:text-4xl font-extrabold text-navy tracking-tight group-hover:text-blue transition-colors">
                 Fretamento de Ônibus & Vans
               </h3>
@@ -124,9 +124,9 @@ export function Highlights() {
       <motion.article {...routesReveal} className="group relative overflow-hidden bg-navy py-16 text-white md:py-24">
         <div className="relative z-10 mx-auto grid max-w-7xl gap-8 px-6 md:grid-cols-12 md:items-center md:px-8">
           <div className="md:col-span-8">
-            <span className="font-mono text-xs font-bold text-blue uppercase tracking-widest">03 · REDE DE CONEXÃO</span>
+            <span className="text-xs font-bold text-blue uppercase tracking-widest">Rede de conexão</span>
             <h3 className="mt-3 text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight">
-              Alfenas ➔ Ribeirão Preto, Belo Horizonte, São Paulo & Uberaba.
+              Alfenas → Ribeirão Preto, Belo Horizonte, São Paulo & Uberaba.
             </h3>
             <p className="mt-4 max-w-xl text-base font-light text-gray leading-relaxed">
               Conectamos o Sul de Minas às principais capitais e polos regionais. Rotas diretas e conexões sob medida.

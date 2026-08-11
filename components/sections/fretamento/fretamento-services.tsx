@@ -131,7 +131,7 @@ function ServiceCarousel({ images }: { images: ServiceImage[] }) {
 
   return (
     <div
-      className="relative h-[280px] w-full overflow-hidden bg-navy sm:h-[360px] md:h-[440px]"
+      className="relative h-[280px] w-full overflow-hidden rounded-2xl bg-navy shadow-xl sm:h-[360px] md:h-[440px]"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onTouchStart={(event) => {
@@ -200,10 +200,11 @@ export function FretamentoServices() {
 
   return (
     <section className="bg-white">
-      <div className="mx-auto max-w-6xl px-4 pb-4 pt-16 md:px-6 md:pt-20">
-        <span className="text-xs font-semibold uppercase tracking-[0.2em] text-blue">
-          Modalidades de fretamento
-        </span>
+      <div className="mx-auto max-w-7xl px-6 pb-4 pt-16 md:px-8 md:pt-20">
+        <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.25em] text-blue">
+          <span className="h-1.5 w-6 rounded-full bg-blue" />
+          <span>Modalidades de fretamento</span>
+        </div>
         <h2 className="mt-4 max-w-2xl text-balance text-3xl font-bold leading-tight text-navy md:text-4xl">
           Soluções completas de transporte rodoviário
         </h2>
@@ -221,7 +222,7 @@ export function FretamentoServices() {
             }`}
           >
             <div
-              className={`mx-auto flex max-w-6xl flex-col gap-8 px-4 md:px-6 ${
+              className={`mx-auto flex max-w-7xl flex-col gap-8 px-6 md:px-8 ${
                 flipped ? 'md:flex-row-reverse' : 'md:flex-row'
               } md:items-center`}
             >

@@ -37,7 +37,7 @@ export function FretamentoHero() {
             variants={fadeUp}
             className="mt-4 text-balance text-4xl font-extrabold leading-[0.94] tracking-tight text-white sm:text-6xl md:text-7xl"
           >
-            Transporte sob medida para o seu grupo.
+            Transporte <span className="editorial-accent text-blue">sob medida</span> para o seu grupo.
           </motion.h1>
 
           <motion.p
@@ -49,7 +49,7 @@ export function FretamentoHero() {
 
           <motion.div variants={fadeUp} className="mt-8">
             <WhatsappCta message="Olá! Quero solicitar um orçamento de fretamento com a Busfeest.">
-              Solicitar orçamento direto no WhatsApp
+              Orçar pelo WhatsApp
             </WhatsappCta>
           </motion.div>
         </motion.div>

@@ -46,6 +46,9 @@
 
   /* Tipografia oficial: Sora (definida no layout via next/font) */
   --font-sans: var(--font-sora), system-ui, sans-serif;
+  /* Voz editorial de acento — Instrument Serif, apenas para palavras-chave
+     em headlines e depoimentos (nunca texto corrido). */
+  --font-editorial: var(--font-instrument-serif), Georgia, 'Times New Roman', serif;
 
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
@@ -94,6 +97,16 @@
   body {
     @apply bg-background text-foreground;
     font-feature-settings: 'ss01';
+    /* Estados escondidos dos reveals laterais (x: ±24px) não devem criar
+       scroll horizontal no mobile. `clip` (e não `hidden`) porque não cria
+       um scroll container — preserva o position:sticky do Hero. */
+    overflow-x: clip;
+  }
+
+  /* Seleção de texto na cor da marca — detalhe pequeno, percebido em todo o site */
+  ::selection {
+    background-color: var(--color-blue);
+    color: var(--color-white);
   }
 
   /* Respeitar preferência de movimento reduzido */
@@ -107,6 +120,17 @@
       scroll-behavior: auto !important;
     }
   }
+}
+
+/* Acento editorial — palavra-chave em serif itálico dentro de um headline Sora.
+   O tamanho 1.06em compensa a diferença de altura-x entre as duas famílias,
+   para o acento não parecer "menor" que o resto do título. */
+@utility editorial-accent {
+  font-family: var(--font-editorial);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  font-size: 1.06em;
 }
 
 /* Padrão decorativo de "estrada tracejada" em diagonal (grafismo da marca) */

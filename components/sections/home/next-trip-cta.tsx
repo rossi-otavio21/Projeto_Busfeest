@@ -37,12 +37,12 @@ export function NextTripCta() {
         className="pointer-events-none absolute -right-16 top-1/2 h-64 w-64 -translate-y-1/2 bg-blue/15 [clip-path:polygon(0_0,100%_0,100%_100%)]"
       />
 
-      <motion.div {...contentReveal} className="relative mx-auto max-w-3xl px-4 text-center md:px-6">
+      <motion.div {...contentReveal} className="relative mx-auto max-w-3xl px-6 text-center md:px-8">
         <span className="text-xs font-semibold uppercase tracking-[0.2em] text-blue">
           Fim de trajeto
         </span>
         <h2 className="mt-5 text-balance text-4xl font-extrabold leading-[0.98] tracking-tight text-white md:text-6xl">
-          Sua próxima viagem começa com uma mensagem.
+          Sua próxima viagem começa com <span className="editorial-accent text-blue">uma mensagem.</span>
         </h2>
         <p className="mx-auto mt-5 max-w-xl text-pretty text-lg font-light leading-relaxed text-gray">
           Conte pra gente para onde seu grupo vai. Respondemos rápido e sem

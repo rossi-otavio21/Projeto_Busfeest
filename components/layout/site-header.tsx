@@ -4,6 +4,7 @@ import { useEffect, useRef, useState, type MouseEvent, type ReactNode } from 're
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { AnimatePresence, motion, useMotionValue, useSpring } from 'framer-motion'
 import { Logo } from '@/components/brand/logo'
 import { WhatsappCta } from '@/components/brand/whatsapp-cta'
@@ -46,22 +47,7 @@ export function SiteHeader() {
       )}
     >
       {/* Farol de longo alcance — hairline azul que acende ao rolar, no topo do header */}
-      <div
-        aria-hidden="true"
-        className={cn(
-          'absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue/70 to-transparent transition-opacity duration-500',
-          scrolled ? 'opacity-100' : 'opacity-0',
-        )}
-      />
-
-      {/* Fio condutor de estrada atravessando o topo — intensifica ao rolar */}
-      <div
-        aria-hidden="true"
-        className={cn(
-          'road-dashes absolute inset-x-0 bottom-0 h-0.5 transition-opacity duration-500',
-          scrolled ? 'opacity-70' : 'opacity-40',
-        )}
-      />
+      
 
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 md:h-20 md:px-8">
         <div className="flex items-center">
@@ -73,7 +59,7 @@ export function SiteHeader() {
             <Logo variant="white" />
           </Link>
 
-          <RouteReadout />
+         
         </div>
 
         {/* Navegação desktop — indicador de trajeto compartilhado entre os links */}
@@ -91,12 +77,13 @@ export function SiteHeader() {
                     href={link.href}
                     aria-current={active ? 'page' : undefined}
                     className={cn(
-                      'relative inline-block py-1 text-xs font-semibold uppercase tracking-[0.16em] transition-all duration-300 hover:tracking-[0.2em] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue',
+                      'relative inline-flex items-center gap-2 py-1 text-xs font-semibold uppercase tracking-[0.16em] transition-all duration-300 hover:tracking-[0.2em] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue',
                       active || hoveredHref === link.href
                         ? 'text-white'
                         : 'text-gray/80 hover:text-white',
                     )}
                   >
+                    <FontAwesomeIcon icon={link.icon} className="h-3 w-3" aria-hidden="true" />
                     {link.label}
                     {isTarget && (
                       <motion.span
@@ -200,10 +187,11 @@ export function SiteHeader() {
                         aria-current={active ? 'page' : undefined}
                         onClick={() => setOpen(false)}
                         className={cn(
-                          'flex items-center border-b border-white/5 py-4 pl-12 text-3xl font-extrabold tracking-tight transition-colors',
+                          'flex items-center gap-3 border-b border-white/5 py-4 pl-12 text-3xl font-extrabold tracking-tight transition-colors',
                           active ? 'text-blue' : 'text-white hover:text-blue',
                         )}
                       >
+                        <FontAwesomeIcon icon={link.icon} className="h-6 w-6 shrink-0" aria-hidden="true" />
                         {link.label}
                       </Link>
                     </motion.li>
@@ -227,40 +215,6 @@ export function SiteHeader() {
         )}
       </AnimatePresence>
     </header>
-  )
-}
-
-/**
- * Indicador de trajeto no header — substitui o badge estático por uma leitura
- * tipo "painel de embarque": ponto de partida pulsante, micro-rota tracejada
- * e um marcador que percorre o trajeto até o destino. Só aparece em telas
- * largas, onde há espaço para não competir com a navegação.
- */
-function RouteReadout() {
-  return (
-    <div
-      aria-hidden="true"
-      className="ml-2 hidden items-center gap-2.5 border-l border-white/10 pl-5 lg:flex"
-    >
-      <span className="relative flex h-1.5 w-1.5 shrink-0">
-        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue opacity-60" />
-        <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-blue" />
-      </span>
-      <span className="text-[0.68rem] font-bold uppercase tracking-[0.14em] text-white">
-        Alfenas — MG
-      </span>
-      <span className="route-track relative h-px w-9 shrink-0 overflow-visible">
-        <motion.span
-          className="absolute top-1/2 h-1 w-1 -translate-y-1/2 rounded-full bg-blue"
-          style={{ boxShadow: '0 0 5px 1px rgba(54, 149, 197, 0.85)' }}
-          animate={{ left: ['0%', '92%'] }}
-          transition={{ duration: 2.8, ease: 'easeInOut', repeat: Infinity, repeatType: 'reverse' }}
-        />
-      </span>
-      <span className="text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-gray/70">
-        Sul de Minas
-      </span>
-    </div>
   )
 }
 

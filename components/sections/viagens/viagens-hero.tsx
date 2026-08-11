@@ -27,19 +27,20 @@ export function ViagensHero() {
       </div>
       <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-navy via-navy/85 to-navy/60" />
 
-      <div className="relative z-10 mx-auto max-w-6xl px-4 md:px-6">
+      <div className="relative z-10 mx-auto max-w-7xl px-6 md:px-8">
         <motion.div {...contentReveal} className="max-w-3xl">
-          <motion.span
+          <motion.div
             variants={fadeUp}
-            className="text-xs font-semibold uppercase tracking-[0.2em] text-blue"
+            className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.25em] text-blue"
           >
-            Viagens
-          </motion.span>
+            <span className="h-1.5 w-6 rounded-full bg-blue" />
+            <span>Viagens</span>
+          </motion.div>
           <motion.h1
             variants={fadeUp}
             className="mt-5 text-balance text-4xl font-extrabold leading-[0.98] tracking-tight text-white md:text-6xl"
           >
-            Para onde vamos?
+            Para onde <span className="editorial-accent text-blue">vamos?</span>
           </motion.h1>
           <motion.p
             variants={fadeUp}

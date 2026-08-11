@@ -20,7 +20,7 @@ const buttonVariants = cva(
           'bg-destructive/10 text-destructive hover:bg-destructive/20 focus-visible:border-destructive/40 focus-visible:ring-destructive/20 dark:bg-destructive/20 dark:hover:bg-destructive/30 dark:focus-visible:ring-destructive/40',
         link: 'text-primary underline-offset-4 hover:underline',
         // Pílulas de CTA da marca (fundo azul), usadas sobre fundos escuros.
-        cta: 'rounded-full bg-blue font-semibold text-white hover:bg-blue-deep focus-visible:border-transparent focus-visible:ring-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white',
+        cta: 'rounded-full bg-blue font-semibold text-white shadow-lg shadow-blue/25 transition-shadow hover:bg-blue-deep hover:shadow-blue/40 focus-visible:border-transparent focus-visible:ring-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white',
         // Pílula de contorno, para o CTA secundário sobre o hero.
         'cta-outline':
           'rounded-full border-white/25 font-semibold text-white hover:bg-white/10 focus-visible:border-transparent focus-visible:ring-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue',

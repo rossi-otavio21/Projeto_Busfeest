@@ -97,7 +97,7 @@ export function Hero() {
             >
               A viagem começa
               <br />
-              <span className="text-blue underline decoration-blue/30 decoration-wavy underline-offset-8">no seu scroll.</span>
+              <span className="editorial-accent text-blue">no seu scroll.</span>
             </motion.h1>
 
             <motion.p
@@ -134,19 +134,27 @@ export function Hero() {
           <div className="mx-auto flex max-w-7xl items-center justify-between px-6 text-xs font-semibold uppercase tracking-wider text-gray md:px-8">
             <div className="flex items-center gap-6 overflow-x-auto no-scrollbar py-1">
               <span className="flex items-center gap-2 shrink-0 text-white">
-                <span className="font-mono text-blue font-bold">+6</span> Anos de Estrada
+                <span className="text-blue font-bold">+6</span> Anos de Estrada
               </span>
               <span className="text-white/20">•</span>
               <span className="flex items-center gap-2 shrink-0 text-white">
-                <span className="font-mono text-blue font-bold">100%</span> Foco em Grupos
+                <span className="text-blue font-bold">100%</span> Foco em Grupos
               </span>
               <span className="text-white/20">•</span>
               <span className="flex items-center gap-2 shrink-0 text-white">
                 Base em <span className="text-white font-bold">Alfenas — MG</span>
               </span>
             </div>
-            <div className="hidden md:flex items-center gap-2 text-blue font-mono">
-              <span>CONTÍNUO DE JORNADA ➔</span>
+            <div className="hidden md:flex items-center gap-2 text-blue">
+              <span>A estrada continua</span>
+              <motion.span
+                aria-hidden="true"
+                animate={reduceMotion ? undefined : { y: [0, 4, 0] }}
+                transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
+                className="inline-flex"
+              >
+                <ChevronMark className="h-3.5 w-3.5 rotate-90" />
+              </motion.span>
             </div>
           </div>
         </div>

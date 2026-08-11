@@ -20,20 +20,21 @@ export function ContatoInfo() {
 
   return (
     <section className="relative overflow-hidden bg-navy">
-      <div className="mx-auto grid max-w-6xl gap-12 px-4 pb-20 pt-32 md:grid-cols-[1.05fr_0.95fr] md:items-end md:gap-16 md:px-6 md:pb-0 md:pt-44">
+      <div className="mx-auto grid max-w-7xl gap-12 px-6 pb-20 pt-32 md:grid-cols-[1.05fr_0.95fr] md:items-end md:gap-16 md:px-8 md:pb-0 md:pt-44">
         <div>
           <motion.div {...headerReveal} className="max-w-xl">
-            <motion.span
+            <motion.div
               variants={fadeUp}
-              className="text-xs font-semibold uppercase tracking-[0.2em] text-blue"
+              className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.25em] text-blue"
             >
-              Contato
-            </motion.span>
+              <span className="h-1.5 w-6 rounded-full bg-blue" />
+              <span>Contato</span>
+            </motion.div>
             <motion.h1
               variants={fadeUp}
               className="mt-5 text-balance text-4xl font-extrabold leading-[0.98] tracking-tight text-white md:text-6xl"
             >
-              Fale com a gente e receba seu orçamento.
+              Fale com a gente e receba <span className="editorial-accent text-blue">seu orçamento.</span>
             </motion.h1>
             <motion.p
               variants={fadeUp}

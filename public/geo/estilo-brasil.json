@@ -1,0 +1,39 @@
+{
+  "version": 8,
+  "name": "Busfeest — Brasil navy",
+  "sources": {
+    "estados": {
+      "type": "geojson",
+      "data": "/geo/br-estados.json"
+    }
+  },
+  "layers": [
+    {
+      "id": "oceano",
+      "type": "background",
+      "paint": { "background-color": "#0b1a28" }
+    },
+    {
+      "id": "estados-fill",
+      "type": "fill",
+      "source": "estados",
+      "paint": { "fill-color": "#122b42" }
+    },
+    {
+      "id": "minas-destaque",
+      "type": "fill",
+      "source": "estados",
+      "filter": ["==", ["get", "sigla"], "MG"],
+      "paint": { "fill-color": "#1c3c57" }
+    },
+    {
+      "id": "estados-divisas",
+      "type": "line",
+      "source": "estados",
+      "paint": {
+        "line-color": "rgba(199, 204, 209, 0.35)",
+        "line-width": 1
+      }
+    }
+  ]
+}

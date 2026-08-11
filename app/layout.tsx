@@ -1,10 +1,11 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
-import { Sora } from 'next/font/google'
+import { Instrument_Serif, Sora } from 'next/font/google'
 import { MotionProvider } from '@/components/motion-provider'
 import { SiteHeader } from '@/components/layout/site-header'
 import { SiteFooter } from '@/components/layout/site-footer'
 import { site, siteUrl } from '@/lib/site'
+import '@/lib/fontawesome'
 import './globals.css'
 
 // Fonte oficial da marca — Sora, com os pesos aprovados no manual.
@@ -12,6 +13,16 @@ const sora = Sora({
   subsets: ['latin'],
   weight: ['300', '400', '600', '700', '800'],
   variable: '--font-sora',
+  display: 'swap',
+})
+
+// Voz editorial de acento — usada com muita parcimônia: uma palavra-chave em
+// itálico por headline de página, e nos depoimentos. Nunca em texto corrido.
+const instrumentSerif = Instrument_Serif({
+  subsets: ['latin'],
+  weight: '400',
+  style: ['normal', 'italic'],
+  variable: '--font-instrument-serif',
   display: 'swap',
 })
 
@@ -92,7 +103,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="pt-BR" className={`${sora.variable} bg-background`}>
+    <html lang="pt-BR" className={`${sora.variable} ${instrumentSerif.variable} bg-background`}>
       <body className="font-sans antialiased">
         <a
           href="#conteudo-principal"
