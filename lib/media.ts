@@ -4,7 +4,7 @@
  * aqui; nenhum componente precisa mudar.
  */
 export const media = {
-  heroBackground: '/images/hero/busfeest-onibus-estrada.png',
+  heroBackground: '/images/onibus.jpeg',
   aboutPhoto: '/images/sobre/busfeest-embarque-grupo.png',
   finalCtaBackground: '/images/hero/busfeest-onibus-estrada.png',
   /** Grupo real (alunos + van) no evento Unigames 2026 — recorte via object-position. */
@@ -32,5 +32,56 @@ export const media = {
     unigamesTrofeu: '/images/originais/busfeest-post-unigames-trofeu.jpg',
     machadoAlfenas: '/images/originais/busfeest-post-machado-alfenas.jpg',
     treme: '/images/originais/busfeest-post-treme-fotos.jpg',
+  },
+  /**
+   * Leva do WhatsApp (11/08/2026) — fotos reais de ônibus contratados/parceiros
+   * (Dozza, SC Minas, Busscar, ACM), sem grupo em foco. Organizadas por
+   * operadora/ângulo para dar opções de recorte em cards e bandas de foto.
+   */
+  frota: {
+    scMinasLateral: '/images/frota/busfeest-onibus-scminas-lateral.jpg',
+    scMinasFrente: '/images/frota/busfeest-onibus-scminas-frente.jpg',
+    busscarFrente: '/images/frota/busfeest-onibus-busscar-frente.jpg',
+    busscarPortaoEscola: '/images/frota/busfeest-onibus-busscar-portao-escola.jpg',
+    /** Rodoviário executivo (Marcopolo Paradiso 1200, Wi-Fi, ar) — ótima pra "conforto"/fretamento premium. */
+    executivoAcm: '/images/frota/busfeest-onibus-executivo-acm.jpg',
+  },
+  /**
+   * Embarques e cenas de rua reais — grupo + ônibus juntos, mesma leva do
+   * WhatsApp acima.
+   */
+  viagens: {
+    embarqueAvenida: '/images/viagens/busfeest-embarque-avenida.jpg',
+    embarqueGramadoOnibus: '/images/viagens/busfeest-embarque-gramado-onibus.jpg',
+    embarqueGramadoGuardaChuva: '/images/viagens/busfeest-embarque-gramado-guarda-chuva.jpg',
+    embarqueGramadoGrupo: '/images/viagens/busfeest-embarque-gramado-grupo.jpg',
+    onibusDozzaParado: '/images/viagens/busfeest-onibus-dozza-parado.jpg',
+    onibusRuaEstreita: '/images/viagens/busfeest-onibus-rua-estreita.jpg',
+    /** Letreiro do ônibus mostrando "BOA VIAGEM!!" — ótima pra fechamento/CTA. */
+    embarqueCineBoaViagem: '/images/viagens/busfeest-embarque-cine-boa-viagem.jpg',
+    embarqueCineTurismo: '/images/viagens/busfeest-embarque-cine-turismo.jpg',
+  },
+  /**
+   * Excursões, festas/shows e embarques noturnos — mesma leva do WhatsApp.
+   * Nomeados pelo que aparece na foto (evento/turma), não por cliente.
+   */
+  eventos: {
+    vanFestaChegadaNoite: '/images/eventos/busfeest-van-festa-chegada-noite.jpg',
+    vanFestaAbracoNoite: '/images/eventos/busfeest-van-festa-abraco-noite.jpg',
+    excursaoFestaJuninaExplicacao: '/images/eventos/busfeest-excursao-festa-junina-explicacao.jpg',
+    excursaoFestaJuninaGrupo: '/images/eventos/busfeest-excursao-festa-junina-grupo.jpg',
+    excursaoParadaGuia: '/images/eventos/busfeest-excursao-parada-guia.jpg',
+    /** Grupo no letreiro "EU AMO BRODOWSKI", igreja ao fundo — melhor foto de destino da leva. */
+    excursaoBrodowskiGrupo: '/images/eventos/busfeest-excursao-brodowski-grupo.jpg',
+    excursaoGuiaParque: '/images/eventos/busfeest-excursao-guia-parque.jpg',
+    embarqueNoturnoBoaVirgem: '/images/eventos/busfeest-embarque-noturno-boavirgem.jpg',
+    embarqueMedicinaUnifalFila: '/images/eventos/busfeest-embarque-medicina-unifal-fila.jpg',
+    embarqueMedicinaUnifalOnibus: '/images/eventos/busfeest-embarque-medicina-unifal-onibus.jpg',
+    embarqueMedicinaUnifalGrupo: '/images/eventos/busfeest-embarque-medicina-unifal-grupo.jpg',
+  },
+  /** Grupo corporativo (equipe) posando junto ao ônibus SC Minas — mesma leva do WhatsApp. */
+  corporativo: {
+    equipeScMinasGrupo: '/images/corporativo/busfeest-equipe-scminas-grupo.jpg',
+    equipeScMinasGrupo2: '/images/corporativo/busfeest-equipe-scminas-grupo-2.jpg',
   },
 } as const
