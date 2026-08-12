@@ -115,3 +115,29 @@ export function usePrefersReducedMotion() {
     () => false,
   )
 }
+
+const mobileViewportQuery = '(max-width: 767px)'
+
+function subscribeToMobileViewport(onChange: () => void) {
+  const query = window.matchMedia(mobileViewportQuery)
+  query.addEventListener('change', onChange)
+  return () => query.removeEventListener('change', onChange)
+}
+
+
+/**
+ * Abaixo do breakpoint `md` do Tailwind (768px). Mesmo padrão de
+ * `usePrefersReducedMotion`: snapshot do servidor sempre `false`, valor real
+ * só depois da hidratação — evita divergência de SSR.
+ *
+ * Usado para desligar animações caras em scroll (ex.: `borderRadius`
+ * animado, que força repaint a cada frame) só no mobile, mantendo o efeito
+ * completo no desktop.
+ */
+export function useIsMobileViewport() {
+  return useSyncExternalStore(
+    subscribeToMobileViewport,
+    () => window.matchMedia(mobileViewportQuery).matches,
+    () => false,
+  )
+}
