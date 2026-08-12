@@ -41,9 +41,15 @@ export function SiteHeader() {
     <header
       className={cn(
         'fixed inset-x-0 top-0 z-50 transition-all duration-500',
-        scrolled || open
+        // O blur só entra quando dá pra ver conteúdo passando por trás
+        // (scroll). Com o menu aberto sem scroll, o painel abaixo já é navy
+        // sólido — nada aparece atrás do header pra borrar, então evitamos
+        // o custo de compositar backdrop-filter no exato frame do toque.
+        scrolled
           ? 'bg-navy/95 shadow-xl shadow-navy/20 backdrop-blur-lg border-b border-white/10'
-          : 'bg-gradient-to-b from-navy/80 via-navy/30 to-transparent',
+          : open
+            ? 'bg-navy/95 shadow-xl shadow-navy/20 border-b border-white/10'
+            : 'bg-gradient-to-b from-navy/80 via-navy/30 to-transparent',
       )}
     >
       {/* Farol de longo alcance — hairline azul que acende ao rolar, no topo do header */}
