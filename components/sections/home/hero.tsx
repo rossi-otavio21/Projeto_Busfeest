@@ -11,6 +11,7 @@ import {
   ctaTapSpring,
   fadeUp,
   staggerContainer,
+  useIsMobileViewport,
   usePrefersReducedMotion,
 } from '@/lib/motion'
 import { media } from '@/lib/media'
@@ -20,9 +21,18 @@ const heroStagger = staggerContainer(0.09, 0.12)
 export function Hero() {
   const wrapperRef = useRef<HTMLElement>(null)
   const reduceMotion = usePrefersReducedMotion()
+  const isMobile = useIsMobileViewport()
+  // No mobile o encolher-e-arredondar em scroll (borderRadius animado força
+  // repaint a cada frame) e o zoom Ken Burns infinito no fundo saem —
+  // aparelhos mais fracos sentiam isso como lag ao rolar a página. No
+  // desktop o efeito completo continua.
+  const heavyMotion = !reduceMotion && !isMobile
 
   // O wrapper é mais alto que a tela — enquanto se rola por essa sobra, o
-  // quadro do Hero permanece fixo no topo e encolhe com o scroll.
+  // quadro do Hero permanece fixo no topo e encolhe com o scroll. Altura e
+  // faixa de scroll ficam iguais em mobile/desktop (mudar isso depois da
+  // hidratação, quando `isMobile` é detectado, causaria um salto de layout
+  // visível — só o `style` animado abaixo é que liga/desliga).
   const { scrollYProgress } = useScroll({
     target: wrapperRef,
     offset: ['start start', 'end start'],
@@ -36,14 +46,14 @@ export function Hero() {
   return (
     <section ref={wrapperRef} id="top" className="relative h-[175svh] bg-navy">
       <motion.div
-        style={{ scale, borderRadius: radius }}
+        style={heavyMotion ? { scale, borderRadius: radius } : undefined}
         className="sticky top-0 isolate flex h-svh w-full origin-center flex-col justify-between overflow-hidden bg-navy shadow-[0_60px_120px_-40px_rgba(11,26,40,0.85)]"
       >
         {/* Fotografia real da BUSFEEST: com tratamento sutil para valorizar o ônibus real e as montanhas de Minas */}
         <motion.div
           className="absolute inset-0"
           initial={false}
-          animate={{ scale: 1.05 }}
+          animate={heavyMotion ? { scale: 1.05 } : { scale: 1 }}
           transition={{ duration: 25, repeat: Infinity, repeatType: 'mirror', ease: 'linear' }}
         >
           <Image

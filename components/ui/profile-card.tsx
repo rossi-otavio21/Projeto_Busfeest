@@ -53,7 +53,6 @@ export function ProfileCard(props: ProfileCardProps) {
             height={470}
             className="h-full w-full object-cover"
             draggable={false}
-            priority
           />
         </div>
         {/* Card sobreposto */}
@@ -102,7 +101,6 @@ export function ProfileCard(props: ProfileCardProps) {
             height={400}
             className="h-full w-full object-cover"
             draggable={false}
-            priority
           />
         </div>
 
