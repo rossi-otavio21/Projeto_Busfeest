@@ -131,7 +131,13 @@ function ServiceCarousel({ images }: { images: ServiceImage[] }) {
 
   return (
     <div
-      className="relative h-[280px] w-full overflow-hidden rounded-2xl bg-navy shadow-xl sm:h-[360px] md:h-[440px]"
+      // `touch-pan-y` avisa o navegador pra só interpretar gestos verticais
+      // nativamente aqui — sem isso, o arrasto horizontal do carrossel é
+      // capturado pelo gesto de navegação/overscroll do próprio navegador
+      // mobile, que empurra a página inteira (inclusive o header fixo) pro
+      // lado por um instante. Só acontece nesta seção porque é a única com
+      // swipe por toque no site.
+      className="relative h-[280px] w-full touch-pan-y overflow-hidden rounded-2xl bg-navy shadow-xl sm:h-[360px] md:h-[440px]"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onTouchStart={(event) => {

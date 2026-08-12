@@ -5,12 +5,18 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { ChevronMark, RoadDivider } from '@/components/brand/chevron'
-import { usePrefersReducedMotion } from '@/lib/motion'
+import { useIsMobileViewport, usePrefersReducedMotion } from '@/lib/motion'
 import { media } from '@/lib/media'
 
 export function About() {
   const sectionRef = useRef<HTMLElement>(null)
   const reduceMotion = usePrefersReducedMotion()
+  const isMobile = useIsMobileViewport()
+  // No mobile, 5 `useTransform` ligados ao scroll recalculando junto com um
+  // backdrop-blur dentro do contêiner que escala eram pesados demais — a
+  // legenda com blur força repaint a cada frame enquanto a foto anima scale
+  // por baixo dela. Desktop mantém a coreografia completa.
+  const heavyMotion = !reduceMotion && !isMobile
 
   // Progresso contínuo de scroll para sincronizar fotografia e tipografia
   const { scrollYProgress } = useScroll({
@@ -42,10 +48,13 @@ export function About() {
       <div className="mx-auto grid max-w-7xl gap-12 px-6 md:grid-cols-12 md:items-center md:gap-16 md:px-8">
         {/* Enquadramento fotográfico autêntico — sem caixas de sombra artificiais */}
         <motion.div
-          style={{ scale: photoScale }}
+          style={heavyMotion ? { scale: photoScale } : undefined}
           className="relative min-h-[420px] md:min-h-[580px] md:col-span-6 overflow-hidden rounded-2xl md:rounded-3xl bg-navy/5 shadow-2xl"
         >
-          <motion.div style={{ y: photoParallax }} className="absolute inset-0 h-[115%] -top-[7.5%]">
+          <motion.div
+            style={heavyMotion ? { y: photoParallax } : undefined}
+            className="absolute inset-0 h-[115%] -top-[7.5%]"
+          >
             <Image
               src={media.aboutPhoto}
               alt="Grupo de passageiros reais embarcando animados em um ônibus da Busfeest para uma excursão"
@@ -65,7 +74,7 @@ export function About() {
 
         {/* Narrativa Editorial de Texto (Sem Card Flutuante) */}
         <motion.div
-          style={{ opacity: textOpacity, y: textY }}
+          style={heavyMotion ? { opacity: textOpacity, y: textY } : undefined}
           className="flex flex-col justify-center md:col-span-6"
         >
           <h2 className="text-balance text-3xl font-extrabold leading-[1.02] tracking-tight text-navy sm:text-5xl md:text-6xl">
@@ -82,7 +91,7 @@ export function About() {
           </div>
 
           <motion.div
-            style={{ scaleX: dividerScale, transformOrigin: 'left' }}
+            style={heavyMotion ? { scaleX: dividerScale, transformOrigin: 'left' } : { transformOrigin: 'left' }}
             className="mt-8 max-w-32"
           >
             <RoadDivider />

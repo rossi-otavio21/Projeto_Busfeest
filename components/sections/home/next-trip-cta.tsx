@@ -27,11 +27,15 @@ export function NextTripCta() {
       />
 
       {/* Grafismo de estrada tracejada em diagonal ao fundo — única seção com o
-          movimento contínuo da faixa, sugerindo "a estrada continua" no fechamento. */}
+          movimento contínuo da faixa, sugerindo "a estrada continua" no fechamento.
+          Wrapper corta a faixa interna, que é 2x mais larga e desliza via
+          transform (ver comentário em globals.css) — roda no compositor da GPU. */}
       <div
         aria-hidden="true"
-        className="road-dashes road-dashes-marquee pointer-events-none absolute inset-x-0 top-0 h-1.5 opacity-60"
-      />
+        className="pointer-events-none absolute inset-x-0 top-0 h-1.5 overflow-hidden opacity-60"
+      >
+        <div className="road-dashes road-dashes-marquee h-full w-[200%]" />
+      </div>
       <div
         aria-hidden="true"
         className="pointer-events-none absolute -right-16 top-1/2 h-64 w-64 -translate-y-1/2 bg-blue/15 [clip-path:polygon(0_0,100%_0,100%_100%)]"

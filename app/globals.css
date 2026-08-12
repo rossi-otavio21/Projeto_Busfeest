@@ -145,12 +145,17 @@
 }
 
 /* Variante com movimento contínuo — reservada à seção de fechamento (FinalCta),
-   não repetida em nenhuma outra seção. 56px = 2x o ciclo de 28px do padrão
-   acima, para o loop ficar perfeitamente contínuo. Já respeita o bloco
-   prefers-reduced-motion global acima (zera a duração da animação). */
+   não repetida em nenhuma outra seção. Anima via `transform` em vez de
+   `background-position`: a segunda propriedade não é acelerada por GPU e
+   força repaint a cada frame (pego pelo audit "non-composited animations").
+   O elemento com essa classe deve ter o dobro da largura do contêiner
+   (ex. `w-[200%]` num wrapper com `overflow-hidden`) — como o padrão é
+   infinito, deslizar -50% empata exatamente com a largura visível e a
+   emenda fica perfeita. Já respeita o bloco prefers-reduced-motion global
+   acima (zera a duração da animação). */
 @keyframes road-marquee {
   to {
-    background-position: 56px 0;
+    transform: translateX(-50%);
   }
 }
 
