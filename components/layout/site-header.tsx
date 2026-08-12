@@ -143,10 +143,13 @@ export function SiteHeader() {
           <motion.div
             id="mobile-menu"
             key="mobile-menu"
-            initial={{ clipPath: 'inset(0 0 100% 0)' }}
-            animate={{ clipPath: 'inset(0 0 0% 0)' }}
-            exit={{ clipPath: 'inset(0 0 100% 0)' }}
-            transition={{ duration: 0.45, ease: easeBrand }}
+            // `clipPath` animado força repaint do painel inteiro a cada frame
+            // (não é acelerado por GPU como `transform`/`opacity`) — trocado
+            // por um fade+slide, que roda no compositor e não trava no toque.
+            initial={{ opacity: 0, y: -16 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -16 }}
+            transition={{ duration: 0.3, ease: easeBrand }}
             className="fixed inset-0 top-16 flex h-[calc(100svh-4rem)] flex-col justify-between overflow-y-auto bg-navy px-6 py-8 md:hidden"
           >
             <div className="flex items-center gap-2 border-b border-white/10 pb-4 text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-blue">
