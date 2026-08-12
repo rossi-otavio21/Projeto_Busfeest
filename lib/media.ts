@@ -4,9 +4,9 @@
  * aqui; nenhum componente precisa mudar.
  */
 export const media = {
-  heroBackground: '/images/onibus.jpeg',
-  aboutPhoto: '/images/sobre/busfeest-embarque-grupo.png',
-  finalCtaBackground: '/images/hero/busfeest-onibus-estrada.png',
+  heroBackground: '/images/hero/busfeest-onibus-estrada.jpeg',
+  aboutPhoto: '/images/sobre/busfeest-embarque-grupo.jpg',
+  finalCtaBackground: '/images/hero/busfeest-onibus-estrada.jpeg',
   /** Grupo real (alunos + van) no evento Unigames 2026 — recorte via object-position. */
   eventPhoto: '/images/eventos/busfeest-unigames-embarque.jpg',
   /**
@@ -77,7 +77,6 @@ export const media = {
     embarqueNoturnoBoaVirgem: '/images/eventos/busfeest-embarque-noturno-boavirgem.jpg',
     embarqueMedicinaUnifalFila: '/images/eventos/busfeest-embarque-medicina-unifal-fila.jpg',
     embarqueMedicinaUnifalOnibus: '/images/eventos/busfeest-embarque-medicina-unifal-onibus.jpg',
-    embarqueMedicinaUnifalGrupo: '/images/eventos/busfeest-embarque-medicina-unifal-grupo.jpg',
   },
   /** Grupo corporativo (equipe) posando junto ao ônibus SC Minas — mesma leva do WhatsApp. */
   corporativo: {

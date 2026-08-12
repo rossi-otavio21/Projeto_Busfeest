@@ -10,8 +10,7 @@ import { media } from './media'
 export const galleryCategories = [
   'Excursões & Turmas',
   'Festas & Shows',
-  'Corporativo',
-  'Famílias & Igrejas',
+  'Corporativo'
 ] as const
 
 export type GalleryCategory = (typeof galleryCategories)[number]
@@ -54,9 +53,20 @@ export const galleryItems: GalleryItem[] = [
     alt: 'Post do Instagram da Busfeest: atlética Muquirana comemorando com troféu no Unigames 2026',
     isPost: true,
   },
-  { id: 'g4', category: 'Corporativo', size: 'sm' },
-  { id: 'g5', category: 'Famílias & Igrejas', size: 'sm' },
-  { id: 'g6', category: 'Festas & Shows', size: 'sm' },
+  {
+    id: 'g4',
+    category: 'Corporativo',
+    size: 'sm',
+    src: media.corporativo.equipeScMinasGrupo,
+    alt: 'Equipe reunida e sorrindo ao lado do ônibus SC Minas contratado para o transporte do grupo',
+  },
+  {
+    id: 'g6',
+    category: 'Festas & Shows',
+    size: 'sm',
+    src: media.eventos.vanFestaAbracoNoite,
+    alt: 'Passageiros se abraçando à noite no embarque de volta de uma festa',
+  },
   {
     id: 'g7',
     category: 'Corporativo',
@@ -65,7 +75,18 @@ export const galleryItems: GalleryItem[] = [
     alt: 'Post do Instagram da Busfeest: passageiros comemorando o transporte de trabalhadores e estudantes entre Machado e Alfenas',
     isPost: true,
   },
-  { id: 'g8', category: 'Famílias & Igrejas', size: 'tall' },
-  { id: 'g9', category: 'Excursões & Turmas', size: 'md' },
-  { id: 'g10', category: 'Festas & Shows', size: 'sm' },
+  {
+    id: 'g9',
+    category: 'Excursões & Turmas',
+    size: 'md',
+    src: media.eventos.excursaoBrodowskiGrupo,
+    alt: 'Turma de excursão posando no letreiro "Eu amo Brodowski", com a igreja matriz ao fundo',
+  },
+  {
+    id: 'g10',
+    category: 'Festas & Shows',
+    size: 'sm',
+    src: media.eventos.embarqueNoturnoBoaVirgem,
+    alt: 'Embarque noturno de volta de show, com o letreiro do ônibus mostrando o destino "Boa Virgem"',
+  },
 ]
