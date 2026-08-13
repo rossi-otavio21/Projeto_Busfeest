@@ -62,7 +62,7 @@ export function SiteHeader() {
             className="rounded-md transition-transform duration-300 hover:scale-[1.02] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue"
             aria-label="Busfeest — início"
           >
-            <Logo variant="white" />
+            <Logo variant="white" priority />
           </Link>
 
          

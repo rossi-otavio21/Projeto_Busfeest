@@ -1,111 +1,72 @@
 /**
- * Logotipo Busfeest — assinatura composta: símbolo ("B" estilizado como
- * estrada/seta em curva) + wordmark BUSFEEST em caixa alta (Sora).
+ * Logotipo Busfeest — assinatura composta: símbolo ("B" com a estrada em
+ * perspectiva) + wordmark BUSFEEST.
  *
- * Tratado como asset vetorial fixo. Duas versões documentadas:
- *  - variant="color": gradiente navy → azul médio, para fundos claros.
- *  - variant="white": monocromático branco, para o fundo azul-marinho.
+ * Assets oficiais, extraídos da prancha de marca e servidos de
+ * public/images/brand. Duas versões documentadas:
+ *  - variant="color": azul degradê, para fundos claros.
+ *  - variant="white": knockout branco, para o fundo azul-marinho.
  * Não recolorir, distorcer proporções ou aplicar efeitos fora destes.
+ *
+ * O símbolo branco é knockout: as faixas da estrada são vazadas e deixam o
+ * fundo aparecer, então ele só deve ser usado sobre navy sólido.
  */
 
+import Image from 'next/image'
+
 type LogoVariant = 'color' | 'white'
+
+// Proporções derivadas dos arquivos (459x420 e 846x120), reduzidas ao tamanho
+// de exibição para o next/image servir o menor arquivo possível.
+const MARK = {
+  white: '/images/brand/busfeest-simbolo-branco.png',
+  color: '/images/brand/busfeest-simbolo-cor.png',
+} as const
+
+const WORDMARK = {
+  white: '/images/brand/busfeest-wordmark-branco.png',
+  color: '/images/brand/busfeest-wordmark-navy.png',
+} as const
 
 interface LogoProps {
   variant?: LogoVariant
   /** Mostra apenas o símbolo, sem o wordmark. */
   markOnly?: boolean
+  /** Use no logo do header — está acima da dobra e não deve carregar tarde. */
+  priority?: boolean
   className?: string
 }
 
 export function Logo({
   variant = 'color',
   markOnly = false,
+  priority = false,
   className,
 }: LogoProps) {
-  const gradientId = `bf-grad-${variant}`
-  // Cor do símbolo: gradiente na versão colorida, branco sólido na monocromática.
-  const markFill = variant === 'white' ? '#FFFFFF' : `url(#${gradientId})`
-  const wordFill = variant === 'white' ? '#FFFFFF' : '#122B42'
-
   return (
     <span
-      className={className}
+      className={`inline-flex items-center gap-2.5 ${className ?? ''}`}
       role="img"
       aria-label="Busfeest"
-      style={{ display: 'inline-flex', alignItems: 'center', gap: '0.6rem' }}
     >
-      {/* Símbolo: badge com estrada em curva + seta, evocando um "B" em movimento */}
-      <svg
-        width="40"
-        height="40"
-        viewBox="0 0 48 48"
-        fill="none"
-        aria-hidden="true"
-        style={{ flexShrink: 0 }}
-      >
-        <defs>
-          <linearGradient id={gradientId} x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse">
-            <stop stopColor="#122B42" />
-            <stop offset="1" stopColor="#3695C5" />
-          </linearGradient>
-        </defs>
-        {/* Contorno do badge */}
-        <rect
-          x="2"
-          y="2"
-          width="44"
-          height="44"
-          rx="12"
-          fill={markFill}
-        />
-        {/* Estrada em curva (forma o traço do "B") — recorte em negativo */}
-        <path
-          d="M16 12c8 0 8 8 0 8h6c8 0 8 8 0 8h-6"
-          stroke={variant === 'white' ? '#122B42' : '#FFFFFF'}
-          strokeWidth="3.2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          fill="none"
-        />
-        {/* Faixa central tracejada da estrada */}
-        <path
-          d="M14 34h13"
-          stroke={variant === 'white' ? '#122B42' : '#FFFFFF'}
-          strokeWidth="2.4"
-          strokeLinecap="round"
-          strokeDasharray="1 5"
-        />
-        {/* Seta apontando para a direita (movimento) */}
-        <path
-          d="M30 30l5 4-5 4"
-          stroke={variant === 'white' ? '#122B42' : '#FFFFFF'}
-          strokeWidth="2.4"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          fill="none"
-        />
-      </svg>
+      <Image
+        src={MARK[variant]}
+        alt=""
+        width={44}
+        height={40}
+        priority={priority}
+        className="h-10 w-auto shrink-0"
+      />
 
       {!markOnly && (
-        <svg
-          height="20"
-          viewBox="0 0 168 22"
-          fill="none"
-          aria-hidden="true"
-          style={{ display: 'block' }}
-        >
-          <text
-            x="0"
-            y="17"
-            fill={wordFill}
-            fontFamily="var(--font-sora), system-ui, sans-serif"
-            fontSize="21"
-            fontWeight="700"
-            letterSpacing="1.5"
-          >
-            BUSFEEST
-          </text>
-        </svg>
+        <Image
+          src={WORDMARK[variant]}
+          alt=""
+          width={141}
+          height={20}
+          priority={priority}
+          className="h-5 w-auto"
+        />
       )}
     </span>
   )
