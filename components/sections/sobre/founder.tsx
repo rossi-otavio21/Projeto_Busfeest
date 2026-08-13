@@ -8,10 +8,10 @@ import { site, whatsappLink } from '@/lib/site'
 
 // TODO: nome, cargo, descrição e foto são placeholder — trocar por texto e
 // foto reais do fundador (ver lib/media.ts para a foto).
-const FOUNDER_NAME = 'Otávio Rossi'
+const FOUNDER_NAME = 'Matheus Souza'
 const FOUNDER_TITLE = 'Fundador · Busfeest'
 const FOUNDER_DESCRIPTION =
-  'Otávio fundou a Busfeest para provar que dá pra viajar em grupo com preço justo sem abrir mão de segurança e pontualidade. Hoje, quase 6 anos depois, ele segue à frente da operação em Alfenas-MG, cuidando de cada rota como se fosse a própria turma viajando.'
+  'Matheus fundou a Busfeest para provar que dá pra viajar em grupo com preço justo sem abrir mão de segurança e pontualidade. Hoje, quase 6 anos depois, ele segue à frente da operação em Alfenas-MG, cuidando de cada rota como se fosse a própria turma viajando.'
 
 export function Founder() {
   const headerReveal = useReveal(fadeUp)
@@ -35,8 +35,8 @@ export function Founder() {
             name={FOUNDER_NAME}
             title={FOUNDER_TITLE}
             description={FOUNDER_DESCRIPTION}
-            imageUrl={media.founderPhoto}
-            instagramUrl={site.instagram.url}
+            imageUrl={media.photoInstagram}
+            instagramUrl={site.boss.url}
             whatsappUrl={whatsappLink('Olá! Vim pelo site da Busfeest e queria falar com você.')}
           />
         </motion.div>

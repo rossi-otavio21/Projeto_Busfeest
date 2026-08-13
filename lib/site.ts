@@ -11,7 +11,7 @@ import {
  * Fonte única de verdade para contato, navegação e mensagens de WhatsApp.
  */
 
-const WHATSAPP_NUMBER = '5535997594706'
+const WHATSAPP_NUMBER = '5535997454484'
 
 // TODO: defina NEXT_PUBLIC_SITE_URL nas env vars da Vercel quando o domínio
 // final for escolhido — esse placeholder só existe para metadata/sitemap/robots
@@ -35,6 +35,12 @@ export const site = {
     display: '(35) 9 9759-4706',
     number: WHATSAPP_NUMBER,
   },
+
+  boss:{
+    handle: '@matheusrossi',
+    url: 'https://www.instagram.com/mathheusouzaaa/',
+  },
+
   base: 'Alfenas — MG',
 } as const
 

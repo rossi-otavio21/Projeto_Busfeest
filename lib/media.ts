@@ -14,7 +14,9 @@ export const media = {
    * fundador/equipe no projeto — usa a mesma foto real de grupo+van até
    * que uma foto de equipe seja enviada (só trocar este caminho).
    */
-  contactPhoto: '/images/eventos/busfeest-unigames-embarque.jpg',
+  
+  photoInstagram: '/images/instagram/perfil.jpg',
+  contactPhoto: '/images/instagram/contato.jpg',
   /**
    * Foto do fundador no card "Quem toca a Busfeest" (Sobre). Placeholder
    * até chegar a foto de verdade — só trocar este caminho.

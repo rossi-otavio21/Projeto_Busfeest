@@ -163,6 +163,19 @@
   animation: road-marquee 2.4s linear infinite;
 }
 
+/* Painel do letreiro — a grade de LEDs apagados do painel de destino do
+   ônibus, textura de fundo da faixa usada na galeria de viagens
+   (components/brand/letreiro.tsx). Só o fundo é pontilhado: o texto fica
+   sólido por cima, para não perder contraste em corpo pequeno. */
+@utility letreiro-panel {
+  background-color: var(--color-navy-deep);
+  background-image: radial-gradient(
+    var(--color-navy-700) 0.5px,
+    transparent 0.6px
+  );
+  background-size: 3px 3px;
+}
+
 /* Micro-rota tracejada — mesma técnica do road-dashes, em escala menor e na
    horizontal, reservada ao indicador de trajeto do header (SiteHeader). */
 @utility route-track {

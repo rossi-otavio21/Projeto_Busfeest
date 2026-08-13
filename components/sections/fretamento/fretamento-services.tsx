@@ -44,11 +44,7 @@ const services: FretamentoService[] = [
     featured: true,
     images: [
       {
-        src: media.eventPhoto,
-        alt: 'Delegação universitária e van da Busfeest no Unigames 2026',
-      },
-      {
-        src: media.embarqueEstudantes,
+        src: media.posts.treme,
         alt: 'Estudantes embarcando em ônibus da Busfeest para viagem em grupo',
       },
       {
@@ -56,7 +52,7 @@ const services: FretamentoService[] = [
         alt: 'Post do Instagram da Busfeest: atlética Muquirana comemorando com troféu no Unigames 2026',
         isPost: true,
       },
-      // Sequência: grupo/van → embarque → comemoração no evento.
+    
     ],
   },
   {
@@ -68,11 +64,11 @@ const services: FretamentoService[] = [
     ctaMessage: 'Olá! Quero um orçamento de fretamento para turismo regional/excursão.',
     images: [
       {
-        src: media.heroBackground,
+        src: media.viagens.embarqueAvenida,
         alt: 'Ônibus de turismo da Busfeest percorrendo estradas no sul de Minas Gerais',
       },
       {
-        src: media.onibusAlfenasJuizDeFora,
+        src: media.corporativo.equipeScMinasGrupo2,
         alt: 'Ônibus reais contratados pela Busfeest para a rota Alfenas × Juiz de Fora',
         // Foto original tem uma legenda no topo. O contêiner é quase
         // quadrado (pouca margem de recorte vertical), então só

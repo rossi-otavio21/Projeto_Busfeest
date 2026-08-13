@@ -21,7 +21,10 @@ export function ContatoInfo() {
   return (
     <section className="relative overflow-hidden bg-navy">
       <div className="mx-auto grid max-w-7xl gap-12 px-6 pb-20 pt-32 md:grid-cols-[1.05fr_0.95fr] md:items-end md:gap-16 md:px-8 md:pb-0 md:pt-44">
-        <div>
+        {/* A coluna de texto precisa da própria folga inferior: a seção usa
+            `md:pb-0` para a foto ao lado sangrar até o rodapé, senão o CTA
+            encostaria no rodapé junto com ela. */}
+        <div className="md:pb-24">
           <motion.div {...headerReveal} className="max-w-xl">
             <motion.div
               variants={fadeUp}

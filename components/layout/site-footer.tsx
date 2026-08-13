@@ -8,13 +8,13 @@ export function SiteFooter() {
   const whatsapp = whatsappLink('Olá! Vim pelo site da Busfeest.')
 
   return (
-    <footer className="border-t border-white/10 bg-navy-deep py-16 text-gray">
+    <footer className="border-t border-white/10 bg-navy-deep py-16 text-gray md:py-20">
       <div className="mx-auto max-w-7xl px-6 md:px-8">
-        <div className="grid gap-10 md:grid-cols-3">
+        <div className="grid gap-12 md:grid-cols-3 md:gap-16">
           {/* Marca */}
           <div>
             <Logo variant="white" />
-            <p className="mt-4 max-w-xs text-sm font-light leading-relaxed">
+            <p className="mt-5 max-w-xs text-sm font-light leading-relaxed">
               {site.tagline} Turismo low cost e fretamento para grupos no sul de
               Minas Gerais.
             </p>
@@ -25,7 +25,7 @@ export function SiteFooter() {
             <p className="text-sm font-semibold uppercase tracking-wider text-white">
               Navegação
             </p>
-            <ul className="mt-4 space-y-2.5">
+            <ul className="mt-5 space-y-3">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <Link
@@ -44,7 +44,7 @@ export function SiteFooter() {
             <p className="text-sm font-semibold uppercase tracking-wider text-white">
               Contato
             </p>
-            <ul className="mt-4 space-y-3 text-sm">
+            <ul className="mt-5 space-y-4 text-sm">
               <li>
                 <a
                   href={whatsapp}
@@ -75,7 +75,7 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col-reverse gap-4 border-t border-white/10 pt-6 text-xs text-gray/80 md:flex-row md:items-center md:justify-between">
+        <div className="mt-14 flex flex-col-reverse gap-4 border-t border-white/10 pt-8 text-xs text-gray/80 md:flex-row md:items-center md:justify-between">
           <p>
             © {new Date().getFullYear()} {site.name}. Todos os direitos
             reservados.
