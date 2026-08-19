@@ -34,7 +34,7 @@ export function Hero() {
     // aparecer e foi rejeitado na revisão — junto com a headline que
     // falava em "scroll". Não voltar sem pedido explícito.
     <section id="top" className="relative h-svh bg-navy">
-      <div className="isolate flex h-full w-full flex-col justify-between overflow-hidden bg-navy">
+      <div className="relative isolate flex h-full w-full flex-col justify-between overflow-hidden bg-navy">
         {/* Fotografia real da BUSFEEST: com tratamento sutil para valorizar o ônibus real e as montanhas de Minas */}
         <motion.div
           className="absolute inset-0"

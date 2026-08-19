@@ -26,7 +26,7 @@ export function Highlights() {
             </h2>
           </div>
           <p className="max-w-md text-base font-light text-muted-foreground">
-            Quer você precise levar uma delegação de atlética, excursão de família ou fretamento corporativo, a Busfeest cuida do trajeto.
+            Três caminhos para o mesmo lugar: entrar numa viagem já montada, fretar o veículo inteiro para o seu grupo, ou ver até onde a gente chega.
           </p>
         </div>
 
@@ -80,7 +80,7 @@ export function Highlights() {
                 Fretamento de Ônibus & Vans
               </h3>
               <p className="mt-4 text-base font-light text-muted-foreground leading-relaxed">
-                Transporte exclusivo para atléticas universitárias, empresas, igrejas e traslados de aeroporto. Rota e horários 100% personalizados.
+                Você diz a data, o ponto de embarque e quantas pessoas são. A gente escolhe o veículo do tamanho certo — van, executivo ou rodoviário — e o horário é o seu.
               </p>
               <Link
                 href="/fretamento"
@@ -126,10 +126,10 @@ export function Highlights() {
           <div className="md:col-span-8">
             <span className="text-xs font-bold text-blue uppercase tracking-widest">Rede de conexão</span>
             <h3 className="mt-3 text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight">
-              Alfenas → Ribeirão Preto, Belo Horizonte, São Paulo & Uberaba.
+              De Alfenas a 22 cidades, entre Minas e São Paulo.
             </h3>
             <p className="mt-4 max-w-xl text-base font-light text-gray leading-relaxed">
-              Conectamos o Sul de Minas às principais capitais e polos regionais. Rotas diretas e conexões sob medida.
+              Capital, Triângulo, Campo das Vertentes e interior paulista — mais a malha densa aqui do lado, onde a gente roda toda semana.
             </p>
           </div>
           <div className="md:col-span-4 flex md:justify-end">

@@ -7,6 +7,18 @@ import { media } from '@/lib/media'
 
 const headerStagger = staggerContainer(0.09, 0.1)
 
+/**
+ * Marcos da operação. Todos com fonte: os posts da própria Busfeest
+ * arquivados em /public/images/originais e a malha em rotas-data.ts.
+ * Não acrescentar nada aqui sem material que comprove.
+ */
+const marcos = [
+  { valor: '~6', label: 'anos de estrada' },
+  { valor: '22', label: 'cidades atendidas' },
+  { valor: '6', label: 'ônibus num evento' },
+  { valor: '219', label: 'pessoas/dia no Treme' },
+]
+
 export function SobreHistoria() {
   const headerReveal = useReveal(headerStagger)
   const photoReveal = useReveal(slideFromLeft)
@@ -48,6 +60,36 @@ export function SobreHistoria() {
               profissional, horário combinado antes e alguém da Busfeest
               acompanhando a operação do embarque ao retorno.
             </p>
+            <p className="mt-6 text-lg font-light leading-relaxed text-muted-foreground md:text-xl">
+              Na prática isso é bem concreto. Na{' '}
+              <strong className="font-semibold text-navy">Arapuca</strong>, em
+              Lavras, foram 6 ônibus na rua para um evento só, com o ingresso
+              saindo junto com a viagem. Para{' '}
+              <strong className="font-semibold text-navy">
+                São João del-Rei
+              </strong>{' '}
+              foram 5 excursões só em 2026. No{' '}
+              <strong className="font-semibold text-navy">Treme</strong>, 14
+              vans no transporte interno e mais 2 ônibus na rota Alfenas ×
+              Pouso Alegre.
+            </p>
+
+            {/* Régua de números: o que o texto acima afirma, em formato de
+                consulta rápida. Cada um sai de material publicado pela
+                própria empresa — nenhum foi estimado. */}
+            <dl className="mt-10 grid grid-cols-2 gap-6 border-t border-navy/10 pt-8 sm:grid-cols-4">
+              {marcos.map((marco) => (
+                <div key={marco.label}>
+                  <dt className="sr-only">{marco.label}</dt>
+                  <dd className="text-3xl font-extrabold tracking-tight text-blue md:text-4xl">
+                    {marco.valor}
+                  </dd>
+                  <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                    {marco.label}
+                  </p>
+                </div>
+              ))}
+            </dl>
           </div>
 
           <motion.div {...photoReveal} className="relative h-72 overflow-hidden rounded-2xl md:h-auto">

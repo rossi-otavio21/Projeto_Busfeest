@@ -39,7 +39,7 @@ const services: FretamentoService[] = [
     number: '01',
     title: 'Fretamento para Grupos & Atléticas',
     description:
-      'Atléticas universitárias, igrejas, empresas e famílias. Fretamento sob medida para o tamanho e a rota do seu grupo — o coração do que fazemos.',
+      'O coração do que fazemos: o veículo inteiro à disposição de um grupo só, com rota e horário definidos por quem contrata. Foi assim no Unigames, no Intermed e em cada delegação que atravessou o estado com a gente.',
     ctaMessage: 'Olá! Quero solicitar um orçamento de fretamento para grupos/atléticas.',
     featured: true,
     images: [

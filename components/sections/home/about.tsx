@@ -86,7 +86,7 @@ export function About() {
               A <strong className="font-semibold text-navy">Busfeest</strong> nasceu para tornar a viagem em grupo acessível e segura: um transporte low cost de verdade, pensado para quem quer economizar sem abrir mão do conforto e do profissionalismo.
             </p>
             <p>
-              Com base em Alfenas, atendemos turmas universitárias, atléticas, empresas, igrejas e famílias em excursões, passeios e traslados por toda a região.
+              Da base em Alfenas já saímos para 22 cidades — e no mesmo mês a operação vai de uma excursão de fim de semana a seis ônibus na rua para um evento só.
             </p>
           </div>
 
