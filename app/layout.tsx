@@ -28,7 +28,7 @@ const instrumentSerif = Instrument_Serif({
 
 const title = 'Busfeest | O transporte que cabe no seu orçamento'
 const description =
-  'Transporte rodoviário de passageiros e turismo low cost no sul de Minas Gerais. Fretamento para grupos, excursões, translado de aeroporto e conexão entre cidades com preço justo e segurança.'
+  'Transporte rodoviário de passageiros e turismo low cost no sul de Minas Gerais. Fretamento para grupos, excursões, traslado de aeroporto e conexão entre cidades com preço justo e segurança.'
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -42,6 +42,9 @@ export const metadata: Metadata = {
     'sul de Minas Gerais',
     'Alfenas',
     'excursão',
+    'traslado aeroporto',
+    // Grafia alternativa mantida de propósito: 'translado' é a forma mais
+    // buscada no Brasil, ainda que 'traslado' seja a preferida na copy.
     'translado aeroporto',
   ],
   alternates: {

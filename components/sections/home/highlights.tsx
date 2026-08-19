@@ -80,7 +80,7 @@ export function Highlights() {
                 Fretamento de Ônibus & Vans
               </h3>
               <p className="mt-4 text-base font-light text-muted-foreground leading-relaxed">
-                Transporte exclusivo para atléticas universitárias, empresas, igrejas e translados de aeroporto. Rota e horários 100% personalizados.
+                Transporte exclusivo para atléticas universitárias, empresas, igrejas e traslados de aeroporto. Rota e horários 100% personalizados.
               </p>
               <Link
                 href="/fretamento"

@@ -43,11 +43,10 @@ export function SobreHistoria() {
               também não abre mão de chegar bem e com segurança.
             </p>
             <p className="mt-6 text-lg font-light leading-relaxed text-muted-foreground md:text-xl">
-              De lá pra cá, expandimos nossa atuação por todo o sul de Minas
-              Gerais — hoje atendemos turmas de faculdade, atléticas, igrejas,
-              empresas e famílias em excursões, competições universitárias,
-              eventos e translados, sempre com o mesmo motorista de sempre e o
-              mesmo cuidado com cada grupo.
+              De lá pra cá, expandimos a atuação por todo o sul de Minas Gerais
+              — e crescemos sem mudar o método: veículo vistoriado, motorista
+              profissional, horário combinado antes e alguém da Busfeest
+              acompanhando a operação do embarque ao retorno.
             </p>
           </div>
 

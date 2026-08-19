@@ -89,11 +89,11 @@ const services: FretamentoService[] = [
     ],
   },
   {
-    id: 'translado-aeroportos',
+    id: 'traslado-aeroportos',
     number: '03',
-    title: 'Translado de Aeroportos & Conexões',
+    title: 'Traslado de Aeroportos & Conexões',
     description: 'Horários combinados e pontualidade nos principais aeroportos da região.',
-    ctaMessage: 'Olá! Quero um orçamento de translado de aeroporto com a Busfeest.',
+    ctaMessage: 'Olá! Quero um orçamento de traslado de aeroporto com a Busfeest.',
     images: [
       {
         src: media.aboutPhoto,
@@ -102,7 +102,7 @@ const services: FretamentoService[] = [
       // Só há 1 foto real coerente com esta modalidade hoje — sem foto de
       // aeroporto/bagagem real ainda. NÃO inventar placeholder.
       // FOTO FUTURA IDEAL: passageiros com bagagem embarcando/desembarcando
-      // em translado de aeroporto, horizontal 16:9, luz natural.
+      // em traslado de aeroporto, horizontal 16:9, luz natural.
     ],
   },
 ]
