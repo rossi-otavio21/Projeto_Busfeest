@@ -11,6 +11,10 @@
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
+    // Existe só para scripts/gerar-malha-pontos.ts, que roda pelo Node
+    // (type stripping nativo) e por isso importa `./rotas-data.ts` com a
+    // extensão explícita. Inerte para o build do app enquanto `noEmit`
+    // estiver ligado — se alguém desligar `noEmit`, revisar esta flag.
     "allowImportingTsExtensions": true,
     "jsx": "react-jsx",
     "incremental": true,

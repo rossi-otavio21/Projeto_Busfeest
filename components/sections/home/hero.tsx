@@ -150,8 +150,18 @@ export function Hero() {
               <span>A estrada continua</span>
               <motion.span
                 aria-hidden="true"
-                animate={reduceMotion ? undefined : { y: [0, 4, 0] }}
-                transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
+                // O ramo sem movimento traz `y: 0` explícito, não `undefined`.
+                // Hoje `undefined` também funcionaria — `y` é transform, e o
+                // MotionConfig do motion-provider já bloqueia transform sob
+                // movimento reduzido. Mas essa rede não pega opacity nem
+                // pathLength: quem confiou nela nesses dois casos acabou com
+                // conteúdo invisível (ver about.tsx e rotas-mapa.tsx).
+                animate={reduceMotion ? { y: 0 } : { y: [0, 4, 0] }}
+                transition={
+                  reduceMotion
+                    ? { duration: 0 }
+                    : { duration: 1.8, repeat: Infinity, ease: 'easeInOut' }
+                }
                 className="inline-flex"
               >
                 <ChevronMark className="h-3.5 w-3.5 rotate-90" />
