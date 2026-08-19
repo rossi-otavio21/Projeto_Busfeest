@@ -168,20 +168,3 @@ export const cidadesAtendidas: CidadeAtendida[] = areasAtuacao.flatMap(
 
 /** Total exibido no cabeçalho da seção — nunca digitado à mão. */
 export const totalCidadesAtendidas = cidadesAtendidas.length
-
-/**
- * Enquadramentos do mapa. No desktop sobra largura, então a moldura mostra
- * bastante do país em volta; no mobile, quase quadrado, esse mesmo recorte
- * espremeria as cidades num punhado de pixels — daí um recorte mais fechado
- * na região atendida. [[oeste, sul], [leste, norte]]
- */
-export const rotasEnquadramento = {
-  desktop: [
-    [-53.2, -26.0],
-    [-40.2, -17.3],
-  ] as [[number, number], [number, number]],
-  mobile: [
-    [-49.0, -24.4],
-    [-42.9, -18.4],
-  ] as [[number, number], [number, number]],
-}

@@ -1,6 +1,5 @@
 'use client'
 
-import dynamic from 'next/dynamic'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { ArrowRight, MapPin } from 'lucide-react'
@@ -10,19 +9,8 @@ import { WhatsappGlyph } from '@/components/brand/icons'
 import { fadeUp, staggerContainer, useReveal } from '@/lib/motion'
 import { whatsappLink } from '@/lib/site'
 import { RotasCobertura } from './rotas-cobertura'
+import { RotasMapa } from './rotas-mapa'
 import { rotasBase, rotasDestinos } from './rotas-data'
-
-// MapLibre depende de APIs do navegador — carrega só no cliente, com um
-// placeholder da mesma altura para não haver salto de layout.
-const RotasFlightMap = dynamic(
-  () => import('./rotas-flight-map').then((mod) => mod.RotasFlightMap),
-  {
-    ssr: false,
-    loading: () => (
-      <div className="h-[360px] w-full animate-pulse rounded-2xl border border-white/10 bg-navy-deep md:h-[460px]" />
-    ),
-  },
-)
 
 const headerStagger = staggerContainer(0.09, 0.1)
 const cardsStagger = staggerContainer(0.08)
@@ -65,9 +53,9 @@ export function RotasMap() {
             </motion.p>
           </motion.div>
 
-          {/* Rede de rotas em mapa vetorial dark */}
+          {/* Rede de rotas em SVG pontilhado — sem WebGL, sem tiles */}
           <motion.div {...mapReveal} className="mt-12">
-            <RotasFlightMap />
+            <RotasMapa />
           </motion.div>
 
           {/* Contraparte em texto do mapa: a malha inteira, por região */}
