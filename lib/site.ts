@@ -32,7 +32,7 @@ export const site = {
     url: 'https://instagram.com/busfeest',
   },
   whatsapp: {
-    display: '(35) 9 9759-4706',
+    display: '(35) 99745-4484',
     number: WHATSAPP_NUMBER,
   },
 
