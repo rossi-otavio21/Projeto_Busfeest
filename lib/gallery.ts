@@ -92,7 +92,7 @@ export const galleryItems: GalleryItem[] = [
     width: 720,
     height: 1280,
     sign: 'Medicina Unifal',
-    alt: 'Fila de estudantes de medicina com mochilas e bagagem ao longo do muro, esperando para embarcar no ônibus da SC Minas',
+    alt: 'Fila de estudantes de medicina com mochilas e bagagem ao longo do muro, esperando para embarcar no ônibus',
   },
   {
     id: 'medicina-carro-01',
@@ -221,11 +221,11 @@ export const galleryItems: GalleryItem[] = [
   {
     id: 'equipe-a-bordo',
     category: 'Fretamento & Escolas',
-    src: media.corporativo.equipeScMinasGrupo,
-    width: 1280,
-    height: 960,
-    sign: 'Equipe a bordo',
-    alt: 'Equipe de doze pessoas posando sorrindo encostada na lateral do ônibus fretado para o transporte do grupo',
+    src: media.frota.busscarFrente,
+    width: 720,
+    height: 1280,
+    sign: 'Frota a postos',
+    alt: 'Ônibus azul da Busfeest parado e pronto para o embarque, visto de frente em dia de sol',
   },
   {
     id: 'executivo',

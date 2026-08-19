@@ -67,15 +67,17 @@ const services: FretamentoService[] = [
         src: media.viagens.embarqueAvenida,
         alt: 'Ônibus de turismo da Busfeest percorrendo estradas no sul de Minas Gerais',
       },
+      // Aqui havia uma foto de grupo encostado num ônibus com a pintura da
+      // SC Minas: o letreiro da outra operadora ocupava um terço do quadro,
+      // e o alt ainda descrevia uma viagem diferente da que está na foto.
       {
-        src: media.corporativo.equipeScMinasGrupo2,
-        alt: 'Ônibus reais contratados pela Busfeest para a rota Alfenas × Juiz de Fora',
-        // Foto original tem uma legenda no topo. O contêiner é quase
-        // quadrado (pouca margem de recorte vertical), então só
-        // object-position não basta — soma um zoom leve, ampliado em torno
-        // do mesmo ponto, para empurrar a legenda inteira para fora do quadro.
-        position: '50% 100%',
-        zoom: 1.3,
+        src: media.eventos.excursaoFestaJuninaGrupo,
+        alt: 'Turma de uma excursão da Busfeest reunida sob as bandeirinhas de uma festa junina, ouvindo o guia antes do passeio',
+      },
+      {
+        src: media.eventos.excursaoGuiaParque,
+        alt: 'Guia conduzindo o grupo da Busfeest pela sombra das árvores do parque durante um roteiro guiado',
+        position: '50% 35%',
       },
       {
         src: media.posts.experiencias,
@@ -96,8 +98,8 @@ const services: FretamentoService[] = [
     ctaMessage: 'Olá! Quero um orçamento de traslado de aeroporto com a Busfeest.',
     images: [
       {
-        src: media.aboutPhoto,
-        alt: 'Passageiros embarcando no ônibus da Busfeest para uma viagem',
+        src: media.frota.busscarFrente,
+        alt: 'Ônibus azul da Busfeest parado e pronto para o embarque, visto de frente',
       },
       // Só há 1 foto real coerente com esta modalidade hoje — sem foto de
       // aeroporto/bagagem real ainda. NÃO inventar placeholder.

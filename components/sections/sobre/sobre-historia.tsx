@@ -94,11 +94,12 @@ export function SobreHistoria() {
 
           <motion.div {...photoReveal} className="relative h-72 overflow-hidden rounded-2xl md:h-auto">
             <Image
-              src={media.aboutPhoto}
-              alt="Grupo de passageiros embarcando animados em um ônibus da Busfeest para uma excursão"
+              src={media.historiaPhoto}
+              alt="Ônibus azul da Busfeest com o letreiro Turismo aceso, recebendo os passageiros na calçada"
               fill
               sizes="(min-width: 768px) 50vw, 100vw"
               className="object-cover"
+              style={{ objectPosition: '58% 45%' }}
             />
           </motion.div>
         </div>

@@ -57,10 +57,11 @@ export function About() {
           >
             <Image
               src={media.aboutPhoto}
-              alt="Grupo de passageiros reais embarcando animados em um ônibus da Busfeest para uma excursão"
+              alt="Ônibus azul da Busfeest encostado na calçada com o letreiro escrito Boa viagem, enquanto os passageiros embarcam"
               fill
               sizes="(min-width: 768px) 50vw, 100vw"
-              className="object-cover object-center brightness-100 contrast-[1.02]"
+              className="object-cover brightness-100 contrast-[1.02]"
+              style={{ objectPosition: '55% 50%' }}
             />
           </motion.div>
           

@@ -17,7 +17,21 @@ export const media = {
    * ela existir, é só trocar este caminho.
    */
   heroBackground: '/images/eventos/busfeest-excursao-brodowski-grupo.jpg',
-  aboutPhoto: '/images/sobre/busfeest-embarque-grupo.jpg',
+  /**
+   * A Busfeest fretador contrata veículo de terceiro, então quase toda foto
+   * de ônibus no acervo traz a pintura de outra operadora (SC Minas, Dozza,
+   * ACM). A regra adotada: livery de terceiro não entra em Hero, foto de
+   * seção nem card de serviço — só na galeria, que é acervo documental,
+   * mostra a foto inteira e sem recorte.
+   *
+   * Estas duas são do ônibus azul que a Busfeest roda, sem marca de
+   * ninguém no lugar da dela, e com o letreiro dizendo o que a seção diz.
+   * (A foto anterior, /images/sobre/busfeest-embarque-grupo.jpg, segue no
+   * projeto: bom embarque de delegação, mas o teto do ônibus traz a pintura
+   * da SC Minas e não havia recorte que a tirasse sem estourar o zoom.)
+   */
+  aboutPhoto: '/images/viagens/busfeest-embarque-cine-boa-viagem.jpg',
+  historiaPhoto: '/images/viagens/busfeest-embarque-cine-turismo.jpg',
   finalCtaBackground: '/images/eventos/busfeest-excursao-brodowski-grupo.jpg',
   /** Grupo real (alunos + van) no evento Unigames 2026 — recorte via object-position. */
   eventPhoto: '/images/eventos/busfeest-unigames-embarque.jpg',
@@ -28,7 +42,20 @@ export const media = {
    */
   
   photoInstagram: '/images/instagram/perfil.jpg',
-  contactPhoto: '/images/instagram/contato.jpg',
+  /**
+   * Coluna fotográfica da página de Contato.
+   *
+   * Era /images/instagram/contato.jpg — o post "o transporte que cabe no
+   * seu orçamento", com a carteira. Arte de feed quadrada, não fotografia:
+   * para preencher uma coluna de 36rem ela vinha com `scale(2.2)`, o que
+   * cortava fora o título e o logo do próprio post e deixava só um pedaço
+   * ampliado (e borrado) da carteira. O post continua no projeto e segue
+   * ótimo no lugar dele, inteiro, num card — só não como foto de fundo.
+   *
+   * No lugar, gente de verdade: grupo real da Busfeest ouvindo o guia numa
+   * parada de excursão.
+   */
+  contactPhoto: '/images/eventos/busfeest-excursao-parada-guia.jpg',
   /**
    * Foto do fundador no card "Quem toca a Busfeest" (Sobre). Placeholder
    * até chegar a foto de verdade — só trocar este caminho.

@@ -118,11 +118,13 @@ export function ContatoInfo() {
         <motion.div {...photoReveal} className="relative h-72 overflow-hidden md:h-[36rem]">
           <Image
             src={media.contactPhoto}
-            alt="Grupo de estudantes reais ao lado de uma van da Busfeest durante o Unigames 2026"
+            alt="Grupo real de uma excursão da Busfeest reunido em volta do guia durante uma parada do roteiro"
             fill
             sizes="(min-width: 768px) 45vw, 100vw"
             className="object-cover"
-            style={{ objectPosition: '50% 75%', transform: 'scale(2.2)', transformOrigin: '50% 75%' }}
+            // Recorte na altura do grupo: tira o excesso de céu em cima e a
+            // vegetação (com o carimbo de data da câmera) embaixo.
+            style={{ objectPosition: '50% 56%' }}
           />
           <div
             aria-hidden="true"
