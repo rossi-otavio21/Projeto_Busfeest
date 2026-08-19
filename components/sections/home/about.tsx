@@ -16,6 +16,14 @@ export function About() {
   // backdrop-blur dentro do contêiner que escala eram pesados demais — a
   // legenda com blur força repaint a cada frame enquanto a foto anima scale
   // por baixo dela. Desktop mantém a coreografia completa.
+  //
+  // Os ramos "sem animação" abaixo precisam trazer o valor de repouso
+  // explícito (`{ opacity: 1 }`, `{ scale: 1 }`...), nunca `undefined`.
+  // `isMobile` só vira true depois da hidratação: no primeiro render o
+  // componente ainda se acha desktop e o Framer escreve `opacity: 0` no
+  // style inline. Trocar o style para `undefined` depois não apaga o que
+  // já foi escrito — e o bloco de texto inteiro ficava invisível no
+  // celular, que era exatamente o caso desta seção.
   const heavyMotion = !reduceMotion && !isMobile
 
   // Progresso contínuo de scroll para sincronizar fotografia e tipografia
@@ -48,11 +56,11 @@ export function About() {
       <div className="mx-auto grid max-w-7xl gap-12 px-6 md:grid-cols-12 md:items-center md:gap-16 md:px-8">
         {/* Enquadramento fotográfico autêntico — sem caixas de sombra artificiais */}
         <motion.div
-          style={heavyMotion ? { scale: photoScale } : undefined}
+          style={heavyMotion ? { scale: photoScale } : { scale: 1 }}
           className="relative min-h-[420px] md:min-h-[580px] md:col-span-6 overflow-hidden rounded-2xl md:rounded-3xl bg-navy/5 shadow-2xl"
         >
           <motion.div
-            style={heavyMotion ? { y: photoParallax } : undefined}
+            style={heavyMotion ? { y: photoParallax } : { y: 0 }}
             className="absolute inset-0 h-[115%] -top-[7.5%]"
           >
             <Image
@@ -75,7 +83,7 @@ export function About() {
 
         {/* Narrativa Editorial de Texto (Sem Card Flutuante) */}
         <motion.div
-          style={heavyMotion ? { opacity: textOpacity, y: textY } : undefined}
+          style={heavyMotion ? { opacity: textOpacity, y: textY } : { opacity: 1, y: 0 }}
           className="flex flex-col justify-center md:col-span-6"
         >
           <h2 className="text-balance text-3xl font-extrabold leading-[1.02] tracking-tight text-navy sm:text-5xl md:text-6xl">
@@ -92,7 +100,7 @@ export function About() {
           </div>
 
           <motion.div
-            style={heavyMotion ? { scaleX: dividerScale, transformOrigin: 'left' } : { transformOrigin: 'left' }}
+            style={heavyMotion ? { scaleX: dividerScale, transformOrigin: 'left' } : { scaleX: 1, transformOrigin: 'left' }}
             className="mt-8 max-w-32"
           >
             <RoadDivider />
