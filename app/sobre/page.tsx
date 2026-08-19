@@ -8,7 +8,7 @@ import { SocialProof } from '@/components/sections/sobre/social-proof'
 export const metadata: Metadata = {
   title: 'Sobre | Busfeest',
   description:
-    'Há quase 6 anos a Busfeest transporta grupos pelo sul de Minas Gerais com preço justo e segurança. Conheça a história, os diferenciais e quem já viajou com a gente.',
+    'Há quase 6 anos a Busfeest transporta grupos pelo sul de Minas Gerais com preço justo e segurança. Excursão oficial do Unigames, Tusca, Intermed, Arapuca e Treme. Conheça a história e quem já viajou com a gente.',
   alternates: { canonical: '/sobre' },
 }
 

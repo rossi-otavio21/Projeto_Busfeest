@@ -162,10 +162,14 @@ export function Testimonials() {
           </motion.a>
         </motion.div>
 
-        <p className="mt-10 text-sm font-light text-gray">
-          Em 2026, atendemos as delegações do Unigames — a maior competição
-          universitária do interior — chegando a transportar mais de 40
-          passageiros por dia para uma única atlética parceira.
+        <p className="mt-10 max-w-3xl text-sm font-light leading-relaxed text-gray">
+          Só para a A.A.A.E.M.S. foram{' '}
+          <strong className="font-semibold text-white">123 passageiros</strong> em
+          uma única operação. No Treme, a Busfeest colocou{' '}
+          <strong className="font-semibold text-white">14 vans</strong> no
+          transporte interno — 219 pessoas por dia — mais{' '}
+          <strong className="font-semibold text-white">2 ônibus</strong> na rota
+          Alfenas × Pouso Alegre, com 92 passageiros.
         </p>
       </div>
     </section>
