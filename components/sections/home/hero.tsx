@@ -1,9 +1,8 @@
 'use client'
 
-import { useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { ChevronMark } from '@/components/brand/chevron'
 import { WhatsappCta } from '@/components/brand/whatsapp-cta'
 import {
@@ -15,54 +14,46 @@ import {
   usePrefersReducedMotion,
 } from '@/lib/motion'
 import { media } from '@/lib/media'
+import { totalCidadesAtendidas } from '@/components/sections/rotas/rotas-data'
 
 const heroStagger = staggerContainer(0.09, 0.12)
 
 export function Hero() {
-  const wrapperRef = useRef<HTMLElement>(null)
   const reduceMotion = usePrefersReducedMotion()
   const isMobile = useIsMobileViewport()
-  // No mobile o encolher-e-arredondar em scroll (borderRadius animado força
-  // repaint a cada frame) e o zoom Ken Burns infinito no fundo saem —
-  // aparelhos mais fracos sentiam isso como lag ao rolar a página. No
-  // desktop o efeito completo continua.
-  const heavyMotion = !reduceMotion && !isMobile
-
-  // O wrapper é mais alto que a tela — enquanto se rola por essa sobra, o
-  // quadro do Hero permanece fixo no topo e encolhe com o scroll. Altura e
-  // faixa de scroll ficam iguais em mobile/desktop (mudar isso depois da
-  // hidratação, quando `isMobile` é detectado, causaria um salto de layout
-  // visível — só o `style` animado abaixo é que liga/desliga).
-  const { scrollYProgress } = useScroll({
-    target: wrapperRef,
-    offset: ['start start', 'end start'],
-  })
-  const scale = useTransform(scrollYProgress, [0, 1], [1, reduceMotion ? 1 : 0.88])
-  const radius = useTransform(scrollYProgress, [0, 1], [0, reduceMotion ? 0 : 28])
-
-  // Revelação sutil da faixa de estrada no fechamento do Hero
-  const roadReveal = useTransform(scrollYProgress, [0.5, 1], reduceMotion ? [1, 1] : [0, 1])
+  // Zoom Ken Burns do fundo: contínuo, não ligado ao scroll. Sai no mobile
+  // (aparelhos mais fracos sentiam o repaint) e sob movimento reduzido.
+  const kenBurns = !reduceMotion && !isMobile
 
   return (
-    <section ref={wrapperRef} id="top" className="relative h-[175svh] bg-navy">
-      <motion.div
-        style={heavyMotion ? { scale, borderRadius: radius } : undefined}
-        className="sticky top-0 isolate flex h-svh w-full origin-center flex-col justify-between overflow-hidden bg-navy shadow-[0_60px_120px_-40px_rgba(11,26,40,0.85)]"
-      >
+    // O Hero ocupa uma tela e entrega a página para a próxima seção.
+    //
+    // Havia aqui um wrapper de 175svh: o quadro ficava preso no topo e
+    // encolhia (scale + borderRadius animados) enquanto se rolava a sobra.
+    // O efeito custava ~75vh de rolagem antes de qualquer conteúdo novo
+    // aparecer e foi rejeitado na revisão — junto com a headline que
+    // falava em "scroll". Não voltar sem pedido explícito.
+    <section id="top" className="relative h-svh bg-navy">
+      <div className="isolate flex h-full w-full flex-col justify-between overflow-hidden bg-navy">
         {/* Fotografia real da BUSFEEST: com tratamento sutil para valorizar o ônibus real e as montanhas de Minas */}
         <motion.div
           className="absolute inset-0"
           initial={false}
-          animate={heavyMotion ? { scale: 1.05 } : { scale: 1 }}
+          animate={kenBurns ? { scale: 1.05 } : { scale: 1 }}
           transition={{ duration: 25, repeat: Infinity, repeatType: 'mirror', ease: 'linear' }}
         >
+          {/* Recorte puxado para a direita do quadro: enquadra a igreja, as
+              palmeiras e a turma, e empurra o letreiro gigante da cidade
+              para debaixo do gradiente, onde ele não disputa leitura com a
+              headline branca. */}
           <Image
             src={media.heroBackground}
-            alt="Ônibus de viagem da Busfeest percorrendo uma estrada entre as montanhas do sul de Minas Gerais"
+            alt="Turma inteira de uma excursão da Busfeest reunida na praça da cidade de destino, em dia de céu limpo"
             fill
             priority
             sizes="100vw"
-            className="object-cover object-center brightness-95 contrast-105"
+            className="scale-[1.45] object-cover brightness-95 contrast-105"
+            style={{ objectPosition: '86% 40%', transformOrigin: '86% 40%' }}
           />
         </motion.div>
 
@@ -105,18 +96,18 @@ export function Hero() {
               variants={fadeUp}
               className="mt-4 text-balance text-4xl font-extrabold leading-[0.92] tracking-tight text-white sm:text-6xl md:text-7xl lg:text-8xl"
             >
-              A viagem começa
+              Todo mundo na estrada.
               <br />
-              <span className="editorial-accent text-blue">no seu scroll.</span>
+              <span className="editorial-accent text-blue">E no orçamento.</span>
             </motion.h1>
 
             <motion.p
               variants={fadeUp}
               className="mt-6 max-w-2xl text-pretty text-base font-light leading-relaxed text-gray sm:text-xl"
             >
-              Há quase 6 anos conectando turmas, empresas, igrejas e famílias pelas
-              estradas do Sul de Minas Gerais. Viagens em grupo com preço justo e a
-              segurança de quem é da região.
+              Quase 6 anos movendo gente pelo Sul de Minas: {totalCidadesAtendidas}{' '}
+              cidades atendidas, da excursão de fim de semana à linha que roda
+              todo dia útil.
             </motion.p>
 
             <motion.div variants={fadeUp} className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
@@ -148,7 +139,7 @@ export function Hero() {
               </span>
               <span className="text-white/20">•</span>
               <span className="flex items-center gap-2 shrink-0 text-white">
-                <span className="text-blue font-bold">100%</span> Foco em Grupos
+                <span className="text-blue font-bold">{totalCidadesAtendidas}</span> Cidades Atendidas
               </span>
               <span className="text-white/20">•</span>
               <span className="flex items-center gap-2 shrink-0 text-white">
@@ -169,14 +160,13 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Faixa de Estrada revelada no scroll */}
-        <motion.div
+        {/* Faixa de estrada no pé do quadro — antes era revelada conforme o
+            scroll do wrapper alto; sem ele, é grafismo fixo. */}
+        <div
           aria-hidden="true"
-          style={{ scaleX: roadReveal, transformOrigin: 'left' }}
           className="road-dashes absolute inset-x-0 bottom-0 z-20 h-1.5 opacity-90"
         />
-      </motion.div>
+      </div>
     </section>
   )
 }
-

@@ -60,10 +60,10 @@ export const metadata: Metadata = {
     siteName: site.name,
     images: [
       {
-        url: '/images/hero/busfeest-onibus-estrada.jpeg',
+        url: '/images/eventos/busfeest-excursao-brodowski-grupo.jpg',
         width: 1200,
         height: 675,
-        alt: 'Ônibus de viagem da Busfeest percorrendo uma estrada entre as montanhas do sul de Minas Gerais',
+        alt: 'Turma inteira de uma excursão da Busfeest reunida no letreiro da cidade de destino',
       },
     ],
   },
@@ -72,7 +72,7 @@ export const metadata: Metadata = {
     title,
     description:
       'Turismo low cost e fretamento para grupos no sul de Minas Gerais.',
-    images: ['/images/hero/busfeest-onibus-estrada.jpeg'],
+    images: ['/images/eventos/busfeest-excursao-brodowski-grupo.jpg'],
   },
 }
 

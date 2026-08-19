@@ -4,9 +4,21 @@
  * aqui; nenhum componente precisa mudar.
  */
 export const media = {
-  heroBackground: '/images/hero/busfeest-onibus-estrada.jpeg',
+  /**
+   * Fundo do Hero da home e do fechamento.
+   *
+   * Era /images/hero/busfeest-onibus-estrada.jpeg: um ônibus com a pintura
+   * da SC Minas ocupando o centro do quadro, em brilho pleno, na primeira
+   * dobra da home — a foto mais vista do site anunciava outra empresa.
+   *
+   * Esta é uma excursão real da Busfeest chegando ao destino, sem marca de
+   * terceiro em lugar nenhum. Ainda não é o ideal: falta no projeto uma
+   * foto horizontal de ônibus com a pintura da BUSFEEST em estrada. Quando
+   * ela existir, é só trocar este caminho.
+   */
+  heroBackground: '/images/eventos/busfeest-excursao-brodowski-grupo.jpg',
   aboutPhoto: '/images/sobre/busfeest-embarque-grupo.jpg',
-  finalCtaBackground: '/images/hero/busfeest-onibus-estrada.jpeg',
+  finalCtaBackground: '/images/eventos/busfeest-excursao-brodowski-grupo.jpg',
   /** Grupo real (alunos + van) no evento Unigames 2026 — recorte via object-position. */
   eventPhoto: '/images/eventos/busfeest-unigames-embarque.jpg',
   /**

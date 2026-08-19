@@ -17,7 +17,8 @@ export function FretamentoHero() {
       <div className="absolute inset-0 opacity-40">
         <Image
           src={media.heroBackground}
-          alt="Ônibus da Busfeest em estrada"
+          alt=""
+          aria-hidden="true"
           fill
           priority
           sizes="100vw"
