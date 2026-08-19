@@ -9,6 +9,7 @@ import { faCity } from '@fortawesome/free-solid-svg-icons'
 import { WhatsappGlyph } from '@/components/brand/icons'
 import { fadeUp, staggerContainer, useReveal } from '@/lib/motion'
 import { whatsappLink } from '@/lib/site'
+import { RotasCobertura } from './rotas-cobertura'
 import { rotasBase, rotasDestinos } from './rotas-data'
 
 // MapLibre depende de APIs do navegador — carrega só no cliente, com um
@@ -58,8 +59,9 @@ export function RotasMap() {
               variants={fadeUp}
               className="mt-5 text-lg font-light leading-relaxed text-gray"
             >
-              Da base em Alfenas, chegamos aos principais destinos e polos da
-              região — e montamos rotas sob medida para o seu grupo.
+              Da base em Alfenas saem desde a linha diária que leva gente para
+              trabalhar até a excursão de mil quilômetros. O mapa abaixo é a
+              malha que já rodamos — e ela cresce a cada grupo novo.
             </motion.p>
           </motion.div>
 
@@ -67,6 +69,9 @@ export function RotasMap() {
           <motion.div {...mapReveal} className="mt-12">
             <RotasFlightMap />
           </motion.div>
+
+          {/* Contraparte em texto do mapa: a malha inteira, por região */}
+          <RotasCobertura />
         </div>
       </section>
 
@@ -82,7 +87,7 @@ export function RotasMap() {
               className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.25em] text-blue"
             >
               <span className="h-1.5 w-6 rounded-full bg-blue" />
-              Rotas mais pedidas
+              Os destinos mais pedidos
             </motion.p>
 
             <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">

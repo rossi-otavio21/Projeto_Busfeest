@@ -7,7 +7,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBus, faCity } from '@fortawesome/free-solid-svg-icons'
 import { Map, FlightAirport, FlightRoute } from '@/components/ui/flightcn-flight-multi-route'
 import { usePrefersReducedMotion } from '@/lib/motion'
-import { rotasBase, rotasDestinos, rotasEnquadramento } from './rotas-data'
+import {
+  cidadesAtendidas,
+  rotasBase,
+  rotasDestinos,
+  rotasEnquadramento,
+} from './rotas-data'
 
 // O Turbopack não resolve o module worker interno do maplibre-gl (a request
 // do worker volta como HTML 404 → "Failed to load module script" → o estilo
@@ -44,6 +49,18 @@ function CityPin() {
     <span className="flex h-6 w-6 items-center justify-center rounded-full border-2 border-white/70 bg-navy-deep shadow-[0_2px_8px_rgba(0,0,0,0.45)] md:h-7 md:w-7">
       <FontAwesomeIcon icon={faCity} className="h-2.5 w-2.5 text-white/80 md:h-3 md:w-3" aria-hidden="true" />
     </span>
+  )
+}
+
+/**
+ * Cidade atendida sem rótulo — um ponto, não um pino. Com 20+ cidades no
+ * mesmo enquadramento, repetir o pino cheio em todas empasta a região de
+ * Alfenas; o ponto mantém a leitura de "malha densa aqui, alcance largo
+ * ali" sem virar mancha.
+ */
+function CityDot() {
+  return (
+    <span className="block h-2 w-2 rounded-full bg-white/55 shadow-[0_0_6px_1px_rgba(199,204,209,0.35)] ring-1 ring-navy-deep/60 md:h-2.5 md:w-2.5" />
   )
 }
 
@@ -168,19 +185,24 @@ export function RotasFlightMap() {
           markerContent={<BusPin />}
         />
 
-        {/* Destinos — cada cidade na sua coordenada real */}
-        {rotasDestinos.map((destino) => (
-          <FlightAirport
-            key={destino.name}
-            longitude={destino.coords[0]}
-            latitude={destino.coords[1]}
-            name={destino.name}
-            showLabel
-            labelPosition={destino.labelPosition}
-            labelClassName={`${labelBase} !text-white/85 text-[10px] font-semibold tracking-wide`}
-            markerContent={<CityPin />}
-          />
-        ))}
+        {/* Malha atendida — cada cidade na sua coordenada real. Só as âncoras
+            de cada região levam rótulo (`label` em rotas-data): com os 22
+            nomes escritos ao mesmo tempo eles se sobrepõem e o mapa deixa de
+            ser legível justamente na região onde a operação é mais densa. */}
+        {cidadesAtendidas
+          .filter((cidade) => cidade.name !== rotasBase.name)
+          .map((cidade) => (
+            <FlightAirport
+              key={cidade.name}
+              longitude={cidade.coords[0]}
+              latitude={cidade.coords[1]}
+              name={cidade.name}
+              showLabel={Boolean(cidade.label)}
+              labelPosition={cidade.label ?? 'bottom'}
+              labelClassName={`${labelBase} !text-white/85 text-[10px] font-semibold tracking-wide`}
+              markerContent={cidade.label ? <CityPin /> : <CityDot />}
+            />
+          ))}
       </Map>
 
       {/* Vinheta sutil para integrar o mapa ao fundo navy da seção */}
