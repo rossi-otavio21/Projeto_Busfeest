@@ -5,6 +5,7 @@ import { MotionProvider } from '@/components/motion-provider'
 import { SiteHeader } from '@/components/layout/site-header'
 import { SiteFooter } from '@/components/layout/site-footer'
 import { site, siteUrl } from '@/lib/site'
+import { cidadesAtendidas } from '@/components/sections/rotas/rotas-data'
 import '@/lib/fontawesome'
 import './globals.css'
 
@@ -90,7 +91,10 @@ const jsonLd = {
   description,
   url: siteUrl,
   telephone: `+${site.whatsapp.number}`,
-  areaServed: 'Sul de Minas Gerais',
+  areaServed: cidadesAtendidas.map((cidade) => ({
+    '@type': 'City',
+    name: cidade.name,
+  })),
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Alfenas',
