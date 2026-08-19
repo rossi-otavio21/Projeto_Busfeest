@@ -44,7 +44,7 @@ export function FretamentoHero() {
             variants={fadeUp}
             className="mt-6 max-w-2xl text-pretty text-lg font-light leading-relaxed text-gray sm:text-xl"
           >
-            Delegações universitárias, igrejas, empresas, excursões familiares e traslados de aeroporto. Você define a rota e os horários — a gente garante o ônibus ideal e o melhor preço.
+            Quatro modalidades, de excursão de fim de semana a linha fixa diária. Você define a rota e os horários — a gente garante o veículo do tamanho certo e o melhor preço.
           </motion.p>
 
           <motion.div variants={fadeUp} className="mt-8">

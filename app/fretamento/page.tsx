@@ -6,7 +6,7 @@ import { FretamentoServices } from '@/components/sections/fretamento/fretamento-
 export const metadata: Metadata = {
   title: 'Fretamento | Busfeest',
   description:
-    'Fretamento de ônibus e vans para grupos: turismo, eventos, escolas, igrejas, empresas e traslado de aeroportos. Orçamento rápido pelo WhatsApp.',
+    'Fretamento de ônibus e vans no sul de Minas: grupos e atléticas, turismo e excursões, traslado de aeroportos e linha fixa diária entre Machado, Alfenas e Carvalhópolis. Orçamento rápido pelo WhatsApp.',
   alternates: { canonical: '/fretamento' },
 }
 

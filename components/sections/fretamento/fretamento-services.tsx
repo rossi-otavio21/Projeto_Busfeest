@@ -105,6 +105,31 @@ const services: FretamentoService[] = [
       // em traslado de aeroporto, horizontal 16:9, luz natural.
     ],
   },
+  // Quarta modalidade, e a única que não é viagem avulsa: entra como
+  // categoria própria de propósito. Enfiada dentro de "fretamento de
+  // grupos" ela some — é o serviço que roda todo dia útil, no mesmo
+  // horário, e o único em que o passageiro é individual e não um grupo
+  // que contrata. A operação é em parceria; o parceiro não é nomeado.
+  {
+    id: 'linha-fixa',
+    number: '04',
+    title: 'Linha Fixa Diária',
+    description:
+      'Todo dia, no mesmo horário. A Busfeest idealizou e opera em parceria o transporte de trabalhadores, professores e estudantes entre Machado e Alfenas, e entre Carvalhópolis e Machado.',
+    ctaMessage:
+      'Olá! Quero saber sobre a linha fixa da Busfeest (Machado ↔ Alfenas / Carvalhópolis ↔ Machado): horários e como faço para usar.',
+    images: [
+      {
+        src: media.frota.busscarPortaoEscola,
+        alt: 'Ônibus azul da linha fixa da Busfeest parado no portão de uma escola estadual, com o símbolo de acessibilidade no para-brisa',
+      },
+      {
+        src: media.posts.machadoAlfenas,
+        alt: 'Post do Instagram da Busfeest sobre o transporte diário de trabalhadores e estudantes entre Machado e Alfenas, com fotos dos passageiros a bordo',
+        isPost: true,
+      },
+    ],
+  },
 ]
 
 /** Carrossel de imagens da área fotográfica de UM serviço — não afeta título/texto/CTA. */
@@ -208,7 +233,7 @@ export function FretamentoServices() {
           <span>Modalidades de fretamento</span>
         </div>
         <h2 className="mt-4 max-w-2xl text-balance text-3xl font-bold leading-tight text-navy md:text-4xl">
-          Soluções completas de transporte rodoviário
+          Quatro frentes, do passeio de um dia à linha que roda todo dia
         </h2>
       </div>
 
