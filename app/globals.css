@@ -95,7 +95,14 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    /* Navy, não `bg-background`. Toda seção pinta o próprio fundo, então
+       isto só aparece onde nada foi pintado: o quadro exposto durante a
+       transição de rota (template.tsx) e a área de overscroll. Com branco
+       aqui, cada navegação piscava claro atrás do header translúcido — que
+       é justamente o que faz o header parecer branco. O token
+       `--background` segue branco: é semântico e a variante `outline` do
+       Button depende dele. */
+    @apply bg-navy text-foreground;
     font-feature-settings: 'ss01';
     /* Estados escondidos dos reveals laterais (x: ±24px) não devem criar
        scroll horizontal no mobile. `clip` (e não `hidden`) porque não cria

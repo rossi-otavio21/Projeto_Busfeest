@@ -13,9 +13,13 @@ import { easeBrand } from '@/lib/motion'
 export default function Template({ children }: { children: ReactNode }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 14 }}
+      // Começa em 0.4, não em 0: com `opacity: 0` a página inteira sumia por
+      // ~300ms a cada navegação — lido como "os componentes desapareceram",
+      // e não como transição. Meia opacidade dá a mesma sensação de entrada
+      // sem que exista um quadro em que não há conteúdo na tela.
+      initial={{ opacity: 0.4, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, ease: easeBrand }}
+      transition={{ duration: 0.3, ease: easeBrand }}
     >
       {children}
     </motion.div>

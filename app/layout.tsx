@@ -110,7 +110,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="pt-BR" className={`${sora.variable} ${instrumentSerif.variable} bg-background`}>
+    <html lang="pt-BR" className={`${sora.variable} ${instrumentSerif.variable} bg-navy`}>
       <body className="font-sans antialiased">
         <a
           href="#conteudo-principal"
