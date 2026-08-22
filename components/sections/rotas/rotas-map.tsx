@@ -22,14 +22,14 @@ export function RotasMap() {
         <div className="mx-auto max-w-7xl px-6 md:px-8">
           <div className="mx-auto max-w-3xl text-center">
             {/* Detalhe discreto de estrada tracejada azul */}
-            <div className="inline-flex items-center gap-3 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-blue">
+            <div className="inline-flex items-center gap-3 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-blue-bright">
               <span className="h-1.5 w-6 rounded-full road-dashes" />
               <span>Rede de Rotas & Destinos</span>
             </div>
 
             <h1 className="mt-6 text-balance text-4xl font-extrabold leading-[0.98] tracking-tight text-white md:text-6xl lg:text-7xl">
               Conectando o Sul de Minas{' '}
-              <span className="text-blue">e além</span>
+              <span className="text-blue-bright">e além</span>
             </h1>
 
             <p className="mt-6 text-lg font-normal leading-relaxed text-gray md:text-xl">
@@ -49,7 +49,7 @@ export function RotasMap() {
           {/* 3. Faixa branca com 3 dados chave após o mapa */}
           <div className="mt-12 grid gap-4 sm:grid-cols-3">
             <div className="flex items-center gap-4 rounded-2xl border border-white/10 bg-navy-700/45 p-6 transition-colors duration-300 hover:border-blue/60">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue/15 text-blue">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue/15 text-blue-bright">
                 <MapPin className="h-6 w-6" />
               </div>
               <div>
@@ -61,7 +61,7 @@ export function RotasMap() {
             </div>
 
             <div className="flex items-center gap-4 rounded-2xl border border-white/10 bg-navy-700/45 p-6 transition-colors duration-300 hover:border-blue/60">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue/15 text-blue">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue/15 text-blue-bright">
                 <Building2 className="h-6 w-6" />
               </div>
               <div>
@@ -73,7 +73,7 @@ export function RotasMap() {
             </div>
 
             <div className="flex items-center gap-4 rounded-2xl border border-white/10 bg-navy-700/45 p-6 transition-colors duration-300 hover:border-blue/60">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue/15 text-blue">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue/15 text-blue-bright">
                 <Bus className="h-6 w-6" />
               </div>
               <div>
@@ -97,13 +97,13 @@ export function RotasMap() {
           <div>
             <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
               <div>
-                <p className="flex items-center gap-3 text-xs font-bold uppercase tracking-[0.2em] text-blue">
+                <p className="flex items-center gap-3 text-xs font-bold uppercase tracking-[0.2em] text-blue-ink">
                   <span className="h-1.5 w-6 rounded-full bg-blue" />
                   Trajetos em Destaque
                 </p>
 
                 <h2 className="mt-3 text-balance text-3xl font-extrabold tracking-tight text-navy md:text-4xl">
-                  Os destinos <span className="text-blue">mais pedidos</span>
+                  Os destinos <span className="text-blue-ink">mais pedidos</span>
                 </h2>
               </div>
 
@@ -122,10 +122,10 @@ export function RotasMap() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`Orçar a rota ${rotasBase.name} para ${destino.name} pelo WhatsApp`}
-                  className="group relative flex flex-col overflow-hidden rounded-3xl border border-navy/10 bg-white shadow-xs transition-all duration-300 hover:-translate-y-1.5 hover:border-blue hover:shadow-xl focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue"
+                  className="group relative flex flex-col overflow-hidden rounded-3xl bg-navy shadow-lg ring-1 ring-navy/10 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl hover:ring-blue focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue"
                 >
                   {/* Foto do destino */}
-                  <div className="relative aspect-[16/11] overflow-hidden bg-slate-100">
+                  <div className="relative aspect-[16/11] overflow-hidden bg-navy-700">
                     {destino.photo ? (
                       <Image
                         src={destino.photo.src}
@@ -138,9 +138,9 @@ export function RotasMap() {
                     ) : (
                       <div
                         aria-hidden="true"
-                        className="flex h-full w-full items-center justify-center bg-slate-100"
+                        className="flex h-full w-full items-center justify-center bg-navy-700"
                       >
-                        <FontAwesomeIcon icon={faCity} className="h-9 w-9 text-navy/20" />
+                        <FontAwesomeIcon icon={faCity} className="h-9 w-9 text-white/20" />
                       </div>
                     )}
 
@@ -150,7 +150,7 @@ export function RotasMap() {
                     />
 
                     <span className="absolute left-3.5 top-3.5 inline-flex items-center gap-1.5 rounded-full bg-navy/90 px-3 py-1 text-[0.68rem] font-extrabold uppercase tracking-wider text-white backdrop-blur-md">
-                      <MapPin className="h-3 w-3 text-blue" aria-hidden="true" />
+                      <MapPin className="h-3 w-3 text-blue-bright" aria-hidden="true" />
                       {destino.uf}
                     </span>
 
@@ -160,21 +160,21 @@ export function RotasMap() {
                   </div>
 
                   <div className="p-6">
-                    <p className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                    <p className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-gray">
                       {rotasBase.name}
                       <ArrowRight
-                        className="h-3.5 w-3.5 text-blue transition-transform duration-300 group-hover:translate-x-1"
+                        className="h-3.5 w-3.5 text-blue-bright transition-transform duration-300 group-hover:translate-x-1"
                         aria-hidden="true"
                       />
                     </p>
-                    <p className="mt-1.5 text-2xl font-extrabold tracking-tight text-navy transition-colors group-hover:text-blue">
+                    <p className="mt-1.5 text-2xl font-extrabold tracking-tight text-white transition-colors group-hover:text-blue-bright">
                       {destino.name}
                     </p>
-                    <div className="mt-4 flex items-center justify-between border-t border-navy/5 pt-3">
-                      <span className="inline-flex items-center gap-1 rounded-full border border-navy/10 bg-slate-100 px-3 py-1 text-[0.72rem] font-bold text-navy">
+                    <div className="mt-4 flex items-center justify-between border-t border-white/10 pt-3">
+                      <span className="inline-flex items-center gap-1 rounded-full border border-white/15 px-3 py-1 text-[0.72rem] font-bold text-gray">
                         ≈ {destino.km} km rodoviários
                       </span>
-                      <span className="text-xs font-bold text-blue transition-colors group-hover:underline">
+                      <span className="text-xs font-bold text-blue-bright transition-colors group-hover:underline">
                         Orçar rota
                       </span>
                     </div>
@@ -187,7 +187,7 @@ export function RotasMap() {
           {/* CTA Final: O ÚNICO bloco navy escuro da página */}
           <div className="mt-16 rounded-3xl border border-white/10 bg-navy p-8 sm:p-12 shadow-2xl md:flex md:items-center md:justify-between">
             <div className="max-w-2xl">
-              <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-blue">
+              <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-blue-bright">
                 <ShieldCheck className="h-4 w-4" />
                 Atendimento Personalizado
               </span>
