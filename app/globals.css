@@ -195,3 +195,22 @@
   );
   opacity: 0.5;
 }
+
+/* Tracejado que corre no sentido da viagem, sobre as linhas de rota.
+   O deslocamento vem de `--route-dash`, que o componente define como um
+   período completo do tracejado: percorrer exatamente um período faz o laço
+   fechar no mesmo desenho, sem o salto que um valor fixo produzia.
+   O bloco global de `prefers-reduced-motion` acima já zera a duração. */
+@keyframes route-flow {
+  from {
+    stroke-dashoffset: var(--route-dash);
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-route-flow {
+  animation: route-flow 1.4s linear infinite;
+}
+

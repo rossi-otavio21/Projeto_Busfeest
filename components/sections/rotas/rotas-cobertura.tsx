@@ -1,104 +1,140 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { useState } from 'react'
 import { ChevronMark } from '@/components/brand/chevron'
-import { fadeUp, staggerContainer, useReveal } from '@/lib/motion'
 import { whatsappLink } from '@/lib/site'
 import { areasAtuacao, rotasBase, totalCidadesAtendidas } from './rotas-data'
+import { MapPin, ShieldCheck, ArrowUpRight, Building2 } from 'lucide-react'
 
-const regioesStagger = staggerContainer(0.1)
-const cidadesStagger = staggerContainer(0.03)
-
-/**
- * Alcance operacional — a contraparte em texto do mapa logo acima.
- *
- * Deliberadamente NÃO é uma fileira de cards: com 22 cidades, o card de
- * rota (feito para meia dúzia de destinos com foto) viraria uma parede
- * uniforme, onde Alfenas pesa o mesmo que São Paulo. Aqui a hierarquia é
- * geográfica — três regiões, cada uma com sua densidade — e o que
- * diferencia uma cidade da outra é a prova ao lado do nome, não o tamanho
- * do quadro. Cidade sem prova confirmada aparece só com o nome.
- */
 export function RotasCobertura() {
-  const headerReveal = useReveal(fadeUp)
-  const regioesReveal = useReveal(regioesStagger)
+  const [selectedRegiao, setSelectedRegiao] = useState<string | 'todos'>('todos')
+
+  const filteredRegioes = selectedRegiao === 'todos'
+    ? areasAtuacao
+    : areasAtuacao.filter((r) => r.id === selectedRegiao)
 
   return (
-    <div className="mt-16 border-t border-white/10 pt-12 md:mt-20 md:pt-16">
-      <motion.div {...headerReveal} className="max-w-2xl">
-        <p className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.25em] text-blue">
-          <span className="h-1.5 w-6 rounded-full bg-blue" />
-          Onde a Busfeest atua
-        </p>
-        <h2 className="mt-4 text-balance text-3xl font-extrabold leading-[1.02] tracking-tight text-white md:text-4xl">
-          {totalCidadesAtendidas} cidades já receberam{' '}
-          <span className="editorial-accent text-blue">um ônibus nosso.</span>
-        </h2>
-        <p className="mt-4 text-base font-light leading-relaxed text-gray">
-          Não é uma lista de onde gostaríamos de chegar — é onde a operação já
-          rodou, de linha diária a excursão de fim de semana.
-        </p>
-      </motion.div>
+    <div className="mt-16 rounded-3xl border border-white/10 bg-navy-deep p-6 sm:p-10 shadow-[0_28px_70px_-38px_rgba(0,0,0,0.8)] md:mt-20 md:p-12">
+      <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+        <div className="max-w-2xl">
+          <div className="flex items-center gap-3 text-xs font-bold uppercase tracking-[0.2em] text-blue">
+            <span className="h-1.5 w-6 rounded-full bg-blue" />
+            <span>Onde a Busfeest atua</span>
+          </div>
+          <h2 className="mt-3 text-balance text-3xl font-extrabold leading-[1.08] tracking-tight text-white md:text-4xl lg:text-5xl">
+            {totalCidadesAtendidas} cidades já receberam{' '}
+            <span className="text-blue">um ônibus nosso.</span>
+          </h2>
+          <p className="mt-3 text-base font-normal leading-relaxed text-gray">
+            Operações reais realizadas com frota própria e suporte dedicado. De viagens universitárias diárias a excursões de longa distância.
+          </p>
+        </div>
 
-      <motion.div {...regioesReveal} className="mt-12 space-y-10 md:space-y-12">
-        {areasAtuacao.map((regiao) => (
-          <motion.div
-            key={regiao.id}
-            variants={fadeUp}
-            className="grid gap-5 border-t border-white/10 pt-8 md:grid-cols-12 md:gap-10"
+        {/* Filtros de Região leves em fundo branco */}
+        <div className="flex flex-wrap items-center gap-2 rounded-2xl border border-white/10 bg-white/5 p-1.5">
+          <button
+            onClick={() => setSelectedRegiao('todos')}
+            aria-pressed={selectedRegiao === 'todos'}
+            className={`rounded-xl px-3.5 py-2 text-xs font-bold transition-all duration-200 ${
+              selectedRegiao === 'todos'
+                ? 'bg-navy text-white shadow-xs'
+                : 'text-gray hover:bg-white/10 hover:text-white'
+            }`}
           >
-            <div className="md:col-span-4">
-              <h3 className="text-xl font-extrabold tracking-tight text-white md:text-2xl">
-                {regiao.label}
-              </h3>
-              <p className="mt-2 max-w-xs text-sm font-light leading-relaxed text-gray">
-                {regiao.resumo}
-              </p>
-              <p className="mt-3 text-xs font-semibold uppercase tracking-wider text-blue">
-                {regiao.cidades.length} cidades
-              </p>
-            </div>
-
-            {/* Multi-coluna em vez de grid: as cidades com nota são mais altas
-                que as sem, e num grid isso abre buracos na coluna vizinha
-                (as linhas alinham entre si). Em coluna, o texto flui e a
-                lista fecha. */}
-            <motion.ul
-              variants={cidadesStagger}
-              className="gap-x-10 sm:columns-2 md:col-span-8"
+            Todas ({totalCidadesAtendidas})
+          </button>
+          {areasAtuacao.map((regiao) => (
+            <button
+              key={regiao.id}
+              onClick={() => setSelectedRegiao(regiao.id)}
+              aria-pressed={selectedRegiao === regiao.id}
+              className={`rounded-xl px-3.5 py-2 text-xs font-bold transition-all duration-200 ${
+                selectedRegiao === regiao.id
+                  ? 'bg-navy text-white shadow-xs'
+                : 'text-gray hover:bg-white/10 hover:text-white'
+              }`}
             >
-              {regiao.cidades.map((cidade) => (
-                <motion.li key={cidade.name} variants={fadeUp} className="break-inside-avoid">
-                  <a
-                    href={whatsappLink(
-                      `Olá! Quero um orçamento de transporte ${rotasBase.name} → ${cidade.name} com a Busfeest.`,
-                    )}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`Orçar transporte de ${rotasBase.name} para ${cidade.name} pelo WhatsApp`}
-                    className="group flex items-baseline gap-2.5 border-b border-white/5 py-2 transition-colors hover:border-blue/40 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue"
-                  >
-                    <ChevronMark
-                      className="h-3 w-3 shrink-0 translate-y-px text-blue/60 transition-all duration-300 group-hover:translate-x-0.5 group-hover:text-blue"
-                      aria-hidden="true"
-                    />
-                    <span className="min-w-0 flex-1">
-                      <span className="text-base font-semibold tracking-tight text-white transition-colors group-hover:text-blue">
-                        {cidade.name}
-                      </span>
-                      {cidade.nota && (
-                        <span className="mt-0.5 block text-xs font-light leading-snug text-gray">
-                          {cidade.nota}
-                        </span>
+              {regiao.label} ({regiao.cidades.length})
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Lista de Regiões em blocos leves com divisórias suaves */}
+      <div className="mt-12 space-y-12 md:space-y-14">
+        {filteredRegioes.map((regiao) => (
+          <div
+            key={regiao.id}
+            className="border-t border-white/10 pt-8"
+          >
+            <div className="grid gap-6 md:grid-cols-12 md:gap-10">
+              {/* Resumo da Região */}
+              <div className="border-b border-white/10 pb-6 md:col-span-4 md:border-b-0 md:border-r md:pb-0 md:pr-8">
+                <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-blue">
+                  <Building2 className="h-4 w-4" />
+                  Região Operacional
+                </div>
+                <h3 className="mt-2 text-2xl font-extrabold tracking-tight text-white md:text-3xl">
+                  {regiao.label}
+                </h3>
+                <p className="mt-2 text-sm font-normal leading-relaxed text-gray">
+                  {regiao.resumo}
+                </p>
+
+                <div className="mt-4 flex items-center gap-3">
+                  <span className="inline-flex items-center gap-1.5 rounded-full border border-blue/20 bg-blue/10 px-3 py-1 text-xs font-bold text-blue">
+                    <MapPin className="h-3 w-3" />
+                    {regiao.cidades.length} cidades ativas
+                  </span>
+                </div>
+              </div>
+
+              {/* Grid de Cidades em cartões leves brancos com hover em azul */}
+              <ul className="grid gap-3 sm:grid-cols-2 md:col-span-8 lg:grid-cols-2">
+                {regiao.cidades.map((cidade) => (
+                  <li key={cidade.name}>
+                    <a
+                      href={whatsappLink(
+                        `Olá! Quero um orçamento de transporte ${rotasBase.name} → ${cidade.name} com a Busfeest.`,
                       )}
-                    </span>
-                  </a>
-                </motion.li>
-              ))}
-            </motion.ul>
-          </motion.div>
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`Orçar transporte de ${rotasBase.name} para ${cidade.name} pelo WhatsApp`}
+                      className="group/cidade flex items-center justify-between rounded-xl border border-white/10 bg-white/[0.06] p-3.5 transition-colors duration-200 hover:border-blue/70 hover:bg-white/[0.1] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue"
+                    >
+                      <div className="flex items-start gap-3 min-w-0 pr-2">
+                        <ChevronMark
+                          className="mt-1 h-3.5 w-3.5 shrink-0 text-blue transition-transform duration-200 group-hover/cidade:translate-x-0.5"
+                          aria-hidden="true"
+                        />
+                        <div className="min-w-0">
+                          <span className="block text-base font-bold tracking-tight text-white transition-colors group-hover/cidade:text-blue">
+                            {cidade.name}
+                          </span>
+                          {cidade.nota ? (
+                            <span className="mt-0.5 inline-flex items-center gap-1 rounded-md bg-blue/10 px-2 py-0.5 text-[11px] font-semibold text-blue">
+                              <ShieldCheck className="h-3 w-3 shrink-0 text-blue" />
+                              {cidade.nota}
+                            </span>
+                          ) : (
+                            <span className="text-xs font-normal text-gray/80">
+                              Saindo de Alfenas
+                            </span>
+                          )}
+                        </div>
+                      </div>
+
+                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/10 text-gray transition-colors duration-200 group-hover/cidade:bg-blue group-hover/cidade:text-white">
+                        <ArrowUpRight className="h-4 w-4" />
+                      </div>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
         ))}
-      </motion.div>
+      </div>
     </div>
   )
 }
