@@ -28,7 +28,7 @@ export function ContatoInfo() {
           <motion.div {...headerReveal} className="max-w-xl">
             <motion.div
               variants={fadeUp}
-              className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.25em] text-blue"
+              className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.25em] text-blue-bright"
             >
               <span className="h-1.5 w-6 rounded-full bg-blue" />
               <span>Contato</span>
@@ -37,7 +37,7 @@ export function ContatoInfo() {
               variants={fadeUp}
               className="mt-5 text-balance text-4xl font-extrabold leading-[0.98] tracking-tight text-white md:text-6xl"
             >
-              Fale com a gente e receba <span className="editorial-accent text-blue">seu orçamento.</span>
+              Fale com a gente e receba <span className="editorial-accent text-blue-bright">seu orçamento.</span>
             </motion.h1>
             <motion.p
               variants={fadeUp}
@@ -98,7 +98,7 @@ export function ContatoInfo() {
             </motion.a>
 
             <motion.div variants={fadeUp} className="mt-6 flex items-center gap-3 px-1 text-sm text-gray">
-              <MapPin className="h-4 w-4 shrink-0 text-blue" aria-hidden="true" />
+              <MapPin className="h-4 w-4 shrink-0 text-blue-bright" aria-hidden="true" />
               Base em {site.base} — atendimento para todo o sul de Minas Gerais
             </motion.div>
 
@@ -120,6 +120,7 @@ export function ContatoInfo() {
             src={media.contactPhoto}
             alt="Grupo real de uma excursão da Busfeest reunido em volta do guia durante uma parada do roteiro"
             fill
+            priority
             sizes="(min-width: 768px) 45vw, 100vw"
             className="object-cover"
             // Recorte na altura do grupo: tira o excesso de céu em cima e a

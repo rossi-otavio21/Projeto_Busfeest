@@ -30,7 +30,7 @@ export function SobreHistoria() {
           <motion.div {...headerReveal} className="max-w-3xl">
             <motion.div
               variants={fadeUp}
-              className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.25em] text-blue"
+              className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.25em] text-blue-bright"
             >
               <span className="h-1.5 w-6 rounded-full bg-blue" />
               <span>Sobre a Busfeest</span>
@@ -39,7 +39,7 @@ export function SobreHistoria() {
               variants={fadeUp}
               className="mt-5 text-balance text-4xl font-extrabold leading-[0.98] tracking-tight text-white md:text-6xl"
             >
-              Quase 6 anos <span className="editorial-accent text-blue">rodando</span> o sul de Minas.
+              Quase 6 anos <span className="editorial-accent text-blue-bright">rodando</span> o sul de Minas.
             </motion.h1>
           </motion.div>
         </div>
@@ -49,7 +49,7 @@ export function SobreHistoria() {
         <div className="mx-auto grid max-w-7xl gap-12 px-6 md:grid-cols-[1fr_1fr] md:gap-16 md:px-8">
           <div className="text-pretty text-xl font-light leading-relaxed text-navy md:text-2xl">
             <p>
-              <span className="text-6xl font-extrabold text-blue">A</span>{' '}
+              <span className="text-6xl font-extrabold text-blue-ink">A</span>{' '}
               Busfeest nasceu para tornar a viagem em grupo acessível: um
               transporte low cost pensado para quem não quer pagar caro, mas
               também não abre mão de chegar bem e com segurança.
@@ -81,7 +81,7 @@ export function SobreHistoria() {
               {marcos.map((marco) => (
                 <div key={marco.label}>
                   <dt className="sr-only">{marco.label}</dt>
-                  <dd className="text-3xl font-extrabold tracking-tight text-blue md:text-4xl">
+                  <dd className="text-3xl font-extrabold tracking-tight text-blue-ink md:text-4xl">
                     {marco.valor}
                   </dd>
                   <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
@@ -97,6 +97,7 @@ export function SobreHistoria() {
               src={media.historiaPhoto}
               alt="Ônibus azul da Busfeest com o letreiro Turismo aceso, recebendo os passageiros na calçada"
               fill
+              priority
               sizes="(min-width: 768px) 50vw, 100vw"
               className="object-cover"
               style={{ objectPosition: '58% 45%' }}

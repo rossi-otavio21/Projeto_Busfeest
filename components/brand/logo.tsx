@@ -55,7 +55,7 @@ export function Logo({
         width={44}
         height={40}
         priority={priority}
-        className="h-10 w-auto shrink-0"
+        className="h-10 w-11 shrink-0"
       />
 
       {!markOnly && (
@@ -65,7 +65,12 @@ export function Logo({
           width={141}
           height={20}
           priority={priority}
-          className="h-5 w-auto"
+          // Largura fixa em vez de `w-auto`: o next/image redimensiona o
+          // arquivo para uma variante cuja razão arredonda (256x36 = 7.111
+          // contra os 7.05 do original), e `w-auto` derivaria a largura
+          // dessa variante — 1,2px a mais que o declarado, o bastante para
+          // o Next avisar de proporção modificada em toda página.
+          className="h-5 w-[141px] shrink-0"
         />
       )}
     </span>
