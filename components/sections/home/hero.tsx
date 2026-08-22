@@ -48,7 +48,7 @@ export function Hero() {
               headline branca. */}
           <Image
             src={media.heroBackground}
-            alt="Turma inteira de uma excursão da Busfeest reunida na praça da cidade de destino, em dia de céu limpo"
+            alt="Onibus"
             fill
             priority
             sizes="100vw"

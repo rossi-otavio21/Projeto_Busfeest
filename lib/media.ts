@@ -16,7 +16,7 @@ export const media = {
    * foto horizontal de ônibus com a pintura da BUSFEEST em estrada. Quando
    * ela existir, é só trocar este caminho.
    */
-  heroBackground: '/images/eventos/busfeest-excursao-brodowski-grupo.jpg',
+  heroBackground: '/images/hero/busfeest-onibus-estrada.jpeg',
   /**
    * A Busfeest fretador contrata veículo de terceiro, então quase toda foto
    * de ônibus no acervo traz a pintura de outra operadora (SC Minas, Dozza,

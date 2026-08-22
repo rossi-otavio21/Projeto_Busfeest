@@ -22,7 +22,7 @@ export function NextTripCta() {
         className="object-cover opacity-25"
       />
       <div
-        aria-hidden="true"
+        aria-hidden="false"
         className="absolute inset-0 bg-gradient-to-t from-navy-deep via-navy-deep/95 to-navy-deep/70"
       />
 
@@ -34,7 +34,7 @@ export function NextTripCta() {
         aria-hidden="true"
         className="pointer-events-none absolute inset-x-0 top-0 h-1.5 overflow-hidden opacity-60"
       >
-        <div className="road-dashes road-dashes-marquee h-full w-[200%]" />
+        
       </div>
       <div
         aria-hidden="true"
