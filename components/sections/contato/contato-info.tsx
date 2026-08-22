@@ -113,24 +113,35 @@ export function ContatoInfo() {
           </motion.div>
         </div>
 
-        {/* Humaniza o contato: gente de verdade que já viajou com a Busfeest,
-            não um ícone/ilustração. Full-bleed, sem moldura de card. */}
-        <motion.div {...photoReveal} className="relative h-72 overflow-hidden md:h-[36rem]">
-          <Image
-            src={media.contactPhoto}
-            alt="Grupo real de uma excursão da Busfeest reunido em volta do guia durante uma parada do roteiro"
-            fill
-            priority
-            sizes="(min-width: 768px) 45vw, 100vw"
-            className="object-cover"
-            // Recorte na altura do grupo: tira o excesso de céu em cima e a
-            // vegetação (com o carimbo de data da câmera) embaixo.
-            style={{ objectPosition: '50% 56%' }}
-          />
-          <div
-            aria-hidden="true"
-            className="absolute inset-0 bg-gradient-to-t from-navy via-navy/10 to-transparent md:bg-gradient-to-r md:from-transparent md:via-transparent md:to-navy/20"
-          />
+        {/* Placa da marca. A coluna era uma moldura de fotografia — altura
+            fixa, `object-cover` e gradiente navy por cima — e a logo herdou
+            tudo isso: vinha recortada (16% da altura no celular), deslocada
+            por um `objectPosition` que servia à foto antiga, e com o
+            gradiente sujando o branco na base.
+
+            Logo não se recorta nem se estica: a imagem passa a ter a
+            proporção nativa (851x851, `w-full h-auto`) numa placa branca —
+            o logotipo oficial é navy sobre branco e precisa de superfície
+            clara para existir sobre o navy da seção. A placa não tem
+            padding de propósito: o arquivo já traz margem larga em volta da
+            arte, e uma segunda camada de branco criava emenda visível (o
+            fundo do JPG é 253, a placa era 255). A largura da placa é que
+            responde ao viewport; a altura vem da proporção. */}
+        <motion.div
+          {...photoReveal}
+          className="flex justify-center md:justify-end md:pb-24"
+        >
+          <div className="w-full max-w-[15rem] overflow-hidden rounded-3xl bg-white shadow-2xl sm:max-w-[19rem] md:max-w-sm">
+            <Image
+              src={media.logo}
+              alt="Busfeest — o transporte que cabe no seu orçamento"
+              width={851}
+              height={851}
+              priority
+              sizes="(min-width: 768px) 24rem, (min-width: 640px) 19rem, 15rem"
+              className="h-auto w-full"
+            />
+          </div>
         </motion.div>
       </div>
     </section>

@@ -36,13 +36,20 @@ export const media = {
   /** Grupo real (alunos + van) no evento Unigames 2026 — recorte via object-position. */
   eventPhoto: '/images/eventos/busfeest-unigames-embarque.jpg',
   /**
-   * Foto de humanização do Contato. Ainda não existe uma foto do
-   * fundador/equipe no projeto — usa a mesma foto real de grupo+van até
-   * que uma foto de equipe seja enviada (só trocar este caminho).
+   * Logotipo oficial completo: símbolo + wordmark + assinatura, quadrado
+   * 851x851. É arte navy sobre branco, então só existe sobre superfície
+   * clara — sobre o navy do site precisa de uma placa branca por baixo.
+   * Para logo direto sobre navy existe o componente Logo com
+   * `variant="white"`, que usa os arquivos knockout.
    */
-  
+  logo: '/images/brand/busfeest-logo-oficial.jpg',
+
   photoInstagram: '/images/instagram/perfil.jpg',
   /**
+   * SEM USO desde que a coluna do Contato passou a mostrar a logo. Fica
+   * aqui porque a foto continua boa e o caminho é a única coisa que
+   * precisaria mudar para trazê-la de volta.
+   *
    * Coluna fotográfica da página de Contato.
    *
    * Era /images/instagram/contato.jpg — o post "o transporte que cabe no
