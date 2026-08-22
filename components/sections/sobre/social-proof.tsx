@@ -55,7 +55,7 @@ export function SocialProof() {
     <section className="bg-muted py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-6 md:px-8">
         <motion.div {...textReveal} className="max-w-2xl">
-          <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.25em] text-blue">
+          <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.25em] text-blue-ink">
             <span className="h-1.5 w-6 rounded-full bg-blue" />
             <span>Excursão oficial de</span>
           </div>
@@ -82,7 +82,7 @@ export function SocialProof() {
                 {evento.name}
               </span>
               {evento.detail && (
-                <span className="mt-1.5 block text-xs font-semibold uppercase tracking-wider text-blue-deep">
+                <span className="mt-1.5 block text-xs font-semibold uppercase tracking-wider text-blue-ink">
                   {evento.detail}
                 </span>
               )}
@@ -96,14 +96,14 @@ export function SocialProof() {
           className="mt-14 grid gap-8 border-t border-navy/10 pt-10 md:grid-cols-2 md:gap-16"
         >
           <motion.div variants={fadeUp}>
-            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-blue">
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-blue-ink">
               Empresas
             </p>
             <ul className="mt-3 flex flex-wrap items-baseline">
               {empresas.map((empresa, index) => (
                 <li key={empresa} className="flex items-baseline">
                   {index > 0 && (
-                    <span aria-hidden="true" className="px-4 text-2xl text-blue md:text-3xl">
+                    <span aria-hidden="true" className="px-4 text-2xl text-blue-ink md:text-3xl">
                       ·
                     </span>
                   )}
@@ -116,7 +116,7 @@ export function SocialProof() {
           </motion.div>
 
           <motion.div variants={fadeUp}>
-            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-blue">
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-blue-ink">
               E também
             </p>
             <p className="mt-3 text-base font-light leading-relaxed text-muted-foreground">

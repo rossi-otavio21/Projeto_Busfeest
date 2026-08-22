@@ -17,13 +17,13 @@ export function RotasCobertura() {
     <div className="mt-16 rounded-3xl border border-white/10 bg-navy-deep p-6 sm:p-10 shadow-[0_28px_70px_-38px_rgba(0,0,0,0.8)] md:mt-20 md:p-12">
       <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
         <div className="max-w-2xl">
-          <div className="flex items-center gap-3 text-xs font-bold uppercase tracking-[0.2em] text-blue">
+          <div className="flex items-center gap-3 text-xs font-bold uppercase tracking-[0.2em] text-blue-bright">
             <span className="h-1.5 w-6 rounded-full bg-blue" />
             <span>Onde a Busfeest atua</span>
           </div>
           <h2 className="mt-3 text-balance text-3xl font-extrabold leading-[1.08] tracking-tight text-white md:text-4xl lg:text-5xl">
             {totalCidadesAtendidas} cidades já receberam{' '}
-            <span className="text-blue">um ônibus nosso.</span>
+            <span className="text-blue-bright">um ônibus nosso.</span>
           </h2>
           <p className="mt-3 text-base font-normal leading-relaxed text-gray">
             Operações reais realizadas com frota própria e suporte dedicado. De viagens universitárias diárias a excursões de longa distância.
@@ -70,7 +70,7 @@ export function RotasCobertura() {
             <div className="grid gap-6 md:grid-cols-12 md:gap-10">
               {/* Resumo da Região */}
               <div className="border-b border-white/10 pb-6 md:col-span-4 md:border-b-0 md:border-r md:pb-0 md:pr-8">
-                <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-blue">
+                <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-blue-bright">
                   <Building2 className="h-4 w-4" />
                   Região Operacional
                 </div>
@@ -82,7 +82,7 @@ export function RotasCobertura() {
                 </p>
 
                 <div className="mt-4 flex items-center gap-3">
-                  <span className="inline-flex items-center gap-1.5 rounded-full border border-blue/20 bg-blue/10 px-3 py-1 text-xs font-bold text-blue">
+                  <span className="inline-flex items-center gap-1.5 rounded-full border border-blue/20 bg-blue/10 px-3 py-1 text-xs font-bold text-blue-bright">
                     <MapPin className="h-3 w-3" />
                     {regiao.cidades.length} cidades ativas
                   </span>
@@ -104,16 +104,16 @@ export function RotasCobertura() {
                     >
                       <div className="flex items-start gap-3 min-w-0 pr-2">
                         <ChevronMark
-                          className="mt-1 h-3.5 w-3.5 shrink-0 text-blue transition-transform duration-200 group-hover/cidade:translate-x-0.5"
+                          className="mt-1 h-3.5 w-3.5 shrink-0 text-blue-bright transition-transform duration-200 group-hover/cidade:translate-x-0.5"
                           aria-hidden="true"
                         />
                         <div className="min-w-0">
-                          <span className="block text-base font-bold tracking-tight text-white transition-colors group-hover/cidade:text-blue">
+                          <span className="block text-base font-bold tracking-tight text-white transition-colors group-hover/cidade:text-blue-bright">
                             {cidade.name}
                           </span>
                           {cidade.nota ? (
-                            <span className="mt-0.5 inline-flex items-center gap-1 rounded-md bg-blue/10 px-2 py-0.5 text-[11px] font-semibold text-blue">
-                              <ShieldCheck className="h-3 w-3 shrink-0 text-blue" />
+                            <span className="mt-0.5 inline-flex items-center gap-1 rounded-md bg-blue/10 px-2 py-0.5 text-[11px] font-semibold text-blue-bright">
+                              <ShieldCheck className="h-3 w-3 shrink-0 text-blue-bright" />
                               {cidade.nota}
                             </span>
                           ) : (

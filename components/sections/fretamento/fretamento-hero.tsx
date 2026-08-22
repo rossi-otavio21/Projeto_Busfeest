@@ -29,7 +29,7 @@ export function FretamentoHero() {
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 md:px-8">
         <motion.div {...contentReveal} className="max-w-3xl">
-          <motion.div variants={fadeUp} className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.25em] text-blue">
+          <motion.div variants={fadeUp} className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.25em] text-blue-bright">
             <span className="h-2 w-2 rounded-full bg-blue" />
             <span>FRETAMENTO EXCLUSIVO DE GRUPOS</span>
           </motion.div>
@@ -38,7 +38,7 @@ export function FretamentoHero() {
             variants={fadeUp}
             className="mt-4 text-balance text-4xl font-extrabold leading-[0.94] tracking-tight text-white sm:text-6xl md:text-7xl"
           >
-            Transporte <span className="editorial-accent text-blue">sob medida</span> para o seu grupo.
+            Transporte <span className="editorial-accent text-blue-bright">sob medida</span> para o seu grupo.
           </motion.h1>
 
           <motion.p

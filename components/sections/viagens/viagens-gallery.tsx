@@ -54,7 +54,7 @@ export function ViagensGallery() {
         <motion.div {...headerReveal} className="max-w-2xl">
           <motion.div
             variants={fadeUp}
-            className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.25em] text-blue"
+            className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.25em] text-blue-ink"
           >
             <span className="h-1.5 w-6 rounded-full bg-blue" />
             <span>Galeria</span>
@@ -63,7 +63,7 @@ export function ViagensGallery() {
             variants={fadeUp}
             className="mt-4 text-balance text-3xl font-bold leading-tight text-navy md:text-4xl"
           >
-            O arquivo de quem já <span className="editorial-accent text-blue">viajou</span> com a
+            O arquivo de quem já <span className="editorial-accent text-blue-ink">viajou</span> com a
             gente
           </motion.h2>
           <motion.p
@@ -90,7 +90,7 @@ export function ViagensGallery() {
               aria-pressed={active === label}
               className={cn(
                 'relative rounded-full px-4 py-2 text-sm font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue',
-                active === label ? 'text-white' : 'text-navy hover:text-blue',
+                active === label ? 'text-white' : 'text-navy hover:text-blue-ink',
               )}
             >
               {active === label && (

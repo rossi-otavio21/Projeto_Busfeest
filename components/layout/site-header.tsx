@@ -152,7 +152,7 @@ export function SiteHeader() {
             transition={{ duration: 0.3, ease: easeBrand }}
             className="fixed inset-0 top-16 flex h-[calc(100svh-4rem)] flex-col justify-between overflow-y-auto bg-navy px-6 py-8 md:hidden"
           >
-            <div className="flex items-center gap-2 border-b border-white/10 pb-4 text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-blue">
+            <div className="flex items-center gap-2 border-b border-white/10 pb-4 text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-blue-bright">
               <span className="h-2 w-2 rounded-full bg-blue" />
               Menu de Trajeto · Busfeest
             </div>
@@ -197,7 +197,7 @@ export function SiteHeader() {
                         onClick={() => setOpen(false)}
                         className={cn(
                           'flex items-center gap-3 border-b border-white/5 py-4 pl-12 text-3xl font-extrabold tracking-tight transition-colors',
-                          active ? 'text-blue' : 'text-white hover:text-blue',
+                          active ? 'text-blue-bright' : 'text-white hover:text-blue-bright',
                         )}
                       >
                         <FontAwesomeIcon icon={link.icon} className="h-6 w-6 shrink-0" aria-hidden="true" />

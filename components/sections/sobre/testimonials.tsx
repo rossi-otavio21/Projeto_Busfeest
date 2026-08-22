@@ -87,7 +87,7 @@ export function Testimonials() {
       <div className="mx-auto max-w-7xl px-6 md:px-8">
         <motion.div
           {...eyebrowReveal}
-          className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.25em] text-blue"
+          className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.25em] text-blue-bright"
         >
           <span className="h-1.5 w-6 rounded-full bg-blue" />
           <span>Quem já rodou com a gente</span>
@@ -108,7 +108,7 @@ export function Testimonials() {
                 {/* Nome da atlética em destaque tipográfico — faz as vezes de
                     logo até termos os arquivos de imagem de verdade. */}
                 <figcaption className="text-sm md:text-right">
-                  <span className="block text-lg font-extrabold tracking-tight text-blue md:text-xl">
+                  <span className="block text-lg font-extrabold tracking-tight text-blue-bright md:text-xl">
                     {item.org}
                   </span>
                   <span className="mt-1 block text-gray">{item.detail}</span>
@@ -155,7 +155,7 @@ export function Testimonials() {
             rel="noopener noreferrer"
             className="group flex flex-col items-center justify-center gap-1.5 rounded-2xl border-2 border-dashed border-blue/30 p-5 text-center transition-colors duration-300 hover:border-blue/60 hover:bg-blue/[0.05] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue"
           >
-            <span className="flex h-7 w-7 items-center justify-center rounded-full border border-blue/40 text-blue transition-transform duration-300 group-hover:scale-110">
+            <span className="flex h-7 w-7 items-center justify-center rounded-full border border-blue/40 text-blue-bright transition-transform duration-300 group-hover:scale-110">
               <Plus className="h-3.5 w-3.5" aria-hidden="true" />
             </span>
             <span className="text-xs font-semibold text-white">Sua atlética aqui</span>

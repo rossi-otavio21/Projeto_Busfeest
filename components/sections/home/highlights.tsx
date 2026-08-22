@@ -18,11 +18,11 @@ export function Highlights() {
       <div className="mx-auto max-w-7xl px-6 md:px-8">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-navy/10">
           <div>
-            <span className="text-xs font-semibold uppercase tracking-[0.25em] text-blue">
+            <span className="text-xs font-semibold uppercase tracking-[0.25em] text-blue-ink">
               03 · PRÓXIMA ROTA
             </span>
             <h2 className="mt-3 text-balance text-3xl font-extrabold leading-[0.96] tracking-tight text-navy sm:text-5xl md:text-6xl">
-              Escolha a sua <span className="editorial-accent text-blue">próxima rota.</span>
+              Escolha a sua <span className="editorial-accent text-blue-ink">próxima rota.</span>
             </h2>
           </div>
           <p className="max-w-md text-base font-light text-muted-foreground">
@@ -55,8 +55,8 @@ export function Highlights() {
             </div>
 
             <div className="flex flex-col justify-center md:col-span-5 md:pl-4">
-              <span className="text-xs font-bold text-blue uppercase tracking-widest">Viagens</span>
-              <h3 className="mt-2 text-3xl md:text-4xl font-extrabold text-navy tracking-tight group-hover:text-blue transition-colors">
+              <span className="text-xs font-bold text-blue-ink uppercase tracking-widest">Viagens</span>
+              <h3 className="mt-2 text-3xl md:text-4xl font-extrabold text-navy tracking-tight group-hover:text-blue-ink transition-colors">
                 Viagens em Grupo & Excursões
               </h3>
               <p className="mt-4 text-base font-light text-muted-foreground leading-relaxed">
@@ -64,10 +64,10 @@ export function Highlights() {
               </p>
               <Link
                 href="/viagens"
-                className="mt-6 inline-flex items-center gap-3 text-sm font-bold uppercase tracking-wider text-navy group-hover:text-blue transition-colors"
+                className="mt-6 inline-flex items-center gap-3 text-sm font-bold uppercase tracking-wider text-navy group-hover:text-blue-ink transition-colors"
               >
                 Explorar viagens
-                <ChevronMark className="h-4 w-4 text-blue transition-transform duration-300 group-hover:translate-x-1" />
+                <ChevronMark className="h-4 w-4 text-blue-ink transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
             </div>
           </motion.article>
@@ -75,8 +75,8 @@ export function Highlights() {
           {/* DESTAQUE 2: FRETAMENTO SOB MEDIDA (Inversão Assimétrica) */}
           <motion.article variants={fadeUp} className="group relative grid gap-8 md:grid-cols-12 md:items-center">
             <div className="flex flex-col justify-center md:col-span-5 md:pr-4 order-2 md:order-1">
-              <span className="text-xs font-bold text-blue uppercase tracking-widest">Fretamento</span>
-              <h3 className="mt-2 text-3xl md:text-4xl font-extrabold text-navy tracking-tight group-hover:text-blue transition-colors">
+              <span className="text-xs font-bold text-blue-ink uppercase tracking-widest">Fretamento</span>
+              <h3 className="mt-2 text-3xl md:text-4xl font-extrabold text-navy tracking-tight group-hover:text-blue-ink transition-colors">
                 Fretamento de Ônibus & Vans
               </h3>
               <p className="mt-4 text-base font-light text-muted-foreground leading-relaxed">
@@ -84,10 +84,10 @@ export function Highlights() {
               </p>
               <Link
                 href="/fretamento"
-                className="mt-6 inline-flex items-center gap-3 text-sm font-bold uppercase tracking-wider text-navy group-hover:text-blue transition-colors"
+                className="mt-6 inline-flex items-center gap-3 text-sm font-bold uppercase tracking-wider text-navy group-hover:text-blue-ink transition-colors"
               >
                 Conhecer opções de fretamento
-                <ChevronMark className="h-4 w-4 text-blue transition-transform duration-300 group-hover:translate-x-1" />
+                <ChevronMark className="h-4 w-4 text-blue-ink transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
             </div>
 
@@ -124,7 +124,7 @@ export function Highlights() {
       <motion.article {...routesReveal} className="group relative overflow-hidden bg-navy py-16 text-white md:py-24">
         <div className="relative z-10 mx-auto grid max-w-7xl gap-8 px-6 md:grid-cols-12 md:items-center md:px-8">
           <div className="md:col-span-8">
-            <span className="text-xs font-bold text-blue uppercase tracking-widest">Rede de conexão</span>
+            <span className="text-xs font-bold text-blue-bright uppercase tracking-widest">Rede de conexão</span>
             <h3 className="mt-3 text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight">
               De Alfenas a 22 cidades, entre Minas e São Paulo.
             </h3>

@@ -51,7 +51,7 @@ export function Differentials() {
   return (
     <section className="bg-white py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-6 md:px-8">
-        <h2 className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.25em] text-blue">
+        <h2 className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.25em] text-blue-ink">
           <span aria-hidden="true" className="h-1.5 w-6 rounded-full bg-blue" />
           <span>Por que viajar com a Busfeest</span>
         </h2>
@@ -61,7 +61,7 @@ export function Differentials() {
             <div className="text-[7rem] font-extrabold leading-[0.8] tracking-tighter text-navy sm:text-[9rem] md:text-[11rem]">
               {count}
             </div>
-            <p className="max-w-[16ch] text-lg font-semibold text-blue-deep">
+            <p className="max-w-[16ch] text-lg font-semibold text-blue-ink">
               anos rodando pelo Sul de Minas com preço justo
             </p>
           </div>

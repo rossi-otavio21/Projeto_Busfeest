@@ -21,7 +21,7 @@ export function Founder() {
     <section className="bg-muted py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-6 md:px-8">
         <motion.div {...headerReveal} className="mb-12 max-w-2xl md:mb-16">
-          <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.25em] text-blue">
+          <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.25em] text-blue-ink">
             <span className="h-1.5 w-6 rounded-full bg-blue" />
             <span>Quem toca a Busfeest</span>
           </div>

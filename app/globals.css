@@ -19,6 +19,15 @@
   --color-navy-700: #1c3c57; /* navy levemente clareado p/ superfícies */
   --color-blue: #3695c5;
   --color-blue-deep: #2a7aa4; /* shade do azul p/ hover */
+  /* O azul da marca é cor de PREENCHIMENTO — botão, traço, ícone grande —
+     onde a régua é 3:1 e ele passa. Como TEXTO pequeno ele reprova nos dois
+     fundos do site: 3,35:1 sobre branco e 4,32:1 sobre navy, contra os 4,5
+     exigidos. Estes dois são o mesmo matiz (h=200), só deslocados em
+     luminosidade até passarem — não são cor nova na paleta.
+       blue-ink    sobre claro : 6,12:1 no branco, 5,39:1 no gray-tint
+       blue-bright sobre escuro: 5,50:1 no navy, 6,69:1 no navy-deep */
+  --color-blue-ink: #24688c; /* texto azul sobre superfície clara */
+  --color-blue-bright: #52a9d3; /* texto azul sobre navy */
   --color-blue-soft: #d7ebf5; /* tint bem claro do azul p/ fundos suaves */
   --color-gray: #c7ccd1;
   --color-gray-tint: #eef1f3; /* quase-branco derivado do cinza p/ alternar seções */

@@ -230,7 +230,7 @@ export function FretamentoServices() {
   return (
     <section className="bg-white">
       <div className="mx-auto max-w-7xl px-6 pb-4 pt-16 md:px-8 md:pt-20">
-        <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.25em] text-blue">
+        <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.25em] text-blue-ink">
           <span className="h-1.5 w-6 rounded-full bg-blue" />
           <span>Modalidades de fretamento</span>
         </div>

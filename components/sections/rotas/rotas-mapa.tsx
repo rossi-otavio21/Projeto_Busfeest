@@ -64,11 +64,11 @@ export function RotasMapa() {
     <div className="mx-auto max-w-6xl overflow-hidden rounded-[2rem] border border-white/10 bg-navy-deep p-4 shadow-[0_24px_70px_-32px_rgba(0,0,0,0.8)] sm:p-6">
       <div className="flex flex-col gap-4 border-b border-white/10 pb-5 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-blue">Malha de atendimento</p>
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-blue-bright">Malha de atendimento</p>
           <p className="mt-1 text-sm text-gray">Alfenas conecta a Busfeest aos principais polos de MG e SP.</p>
         </div>
         <div className="flex items-center gap-2 text-xs font-bold text-gray">
-          <span className="rounded-full bg-blue/10 px-3 py-1.5 text-blue">22 cidades atendidas</span>
+          <span className="rounded-full bg-blue/10 px-3 py-1.5 text-blue-bright">22 cidades atendidas</span>
           <span className="rounded-full bg-white/10 px-3 py-1.5">MG + SP</span>
         </div>
       </div>

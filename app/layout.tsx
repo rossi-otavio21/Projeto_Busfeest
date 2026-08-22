@@ -114,7 +114,7 @@ export default function RootLayout({
       <body className="font-sans antialiased">
         <a
           href="#conteudo-principal"
-          className="sr-only rounded-full bg-blue px-5 py-2.5 text-sm font-semibold text-white focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100]"
+          className="sr-only rounded-full bg-navy px-5 py-2.5 text-sm font-semibold text-white ring-2 ring-blue focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100]"
         >
           Pular para o conteúdo
         </a>

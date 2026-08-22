@@ -31,7 +31,7 @@ export function ViagensHero() {
         <motion.div {...contentReveal} className="max-w-3xl">
           <motion.div
             variants={fadeUp}
-            className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.25em] text-blue"
+            className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.25em] text-blue-bright"
           >
             <span className="h-1.5 w-6 rounded-full bg-blue" />
             <span>Viagens</span>
@@ -40,7 +40,7 @@ export function ViagensHero() {
             variants={fadeUp}
             className="mt-5 text-balance text-4xl font-extrabold leading-[0.98] tracking-tight text-white md:text-6xl"
           >
-            Para onde <span className="editorial-accent text-blue">vamos?</span>
+            Para onde <span className="editorial-accent text-blue-bright">vamos?</span>
           </motion.h1>
           <motion.p
             variants={fadeUp}

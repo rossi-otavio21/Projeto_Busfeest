@@ -47,7 +47,7 @@ export function About() {
     <section ref={sectionRef} id="sobre" className="relative bg-white py-20 md:py-32 overflow-hidden">
       {/* Marcador de Trajeto Editorial */}
       <div className="mx-auto max-w-7xl px-6 md:px-8 mb-10">
-        <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.25em] text-blue">
+        <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.25em] text-blue-ink">
           <span className="h-1.5 w-6 rounded-full bg-blue" />
           <span>02 · A NOSSA HISTÓRIA & CONEXÃO</span>
         </div>
@@ -87,7 +87,7 @@ export function About() {
           className="flex flex-col justify-center md:col-span-6"
         >
           <h2 className="text-balance text-3xl font-extrabold leading-[1.02] tracking-tight text-navy sm:text-5xl md:text-6xl">
-            Quase <span className="editorial-accent text-blue">6 anos</span> unindo pessoas e destinos no Sul de Minas.
+            Quase <span className="editorial-accent text-blue-ink">6 anos</span> unindo pessoas e destinos no Sul de Minas.
           </h2>
 
           <div className="mt-8 space-y-5 text-base font-light leading-relaxed text-muted-foreground sm:text-lg">
@@ -109,10 +109,10 @@ export function About() {
           <div className="mt-8 flex items-center gap-6">
             <Link
               href="/sobre"
-              className="group inline-flex items-center gap-3 text-sm font-bold uppercase tracking-wider text-navy hover:text-blue transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue"
+              className="group inline-flex items-center gap-3 text-sm font-bold uppercase tracking-wider text-navy hover:text-blue-ink transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue"
             >
               Conheça a história completa
-              <ChevronMark className="h-4 w-4 text-blue transition-transform duration-300 group-hover:translate-x-1" />
+              <ChevronMark className="h-4 w-4 text-blue-ink transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
           </div>
         </motion.div>

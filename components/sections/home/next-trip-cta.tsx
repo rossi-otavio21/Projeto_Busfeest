@@ -42,11 +42,11 @@ export function NextTripCta() {
       />
 
       <motion.div {...contentReveal} className="relative mx-auto max-w-3xl px-6 text-center md:px-8">
-        <span className="text-xs font-semibold uppercase tracking-[0.2em] text-blue">
+        <span className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-bright">
           Fim de trajeto
         </span>
         <h2 className="mt-5 text-balance text-4xl font-extrabold leading-[0.98] tracking-tight text-white md:text-6xl">
-          Sua próxima viagem começa com <span className="editorial-accent text-blue">uma mensagem.</span>
+          Sua próxima viagem começa com <span className="editorial-accent text-blue-bright">uma mensagem.</span>
         </h2>
         <p className="mx-auto mt-5 max-w-xl text-pretty text-lg font-light leading-relaxed text-gray">
           Conte pra gente para onde seu grupo vai. Respondemos rápido e sem

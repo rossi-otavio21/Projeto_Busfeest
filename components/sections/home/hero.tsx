@@ -87,7 +87,7 @@ export function Hero() {
           >
             <motion.p
               variants={fadeUp}
-              className="text-xs font-semibold uppercase tracking-[0.25em] text-blue drop-shadow-sm"
+              className="text-xs font-semibold uppercase tracking-[0.25em] text-blue-bright drop-shadow-sm"
             >
               TURISMO LOW COST & FRETAMENTO DE GRUPOS
             </motion.p>
@@ -98,7 +98,7 @@ export function Hero() {
             >
               Todo mundo na estrada.
               <br />
-              <span className="editorial-accent text-blue">E no orçamento.</span>
+              <span className="editorial-accent text-blue-bright">E no orçamento.</span>
             </motion.h1>
 
             <motion.p
@@ -135,18 +135,18 @@ export function Hero() {
           <div className="mx-auto flex max-w-7xl items-center justify-between px-6 text-xs font-semibold uppercase tracking-wider text-gray md:px-8">
             <div className="flex items-center gap-6 overflow-x-auto no-scrollbar py-1">
               <span className="flex items-center gap-2 shrink-0 text-white">
-                <span className="text-blue font-bold">+6</span> Anos de Estrada
+                <span className="text-blue-bright font-bold">+6</span> Anos de Estrada
               </span>
               <span className="text-white/20">•</span>
               <span className="flex items-center gap-2 shrink-0 text-white">
-                <span className="text-blue font-bold">{totalCidadesAtendidas}</span> Cidades Atendidas
+                <span className="text-blue-bright font-bold">{totalCidadesAtendidas}</span> Cidades Atendidas
               </span>
               <span className="text-white/20">•</span>
               <span className="flex items-center gap-2 shrink-0 text-white">
                 Base em <span className="text-white font-bold">Alfenas — MG</span>
               </span>
             </div>
-            <div className="hidden md:flex items-center gap-2 text-blue">
+            <div className="hidden md:flex items-center gap-2 text-blue-bright">
               <span>A estrada continua</span>
               <motion.span
                 aria-hidden="true"

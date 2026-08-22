@@ -52,7 +52,7 @@ export function SiteFooter() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2.5 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue"
                 >
-                  <MessageCircle className="h-4 w-4 text-blue" aria-hidden="true" />
+                  <MessageCircle className="h-4 w-4 text-blue-bright" aria-hidden="true" />
                   {site.whatsapp.display}
                 </a>
               </li>
@@ -63,12 +63,12 @@ export function SiteFooter() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2.5 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue"
                 >
-                  <InstagramGlyph className="h-4 w-4 text-blue" />
+                  <InstagramGlyph className="h-4 w-4 text-blue-bright" />
                   {site.instagram.handle}
                 </a>
               </li>
               <li className="inline-flex items-center gap-2.5">
-                <MapPin className="h-4 w-4 text-blue" aria-hidden="true" />
+                <MapPin className="h-4 w-4 text-blue-bright" aria-hidden="true" />
                 Base em {site.base}
               </li>
             </ul>
@@ -82,7 +82,7 @@ export function SiteFooter() {
           </p>
           <Link
             href="/contato"
-            className="font-semibold text-blue underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue"
+            className="font-semibold text-blue-bright underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue"
           >
             Fale conosco →
           </Link>
